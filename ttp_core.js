@@ -7,8 +7,10 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content == 'ping?') {
-        message.react('🇧').then((message) => message.react('🇷')).then((message) => message.react('🇺')).then((message) => message.react('🇭'))
-    	message.reply('oh fuck off its late and im tired');
+        var a = ['no', 'leave me alone', 'GET LOST', 'im tired of you', 'idk', 'This is a Premium feature! You are too poor to afford Premium of such cool bot!']
+        message.react('⛔')
+        var rand = a[Math.floor(Math.random() * a.length)];
+    	message.send(random);
   	}
 });
 
