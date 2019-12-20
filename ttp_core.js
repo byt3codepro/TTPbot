@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setActivity('with a ČKD Tatra T6B5');
+    client.setActivity('with a ČKD Tatra T6B5');
 });
 
 client.on('message', message => {
