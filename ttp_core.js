@@ -13,9 +13,6 @@ function sleep(milliseconds) {
 
 client.on('ready', () => {
     client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' });
-    sleep(5000)
-    client.user.setActivity('with a ČKD Tatra T3SU', { type: 'PLAYING' });
-    sleep(5000)
 });
 
 client.on('message', message => {
