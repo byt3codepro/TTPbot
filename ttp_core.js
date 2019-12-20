@@ -2,10 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setActivity("with depression", {
-        type: "STREAMING",
-        url: "https://www.twitch.tv/example-url"
-        });
+    client.user.setActivity('YouTube', { type: 'WATCHING' });
 });
 
 client.on('message', message => {
