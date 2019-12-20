@@ -4,7 +4,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
     
 });
-//client.user.setActivity('YouTube', { type: 'LISTENING' })
+client.user.setActivity('YouTube', { type: 'LISTENING' })
 //client.user.setStatus('idle');
 
 client.on('message', message => {
