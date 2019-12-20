@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setGame("Game");
+    client.user.setStatus('dnd', 'NaN') 
 });
 
 client.on('message', message => {
