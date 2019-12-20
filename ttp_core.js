@@ -2,10 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    
+    client.user.setActivity("Game"); 
 });
-client.user.setActivity('YouTube', { type: 'LISTENING' })
-//client.user.setStatus('idle');
 
 client.on('message', message => {
     if (message.content == 'ping?') {
