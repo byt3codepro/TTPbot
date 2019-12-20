@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-    //client.user.setActivity('with a ČKD Tatra T6B5');
+    client.user.setActivity('with a ČKD Tatra T6B5');
 });
 
 client.on('message', message => {
