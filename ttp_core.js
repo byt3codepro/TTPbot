@@ -16,15 +16,15 @@ client.on('ready', () => {
     let autsim = client.channels.get("622531501413892135")
     //desiredChannel.send("where am i?")
     client.on("message", (message) => {
-        if(message.content == "ping?"){ // Check if content of message is "!ping"
+        if(message.content == "ping?"){
                 message.react("🤔")
-                message.channel.send("idk\n***bruh***"); // Call .send() on the channel object the message was sent in
+                message.channel.send("idk\n***bruh***");
             }
         });
     console.log("   >>> SCRIPT EXECUTED")
 })
 
-client.login("NjU3MjU0NDUzNzg2NzA1OTc0.XfunUg.YwqKgU80XorDiGWvfBFiD71UBB0")
+client.login(process.env.BOT_TOKEN);
 
 /*
 
