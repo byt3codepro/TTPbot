@@ -7,21 +7,21 @@ const client = new Discord.Client()
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
 
-    client.user.setActivity("with a ČKD Tatra T6B5")
-    let publicAnnouncements = client.channels.get("641978767337586708")
-    let staffAnnouncements = client.channels.get("641984322303164426")
-    let publicGeneral = client.channels.get("641731631287238669")
-    let staffGeneral = client.channels.get("641983971504160770")
-    let ttpTestChannel = client.channels.get("642490607079653416")
-    let autsim = client.channels.get("622531501413892135")
-    //desiredChannel.send("where am i?")
-    client.on("message", (message) => {
-        if(message.content == "ping?"){
-                message.react("🤔")
-                message.channel.send("idk\n***bruh***");
+    client.user.setActivity('with a ČKD Tatra T6B5')
+    let publicAnnouncements = client.channels.get('641978767337586708')
+    let staffAnnouncements = client.channels.get('641984322303164426')
+    let publicGeneral = client.channels.get('641731631287238669')
+    let staffGeneral = client.channels.get('641983971504160770')
+    let ttpTestChannel = client.channels.get('642490607079653416')
+    let autsim = client.channels.get('622531501413892135')
+    //desiredChannel.send('where am i?')
+    client.on('message', (message) => {
+        if(message.content == 'ping?'){
+                message.react('🤔')
+                message.channel.send('idk\n***bruh***');
             }
         });
-    console.log("   >>> SCRIPT EXECUTED")
+    console.log('   >>> SCRIPT EXECUTED')
 })
 
 client.login(process.env.BOT_TOKEN);
