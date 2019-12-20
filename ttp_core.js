@@ -7,7 +7,10 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content == 'ping?') {
-        message.react("🇧","🇷","🇺","🇭")
+        message.react("🇧")
+        message.react("🇷")
+        message.react("🇺")
+        message.react("🇭")
     	message.reply('oh fuck off its late and im tired');
   	}
 });
