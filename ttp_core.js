@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setPresence({ game: { name: 'with discord.js' }, status: 'idle' })
+    client.user.setActivity('YouTube', { type: 'WATCHING' })
+    client.user.setStatus('idle')
 });
 
 client.on('message', message => {
