@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setActivity('YouTube', { type: 'WATCHING' });
+    client.user.setActivity('with a Tatra T6B5', { type: 'PLAYING' });
 });
 
 client.on('message', message => {
