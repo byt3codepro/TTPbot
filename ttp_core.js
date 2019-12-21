@@ -34,10 +34,11 @@ client.on('message', message => {
             if (message.member.hasPermission("ADMINISTRATOR")) {
                 var delnum = message.content.split(" ");
                 message.channel.bulkDelete(parseInt(delnum[1]))
-                message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
-                //setTimeout(function(){
-                //    message.channel.bulkDelete(1);
-                //}, 5000);
+                if (parseInt(delnum[1]) > 100) {
+                    message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)})
+                } else {
+                    message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
+                }
             } else {
                 message.channel.send('❗ Insufficient permissions');
             }
