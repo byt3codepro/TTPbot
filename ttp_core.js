@@ -17,9 +17,9 @@ client.on('ready', () => {
 });
 
 //for (;;) {
-            client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
+           // client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
            // sleep(5000)
-            client.user.setActivity('OFFLINE FOR TESTING', { type: 'PLAYING' })
+           // client.user.setActivity('OFFLINE FOR TESTING', { type: 'PLAYING' })
             //sleep(5000)
       //      }
 //
