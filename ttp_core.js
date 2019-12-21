@@ -19,7 +19,7 @@ client.on('message', message => {
             }
         }
     }
-    if (message.content == '/kevinreys') {
+    if (message.content == '/cmds') {
         message.channel.send('Due to budget cuts, this command has been disabled');
     }
     if (message.content == '/kevinreys') {
