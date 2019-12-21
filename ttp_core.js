@@ -12,7 +12,7 @@ function sleep(milliseconds) {
         }
 
 client.on('ready', () => {
-    client.user.setActivity('with a ČKD Tatra T3SU', { type: 'PLAYING' });
+    client.user.setActivity('BOT OFFLINE FOR MAINENTANCE', { type: 'STREAMING' });
 });
 
 client.on('message', message => {
