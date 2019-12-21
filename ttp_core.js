@@ -1,4 +1,3 @@
-const {MessageAttachment} = require('discord.js');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -6,8 +5,6 @@ client.on('ready', () => {
     client.user.setActivity('with a ČKD Tatra T3SU', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
-
-const attachment = new MessageAttachment;
 
 client.on('message', message => {
     if (message.content == 'ping?') {
@@ -22,8 +19,7 @@ client.on('message', message => {
             }
         }
     if (message.content == '/cmds') {
-        const attachment = 'https://cdn.drawception.com/drawings/LrK4OWAvPQ.png';
-        message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', attachment);
+        message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', {files: ['https://cdn.drawception.com/drawings/LrK4OWAvPQ.png']});
     }
     if (message.content == '/kevinreys') {
         message.channel.send('Idiot with bad grammar, currently working in WMP Roblox as Superintendant for the most inactive unit in the force. \n     */ Wikipedia /*');
