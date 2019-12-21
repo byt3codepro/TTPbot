@@ -19,7 +19,7 @@ client.on('message', message => {
             }
         }
     if (message.content == '/cmds') {
-        message.channel.send('Due to budget cuts, this command has been disabled');
+        message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', [https://cdn.drawception.com/drawings/LrK4OWAvPQ.png]);
     }
     if (message.content == '/kevinreys') {
         message.channel.send('Idiot with bad grammar, currently working in WMP Roblox as Superintendant for the most inactive unit in the force. \n     */ Wikipedia /*');
