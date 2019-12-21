@@ -19,7 +19,10 @@ client.on('message', message => {
             }
         }
     if (message.content == '/kevinreys') {
-        message.channel.send('Idiot with bad grammar, currently working in WMP Roblox as Superintendant for the most inactive unit in the force. \n     */Wikipedia/*');
+        message.channel.send('Idiot with bad grammar, currently working in WMP Roblox as Superintendant for the most inactive unit in the force. \n     */ Wikipedia /*');
+    }
+    if (message.content == '/ralfotr') {
+        message.channel.send('Rightful owner of the well known TTP bot that provides real information across multiple Discord servers. \n     */ Wikipedia /*');
     }
 });
 
