@@ -16,6 +16,13 @@ client.on('ready', () => {
     client.user.setStatus('dnd');
 });
 
+for (;;) {
+            client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
+            sleep(5000)
+            client.user.setActivity('OFFLINE FOR TESTING', { type: 'PLAYING' })
+            sleep(5000)
+            }
+
 client.on('message', message => {
     if (message.content == 'ping?') {
         if (message.author.id == 179654608371712000) {
@@ -28,6 +35,11 @@ client.on('message', message => {
     	        message.channel.send(a[Math.floor(Math.random() * a.length)]);
             }
         }
+});
+
+client.on('message', message => {
+    if (message.content == '/info') {
+        
 });
 
 client.login(process.env.BOT_TOKEN);
