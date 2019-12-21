@@ -16,12 +16,12 @@ client.on('ready', () => {
     client.user.setStatus('dnd');
 });
 
-for (;;) {
+//for (;;) {
             client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
             sleep(5000)
             client.user.setActivity('OFFLINE FOR TESTING', { type: 'PLAYING' })
             sleep(5000)
-            }
+            //}
 
 client.on('message', message => {
     if (message.content == 'ping?') {
