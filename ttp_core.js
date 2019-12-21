@@ -22,7 +22,7 @@ client.on('message', message => {
         message.channel.send('Idiot with bad grammar, currently working in WMP Roblox as Superintendant for the most inactive unit in the force. \n     */ Wikipedia /*');
     }
     if (message.content == '/ralfotr') {
-        message.channel.send('Rightful owner of the well known TTP bot that provides real information across multiple Discord servers. \n     */ Wikipedia /*');
+        message.channel.send('Rightful owner of the well known TTP bot that provides real information across multiple Discord servers. Also known as a great developer in Roblox, specialising in development of public transport and urban infrastructure. \n     */ Wikipedia /*');
     }
 });
 
