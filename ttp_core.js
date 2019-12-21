@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setActivity('Playing with a ČKD Tatra T6B5', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
+    client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
@@ -30,7 +30,7 @@ client.on('message', message => {
         if (message.content == '/ralfotr') {
             message.channel.send('Rightful owner of the well known TTP bot that provides real information across multiple Discord servers. Also known as a great developer in Roblox, specialising in development of public transport and urban infrastructure. \n     */ Wikipedia /*');
         }
-        if (message.content.startsWith('/clear')) {
+        if (message.content.startsWith('/purge')) {
             if (message.member.hasPermission("ADMINISTRATOR")) {
                 var delnum = message.content.split(" ");
                 message.delete()
