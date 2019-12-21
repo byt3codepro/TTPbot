@@ -30,13 +30,14 @@ client.on('message', message => {
         if (message.content == '/ralfotr') {
             message.channel.send('Rightful owner of the well known TTP bot that provides real information across multiple Discord servers. Also known as a great developer in Roblox, specialising in development of public transport and urban infrastructure. \n     */ Wikipedia /*');
         }
-        /*if (message.content == '/clear') {
+        if (message.content.startsWith('/clear')) {
             if (message.member.hasPermission("ADMINISTRATOR")) {
                 message.channel.send('request passed');
+                
             } else {
-            message.channel.send('❗ Insufficient permissions');
+                message.channel.send('❗ Insufficient permissions');
             }
-        }*/
+        }
     }
     
 
