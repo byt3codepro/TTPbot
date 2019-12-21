@@ -25,7 +25,7 @@ client.on('message', message => {
             message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', {files: ['https://cdn.drawception.com/drawings/LrK4OWAvPQ.png']});
         }
         if (message.content == '/help') {
-            message.channel.send({files: ['https://cdn.discordapp.com/attachments/622531501413892135/658040873925345300/635913101991790855-hurt-feelings-form-page-001.jpg']});
+            message.channel.send({files: ['https://s.yimg.com/uu/api/res/1.2/NNljYTZS8z9uMcxj6NrnDw--~B/aD01ODA7dz00MzU7c209MTthcHBpZD15dGFjaHlvbg--/http://media.zenfs.com/en-US/homerun/people_218/1b34575a89b41157d2c9bd7cbfeacf35']});
         }
         if (message.content == '/kevinreys') {
             message.channel.send('Not an idiot without bad grammar, currently working in WMP Roblox as Superintendant for the most active unit in the force. Severe addiction to pot noodles. \n     */ Википедия — свободная энциклопедия /*', {files: ['https://cdn.discordapp.com/attachments/622531501413892135/657994077178036263/Screenshot_1425.png']});
