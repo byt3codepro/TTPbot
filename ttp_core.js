@@ -1,9 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+function sleep(milliseconds) { 
+            let timeStart = new Date().getTime(); 
+            while (true) { 
+                let elapsedTime = new Date().getTime() - timeStart; 
+                if (elapsedTime > milliseconds) { 
+                    break; 
+                } 
+            } 
+        }
+
 client.on('ready', () => {
-    client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
-    client.user.setStatus('dnd');
+    client.user.setActivity('with a ČKD Tatra T3SU', { type: 'PLAYING' });
 });
 
 client.on('message', message => {
@@ -18,11 +27,6 @@ client.on('message', message => {
     	        message.channel.send(a[Math.floor(Math.random() * a.length)]);
             }
         }
-});
-
-client.on('message', message => {
-    if (message.content == '/info') {
-        
 });
 
 client.login(process.env.BOT_TOKEN);
