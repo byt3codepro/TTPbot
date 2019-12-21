@@ -12,7 +12,8 @@ function sleep(milliseconds) {
         }
 
 client.on('ready', () => {
-    client.user.setActivity('BOT OFFLINE FOR MAINENTANCE', { type: 'STREAMING' });
+    client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
+    client.user.setStatus('dnd');
 });
 
 client.on('message', message => {
