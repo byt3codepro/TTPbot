@@ -33,6 +33,7 @@ client.on('message', message => {
         if (message.content.startsWith('/clear')) {
             if (message.member.hasPermission("ADMINISTRATOR")) {
                 var delnum = message.content.split(" ");
+                message.delete()
                 message.channel.bulkDelete(parseInt(delnum[1]))
                 if (parseInt(delnum[1]) > 100) {
                     message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)}).catch()
