@@ -12,7 +12,7 @@ function sleep(milliseconds) {
         }
 
 client.on('ready', () => {
-    client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' });
+    client.user.setActivity('with a ČKD Tatra T3SU', { type: 'PLAYING' });
 });
 
 client.on('message', message => {
@@ -24,7 +24,7 @@ client.on('message', message => {
             } else {        
                 var a = ['no', 'leave me alone', 'noobs doesnt even have a ping', '**666 ms!** ***Burn in hell!***', 'GET LOST', 'im tired of you', 'idk', 'you get coal from me this christmas, only normal people get a ping present', 'This is a Premium feature! You are too poor to afford Premium of such cool bot!']
                 message.react('⛔')
-    	        message.reply(a[Math.floor(Math.random() * a.length)]);
+    	        message.channel.send(a[Math.floor(Math.random() * a.length)]);
             }
         }
 });
