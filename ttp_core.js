@@ -6,7 +6,7 @@ client.on('ready', () => {
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
-var attachment
+const attachment = new MessageAttachment;
 
 client.on('message', message => {
     if (message.content == 'ping?') {
@@ -21,7 +21,7 @@ client.on('message', message => {
             }
         }
     if (message.content == '/cmds') {
-        var attachment = 'https://cdn.drawception.com/drawings/LrK4OWAvPQ.png'
+        const attachment = 'https://cdn.drawception.com/drawings/LrK4OWAvPQ.png';
         message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', attachment);
     }
     if (message.content == '/kevinreys') {
