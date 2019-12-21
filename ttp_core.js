@@ -1,28 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-function sleep(milliseconds) { 
-            let timeStart = new Date().getTime(); 
-            while (true) { 
-                let elapsedTime = new Date().getTime() - timeStart; 
-                if (elapsedTime > milliseconds) { 
-                    break; 
-                } 
-            } 
-        }
-
 client.on('ready', () => {
     client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
     client.user.setStatus('dnd');
 });
 
-//for (;;) {
-           // client.user.setActivity('OFFLINE FOR MAINENTANCE', { type: 'PLAYING' })
-           // sleep(5000)
-           // client.user.setActivity('OFFLINE FOR TESTING', { type: 'PLAYING' })
-            //sleep(5000)
-      //      }
-//
 client.on('message', message => {
     if (message.content == 'ping?') {
         if (message.author.id == 179654608371712000) {
