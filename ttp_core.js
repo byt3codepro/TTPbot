@@ -35,9 +35,9 @@ client.on('message', message => {
                 var delnum = message.content.split(" ");
                 message.channel.bulkDelete(parseInt(delnum[1]))
                 message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
-                setTimeout(function(){
-                    message.channel.bulkDelete(1);
-                }, 5000);
+                //setTimeout(function(){
+                //    message.channel.bulkDelete(1);
+                //}, 5000);
             } else {
                 message.channel.send('❗ Insufficient permissions');
             }
