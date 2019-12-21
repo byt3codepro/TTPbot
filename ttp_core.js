@@ -31,7 +31,7 @@ client.on('message', message => {
             message.channel.send('Rightful owner of the well known TTP bot that provides real information across multiple Discord servers. Also known as a great developer in Roblox, specialising in development of public transport and urban infrastructure. \n     */ Wikipedia /*');
         }
         if (message.content.startsWith('/purge')) {
-            if (message.member.hasPermission("ADMINISTRATOR")) {
+            if (message.author.id == 179654608371712000) { //message.member.hasPermission("ADMINISTRATOR")
                 var delnum = message.content.split(" ");
                 message.delete()
                 message.channel.bulkDelete(parseInt(delnum[1]))
