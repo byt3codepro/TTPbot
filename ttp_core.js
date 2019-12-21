@@ -1,16 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-function sleep(milliseconds) { 
-            let timeStart = new Date().getTime(); 
-            while (true) { 
-                let elapsedTime = new Date().getTime() - timeStart; 
-                if (elapsedTime > milliseconds) { 
-                    break; 
-                } 
-            } 
-        }
-
 client.on('ready', () => {
     client.user.setActivity('with a ČKD Tatra T3SU', { type: 'PLAYING' });
 });
