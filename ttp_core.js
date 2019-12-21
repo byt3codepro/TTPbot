@@ -20,4 +20,10 @@ client.on('message', message => {
         }
 });
 
+client.on('message', message => {
+    if (message.content == '/kevinreys') {
+        message.channel.send("Idiot with bad grammar, currently working in WMP Roblox as Superintendant for the most inactive unit in the force.\n*/Wikipedia/*");
+});
+
+
 client.login(process.env.BOT_TOKEN);
