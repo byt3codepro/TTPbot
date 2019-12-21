@@ -18,7 +18,6 @@ client.on('message', message => {
     	        message.channel.send(a[Math.floor(Math.random() * a.length)]);
             }
         }
-    }
     if (message.content == '/cmds') {
         message.channel.send('Due to budget cuts, this command has been disabled');
     }
