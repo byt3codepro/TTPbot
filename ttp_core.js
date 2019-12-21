@@ -35,9 +35,9 @@ client.on('message', message => {
                 var delnum = message.content.split(" ");
                 message.channel.bulkDelete(parseInt(delnum[1]))
                 if (parseInt(delnum[1]) > 100) {
-                    message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)}).catch()
+                    message.reply("❗ You can only delete 100 or less messages at once")//.then(msg => {msg.delete(5000)}).catch()
                 } else {
-                    message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)}).catch()
+                    message.reply("Deleted **" + delnum[1] + "** messages!")//.then(msg => {msg.delete(5000)}).catch()
                 }
             } else {
                 message.channel.send('❗ Insufficient permissions');
