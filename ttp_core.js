@@ -32,9 +32,9 @@ client.on('message', message => {
         }
         if (message.content.startsWith('/clear')) {
             if (message.member.hasPermission("ADMINISTRATOR")) {
-                message.channel.send('request passed');
                 var delnum = message.content.split(" ");
                 message.channel.bulkDelete(parseInt(delnum[1]))
+                message.reply("Deleted **" + delnum + "** messages!")
             } else {
                 message.channel.send('❗ Insufficient permissions');
             }
