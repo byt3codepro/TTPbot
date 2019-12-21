@@ -31,7 +31,7 @@ client.on('message', message => {
         if (message.member.hasPermission("ADMINISTRATOR")) {
             message.channel.send('request passed');
         } else {
-        message.channel.send('request failed');
+        message.channel.send('❗ Insufficient permissions');
         }
     }
 
