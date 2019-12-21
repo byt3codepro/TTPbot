@@ -8,8 +8,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.guild === null) {
-        message.channel.send("⛔   DM commands have been disabled!")
-        break;
+        //space for dm commands
     } else {
         if (message.content == 'ping?') {
             if (message.author.id == 179654608371712000) {
