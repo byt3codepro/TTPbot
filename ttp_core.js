@@ -55,7 +55,7 @@ client.on('message', message => {
                     if (parseInt(delnum[1]) > 100) {
                         message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)})
                     } else {
-                        message.channel.bulkDelete(parseInt(delnum[1])).catch(error => console.log(error.stack));
+                        message.channel.bulkDelete(parseInt(delnum[1])).catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
                         message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
                     }
                 } else {
