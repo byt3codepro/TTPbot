@@ -54,11 +54,11 @@ client.on('message', message => {
                     var delnum = message.content.split(" ");
                     var bulkError = false
                     if (parseInt(delnum[1]) > 100) {
-                        message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)})
+                        message.channel.send("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)})
                     } else {
-                        message.channel.bulkDelete(parseInt(delnum[1])).catch(error => bulkError = true && message.reply(`❗ Couldn't delete messages because of: ${error}`));
+                        message.channel.bulkDelete(parseInt(delnum[1])).catch(error => bulkError = true && message.channel.send(`❗ Couldn't delete messages because of: >>>${error}`));
                         if (bulkError == true) {
-                            message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
+                            message.channel.send("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
                         } else {
                             bulkError = false;
                         }
