@@ -62,7 +62,7 @@ client.on('message', message => {
                     message.channel.send('❗ Insufficient permissions');
                 }
             } else {
-                message.channel.send('❗ Enter valid amount! ```/purge [amount]```');
+                message.channel.send('❗ Enter valid amount!   ``/purge [amount]``');
             }   
         }
     }
