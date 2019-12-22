@@ -48,19 +48,22 @@ client.on('message', message => {
         if (message.content == '/ttp') {
             message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n────────────────────────────\nDibināta 1944.gada oktobrī kā Rīgas pilsētas darbaļaužu deputātu padomes IK Rīgas pilsētas satiksmes un transporta pārvalde.\nNo 19.01.1945.g. pārvalde tiek pārdēvēta par Rīgas pilsētas satiksmes un transporta trestu.\nNo 01.01.1955.g. trests tiek pārdēvēts par Rīgas pilsētas tramvaju un trolejbusu trestu.\nNo 30.12.1961.g. trests pārdēvēts par Tramvaju un trolejbusu pārvaldi.\nNo 1991.g. Rīgas pilsētas pašvaldības uzņēmums 'Tramvaju un trolejbusu pārvalde'.\nSaskaņā ar RD lēmumu Nr.3171 'Par SIA 'Tramvaju un trolejbusu pārvalde'pvienošanu ar SIA 'Rīgas satiksme''un SIA 'Rīgas satiksme' dalībnieku 23.09.2004. kopsapulces lēmumu pievienota SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
         }
-        if (message.content.startsWith('/purge')) {
-            if (message.member.hasPermission("ADMINISTRATOR")) {
-                var delnum = message.content.split(" ");
-                message.delete()
-                message.channel.bulkDelete(parseInt(delnum[1]))
-                if (parseInt(delnum[1]) > 100) {
-                    message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)}).catch()
+        if (message.content.startsWith('/purge') && message.content != '/purge') {
+            if (message.content != '/purge') {
+                if (message.member.hasPermission("ADMINISTRATOR")) {
+                    var delnum = message.content.split(" ");
+                    message.channel.bulkDelete(parseInt(delnum[1]))
+                    if (parseInt(delnum[1]) > 100) {
+                        message.reply("❗ You can only delete 100 or less messages at once").then(msg => {msg.delete(5000)})
+                    } else {
+                        message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)})
+                    }
                 } else {
-                    message.reply("Deleted **" + delnum[1] + "** messages!").then(msg => {msg.delete(5000)}).catch()
+                    message.channel.send('❗ Insufficient permissions');
                 }
             } else {
-                message.channel.send('❗ Insufficient permissions');
-            }
+                message.channel.send('❗ Enter valid amount! ```/purge [amount]```');
+            }   
         }
     }
 });
