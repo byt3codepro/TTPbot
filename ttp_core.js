@@ -4,6 +4,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
+    let ttpTestChannel = client.channels.get("642490607079653416")
+    staffAnnouncements.send("Bot restarted - " + Date())
     client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
