@@ -9,8 +9,8 @@ client.on('ready', () => {
         //del
     let ad1 = client.channels.get("642490607079653416")
     let adttp = client.channels.get("641731631287238669")
-    ad1.send("Ever wanted the bot to be kind to you after asking it your `ping?`..?\nWell, you're in luck - ***buy TTPremium today and pay just 100 ROBUX*** and recieve the kindes ***Pong!*** from the bot.\n\nAvailable while in stock\nTerms and Conditions apply\n*ttp_ad_services ||@everyone||*)
-    adttp.send("Ever wanted the bot to be kind to you after asking it your `ping?`..?\nWell, you're in luck - ***buy TTPremium today and pay just 100 ROBUX*** and recieve the kindes ***Pong!*** from the bot.\n\nAvailable while in stock\nTerms and Conditions apply\n*ttp_ad_services*)
+    ad1.send("Ever wanted the bot to be kind to you after asking it your `ping?`..?\nWell, you're in luck - ***buy TTPremium today and pay just 100 ROBUX*** and recieve the kindes ***Pong!*** from the bot.\n\nAvailable while in stock\nTerms and Conditions apply\n*ttp_ad_services ||@everyone||*")
+    adttp.send("Ever wanted the bot to be kind to you after asking it your `ping?`..?\nWell, you're in luck - ***buy TTPremium today and pay just 100 ROBUX*** and recieve the kindes ***Pong!*** from the bot.\n\nAvailable while in stock\nTerms and Conditions apply\n*ttp_ad_services*")
              //del
     client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
