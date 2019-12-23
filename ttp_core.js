@@ -37,7 +37,15 @@ client.on('message', message => {
                 if (lang[1] == 'en') {
                     message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n( *Tram and Trolleybus Management* )\n────────────────────────────\nEstablished in October 1944 as the 'Riga City Traffic and Transport Department' of the Riga City Workers Deputy Council.\n\n01/19/1945 - renamed to 'Riga City Traffic and Transport Trust'.\n\n01/01/1955 - renamed to 'Riga City Tram and Trolleybus Trust'.\n\n12/30/1961 - renamed to 'Tram and Trolleybus Management'.\n\nSince 1991 - Riga City Municipal Enterprise (Rīgas domes SIA) 'Tram and Trolley Management'.\n\nFollowing Riga Council Resolution No. 3171 on the 'incorporation of 'Tram and Trolley Management' into the members of SIA 'Rīgas satiksme'' and SIA 'Rīgas satiksme' 23.09.2004. the decision of the Board Meeting was attached to SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
                 } else {
-                    message.channel.send("❗ Invalid language   ``/ttp [en/lv]``")
+                    if (lang[1] == 'lt') {
+                    message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n( *Tramvajų ir troleibusų vadyba* )\n────────────────────────────\nĮkurtas 1944 Spalį 'Rygos miesto ir transporto departamentas' Rygos Miesto Darbininkų taryboje.\n\n01/19/1945 pervadintas į 'Rygos Miesto eismo ir transporto vadyba'\n\n01/01/1955 pervadintas į 'Rygos Miesto tramvajų ir troleibusų vadyba'\n\n12/30/1961 - pervadintas į 'Tramvajų ir Troleibusų vadyba'\n\nNuo 1991-  Rygos Miesto Savivaldybės įmonė (Rīgas domes SIA)\n\nRygos miesto savivaldybės nutarimu Nr. 3171, bendrovė 'Tramvajų ir troleibusų vadyba' 2004 metų rugsėjo 23 dieną buvo prijungta į vieną įmonę- 'Rygos eismas' SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
+                    } else {
+                        if (lang[1] == 'pl') {
+                            message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n( *ADMINISTRACJA WÓZKA I TABLICY WÓZKÓW* )\n────────────────────────────\nUtworzony w październiku 1944 r. Jako Departament Ruchu i Transportu Miasta w Rydze Zastępcy Rady Pracowników Miasta Rygi.\n\n19 stycznia 1945 r zmienia nazwę na Riga City Traffic and Transport Trust.\n\n01/01/1955 Nazwa trustu została przemianowana na Riga City Tram i Trolleybus Trust.\n\nOd 12/30/1961g. zaufanie zostało przemianowane na Tramwaj i Trolejbusowy Urząd.\n\nOd 1991 r Riga City Municipal Enterprise 'Tram and Trolley Board'.\n\nZgodnie z rezolucją RD nr 3171 w sprawie włączenia Tram and Trolley Board Ltd. do członków SIA Rīgas satiksme i SIA Rīgas satiksme 23.09.2004. Decyzja Walnego Zgromadzenia została dołączona do SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
+                        } else {
+                            message.channel.send("❗ Invalid language   ``/ttp [en/lv/lt/pl]``")
+                        }
+                    }
                 }
             }
         }
