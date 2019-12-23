@@ -29,8 +29,17 @@ client.on('message', message => {
         if (message.content == '/help') {
             message.channel.send({files: ['https://i.imgur.com/FaxXyCs.jpg']});
         }
-        if (message.content == '/ttp') {
-            message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n────────────────────────────\nDibināta 1944.gada oktobrī kā Rīgas pilsētas darbaļaužu deputātu padomes IK Rīgas pilsētas satiksmes un transporta pārvalde.\nNo 19.01.1945.g. pārvalde tiek pārdēvēta par Rīgas pilsētas satiksmes un transporta trestu.\nNo 01.01.1955.g. trests tiek pārdēvēts par Rīgas pilsētas tramvaju un trolejbusu trestu.\nNo 30.12.1961.g. trests pārdēvēts par Tramvaju un trolejbusu pārvaldi.\nNo 1991.g. Rīgas pilsētas pašvaldības uzņēmums 'Tramvaju un trolejbusu pārvalde'.\nSaskaņā ar RD lēmumu Nr.3171 'Par SIA 'Tramvaju un trolejbusu pārvalde' pievienošanu SIA 'Rīgas satiksme'' un SIA 'Rīgas satiksme' dalībnieku 23.09.2004. kopsapulces lēmumu pievienota SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
+        if (message.content.startsWith('/ttp')) {
+            var lang = message.content.split(" ");
+            if (lang[1] == 'lv') {
+                message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n────────────────────────────\nDibināta 1944.gada oktobrī kā Rīgas pilsētas darbaļaužu deputātu padomes IK Rīgas pilsētas satiksmes un transporta pārvalde.\nNo 19.01.1945.g. pārvalde tiek pārdēvēta par Rīgas pilsētas satiksmes un transporta trestu.\nNo 01.01.1955.g. trests tiek pārdēvēts par Rīgas pilsētas tramvaju un trolejbusu trestu.\nNo 30.12.1961.g. trests pārdēvēts par Tramvaju un trolejbusu pārvaldi.\nNo 1991.g. Rīgas pilsētas pašvaldības uzņēmums 'Tramvaju un trolejbusu pārvalde'.\nSaskaņā ar RD lēmumu Nr.3171 'Par SIA 'Tramvaju un trolejbusu pārvalde' pievienošanu SIA 'Rīgas satiksme'' un SIA 'Rīgas satiksme' dalībnieku 23.09.2004. kopsapulces lēmumu pievienota SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
+            } else {
+                if (lang[1] == 'en') {
+                    message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n( *Tram and Trolleybus Management* )\n────────────────────────────\nEstablished in October 1944 as the 'Riga City Traffic and Transport Department' of the Riga City Workers Deputy Council.\n01/19/1945 - renamed to 'Riga City Traffic and Transport Trust'.\n01/01/1955 - renamed to 'Riga City Tram and Trolleybus Trust'.\n12/30/1961 - renamed to 'Tram and Trolleybus Management'.\nSince 1991 - Riga City Municipal Enterprise (Rīgas domes SIA) 'Tram and Trolley Management'.\nFollowing Riga Council Resolution No. 3171 on the 'incorporation of 'Tram and Trolley Management' into the members of SIA 'Rīgas satiksme'' and SIA 'Rīgas satiksme' 23.09.2004. the decision of the Board Meeting was attached to SIA 'Rīgas satiksme'.", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
+                } else {
+                    message.channel.send("❗ Invalid language   ``/ttp [en/lv]``")
+                }
+            }
         }
         if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
