@@ -6,7 +6,10 @@ const client = new Discord.Client();
 client.on('ready', () => {
     let ttpTestChannel = client.channels.get("642490607079653416")
     ttpTestChannel.send("Bot restarted - " + Date())
-    client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
+    //xmas 641978767337586708
+    let xmas = client.channels.get("642490607079653416")
+    xmas.send('*TTP Administration team wishes you* ***Happy Christmas!***\nDuring this time we encourage you to spend time with your family and have fun gifting and receiving gifts!\n||@everyone||', {files: ['https://i.gyazo.com/a7c7bb0f17c7a02abab776f7f6a48de7.png']})
+    client.user.setActivity('with Christmas cards', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
