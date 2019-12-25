@@ -31,7 +31,7 @@ client.on('message', message => {
         if (message.content == '/help') {
             message.channel.send({files: ['https://i.imgur.com/FaxXyCs.jpg']});
         }
-        if (message.content.includes("fuck")) {
+        if (message.content.includes("fuck" || "FUCK" || "Fuck")) {
             message.channel.send("❗ Uh oh ${message.author}! That's a bad word! Next time use ***frick*** instead!")
             message.delete();
         }
@@ -52,7 +52,7 @@ client.on('message', message => {
                             if (lang[1] == 'de') {
                                 message.channel.send(">>> <:TTP:642373499205451797> **TRAMVAJU UN TROLEJBUSU PĀRVALDE**\n( *Straßenbahn und Oberleitungs Verwaltung* )\n────────────────────────────\nBegründet im Oktober 1944 als die 'Riga Stadt Verkehr und Transport Abteilung von die Riga Stadt Arbeiter Stellvertreter Rat.\n\n01/19/1945 - umbenannt zu 'Riga Stadt Verkehr und Transport das vertrauen.\n\n01/01/1955 - umbenannt zu 'Riga Stadt Straßenbahn und Oberleitungsbus das vertrauen'.\n\n12/30/1961 - umbenannt zu 'Straßenbahn und Oberleitungsbus Verwaltung'.\n\nSeit 1991 - Riga Stadt Municipal unternehmer (Riga Doma SIA) 'Straßenbahn und Oberleitungsbus Verwaltung'.\n\nFolgenden Riga Rat Auflösung No. 3171 auf das 'Eingemeindung von Straßenbahn und Oberleitungsbus Verwaltung' in das Mitglieder von SIA 'Riga Verkehr'' und SIA 'Riga Verkehr' 23.09.2004. Das Entscheidung von der Tafel Besprechung war befestigt zu SIA 'Riga Verkehr'.\n\n\n`Translated EN --> DE; essterszvaigzne12`", {files: ['https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png', 'https://i.gyazo.com/e6b60cb753ffad8b3b4d91cfdb13fdbf.jpg']});
                             } else {
-                                message.channel.send("❗ Invalid language   ``/ttp [en/lv/lt/pl]``")
+                                message.channel.send("❗ Invalid language   ``/ttp [en/lv/lt/pl/de]``")
                             }
                         }
                     }
