@@ -31,7 +31,7 @@ client.on('message', message => {
         if (message.content == '/help') {
             message.channel.send({files: ['https://i.imgur.com/FaxXyCs.jpg']});
         }
-        if (message.content.includes == 'fuck') {
+        if (message.content.includes("fuck")) {
             message.channel.send("❗ Uh oh ${message.author}! That's a bad word! Next time use ***frick*** instead!")
             message.delete();
         }
