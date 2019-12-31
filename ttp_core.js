@@ -6,8 +6,10 @@ const client = new Discord.Client();
 client.on('ready', () => {
     let ttpTestChannel = client.channels.get("642490607079653416")
     ttpTestChannel.send("Bot restarted - " + Date())
-    client.user.setActivity('with a ČKD Tatra T6B5', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
+    client.user.setActivity('in the 2020', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
+    let ttpNewYear = client.channels.get("641978767337586708")
+    ttpTestChannel.send("**Latvia is now in the 2020 - the year of rat 🐀**Happy New Year Latvia and other countries in the EET timezone!\nWe hope you make the most out of 2020 and we will thrive to do the same.")
 });
 
 client.on('message', message => {
