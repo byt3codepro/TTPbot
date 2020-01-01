@@ -21,7 +21,8 @@ client.on('message', message => {
     } else {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
-            ttpResultsChannel.fetchMessage('662034597508546582').then(message => console.log(message.content)).catch(console.error);
+            var results = ttpResultsChannel.fetchMessage('662034597508546582').catch(console.error)
+            message.reply(results);
         }
         
         
