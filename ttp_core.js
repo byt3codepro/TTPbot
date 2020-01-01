@@ -23,6 +23,7 @@ client.on('message', message => {
             let ttpResultsChannel = client.channels.get("662034469708103690")
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
             message.channel.send(results);
+            ttpResultsChannel.fetchMessage('662034597508546582').then(results => message.channel.send(results.content))
         }
         
         
