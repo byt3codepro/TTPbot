@@ -1,5 +1,10 @@
 //©raltec 2019
 
+/* google info
+Client ID: 868859580474-p224mt824n0e05m0cr0pih8c592950kn.apps.googleusercontent.com
+Client Secret: UMeaGyVhFBe2syI1bbT2ZkpI
+*/
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
