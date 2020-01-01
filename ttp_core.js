@@ -21,9 +21,11 @@ client.on('message', message => {
     } else {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
+            var resultSplit
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-            message.channel.send(results);
-            ttpResultsChannel.fetchMessage('662034597508546582').then(results => message.channel.send(results.content))
+            ttpResultsChannel.fetchMessage('662034597508546582').then(results =>
+                resultSplit = results.content.split("\cut\")
+                message.channel.send(resultSplit[2]))
         }
         
         
