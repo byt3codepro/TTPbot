@@ -11,8 +11,8 @@ const client = new Discord.Client();
 client.on('ready', () => {
     let ttpTestChannel = client.channels.get("642490607079653416")
     ttpTestChannel.send("Bot restarted - " + Date())
-    client.user.setActivity('in the 2020', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
-    client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
+    client.user.setActivity('MAINTENANCE', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING
+    client.user.setStatus('dnd') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
 client.on('message', message => {
@@ -21,7 +21,7 @@ client.on('message', message => {
     } else {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
-            ttpResultsChannel.fetchMessage('662034597508546582').then(message => message.ttpTestChannel.send(message.content)).catch(console.error);
+            ttpResultsChannel.fetchMessage('662034597508546582').then(message => message.relpy(message.content)).catch(console.error);
         }
         
         
