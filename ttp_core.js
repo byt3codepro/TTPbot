@@ -1,10 +1,5 @@
 //©raltec 2019
 
-/* google info
-Client ID: 868859580474-p224mt824n0e05m0cr0pih8c592950kn.apps.googleusercontent.com
-Client Secret: UMeaGyVhFBe2syI1bbT2ZkpI
-*/
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -23,8 +18,7 @@ client.on('message', message => {
             let ttpResultsChannel = client.channels.get("662034469708103690")
             var resultSplit
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-            ttpResultsChannel.fetchMessage('662034597508546582').then(results =>
-                resultSplit = results.content.split("\cut\").then(message.channel.send(resultSplit[2])))
+            ttpResultsChannel.fetchMessage('662034597508546582').then(results => message.channel.send(results.content))
         }
         
         
