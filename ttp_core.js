@@ -19,7 +19,9 @@ client.on('message', message => {
     if (message.guild === null) {
         //space for dm commands
     } else {
-        channel.fetchMessage('662034597508546582').then(message => message.ttpTestChannel.send(message.content)).catch(console.error);
+        if (message.content == '/results') {
+            channel.fetchMessage('662034597508546582').then(message => message.ttpTestChannel.send(message.content)).catch(console.error);
+        }
         
         
         
