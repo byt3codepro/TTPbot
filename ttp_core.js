@@ -21,8 +21,8 @@ client.on('message', message => {
     } else {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
-            let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-            message.channel.send(results[1]);
+            let results = {ttpResultsChannel.fetchMessage('662034597508546582')}
+            message.channel.send(results);
         }
         
         
