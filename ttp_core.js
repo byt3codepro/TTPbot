@@ -20,22 +20,20 @@ client.on('message', message => {
 		   	ttpResultsChannel.fetchMessage('662034597508546582').then(results => {
 				var resultSplit = results.content.split("{}")
             	message.channel.send(resultSplit[0])
-        	})
-		   	var resultSplit = temp.split("{}")
-            message.channel.send(resultSplit[0])
-			
-			const resultsEmbed = new Discord.RichEmbed()
-            .setColor('#008000')
-            .setTitle('Application results')
-            .setDescription('PASSED')
-            .addField('User ID', 'test')
-            .addBlankField()
-            .addField('Notes', 'test')
-            .setImage('https://i.imgur.com/wSTFkRM.png')
-            .setTimestamp()
-            .setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
+				
+				const resultsEmbed = new Discord.RichEmbed()
+            	.setColor('#008000')
+            	.setTitle('Application results')
+            	.setDescription('PASSED')
+            	.addField('User ID', 'test')
+            	.addBlankField()
+            	.addField('Notes', 'test')
+            	.setImage('https://i.imgur.com/wSTFkRM.png')
+            	.setTimestamp()
+            	.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
                                                                       
-            message.author.send(resultsEmbed);
+            	message.author.send(resultsEmbed);
+        	})
         }
         
         
