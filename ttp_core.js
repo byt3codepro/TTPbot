@@ -14,7 +14,7 @@ client.on('message', message => {
     if (message.guild === null) {
         //space for dm commands
     } else {
-       if (message.content == '/results LOLNO NIGGER') {
+       if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
 			var temp
 		   	ttpResultsChannel.fetchMessage('662034597508546582').then(results => {
@@ -26,6 +26,7 @@ client.on('message', message => {
 					var userID = resultSplit[userIDposition]
 					var mark = resultSplit[userIDposition+1]
 					var comment = resultSplit[userIDposition+2]
+					var role = resultSplit[userIDposition+3]
 					var color
 					message.channel.send("Results sent, check your DMs!")
 					if (mark == "PASSED") {
@@ -38,7 +39,7 @@ client.on('message', message => {
 					.setTitle('Application results')
 					.setDescription(mark)
 					.addField('User ID', userID)
-					.addField('Notes', comment)
+					.addField('Notes', "Applied for: " + role + "\n" + comment)
 					.setTimestamp()
 					.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
 
