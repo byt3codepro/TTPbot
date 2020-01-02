@@ -17,8 +17,8 @@ client.on('message', message => {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-            var resultSplit[100]
-            ttpResultsChannel.fetchMessage('662034597508546582').then(results => resultSplit = results.content.split("{}"))
+            var resultSplit
+            ttpResultsChannel.fetchMessage('662034597508546582').then(results => resultSplit = new Array(results.content.split("{}")))
             message.channel.send(resultSplit)
 			
 			const resultsEmbed = new Discord.RichEmbed()
