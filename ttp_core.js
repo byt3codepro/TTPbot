@@ -18,7 +18,7 @@ client.on('message', message => {
             let ttpResultsChannel = client.channels.get("662034469708103690")
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
 	    	var temp
-            ttpResultsChannel.fetchMessage('662034597508546582').then(results => temp = results)
+            ttpResultsChannel.fetchMessage('662034597508546582').then(results => temp = results.content)
 			var resultSplit = temp.split("{}")
             message.channel.send(resultSplit[0])
 			
