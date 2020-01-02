@@ -25,11 +25,10 @@ client.on('message', message => {
 			const resultsEmbed = new Discord.RichEmbed()
             .setColor('#008000')
             .setTitle('Application results')
-            .setDescription('Some description here')
-            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+            .setDescription('PASSED')
             .addField('User ID', 'test')
             .addBlankField()
-            .addField('Comments from reviewer', 'test')
+            .addField('Notes', 'test')
             .setImage('https://i.imgur.com/wSTFkRM.png')
             .setTimestamp()
             .setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
