@@ -19,7 +19,7 @@ client.on('message', message => {
 			var temp
 		   	ttpResultsChannel.fetchMessage('662034597508546582').then(results => {
 				var resultSplit = results.content.split("{}")
-				var userIDposition = resultSplit.indexOf(message.author.id, 3)
+				var userIDposition = resultSplit.indexOf(message.author.id, 0)
 				if (userIDposition == -1) {
 					message.channel.send("❗ Application not found. If you applied, contact an Administrator for support.")
 				} else {
@@ -28,13 +28,13 @@ client.on('message', message => {
 					var comment = resultSplit[userIDposition+2]
 					var color
 					message.channel.send("Results sent, check your DMs!")
-					if (mark == "PASSED") {
-						color = '#008000'
-					} else {
-						color = '#800000'
-					}
+					//if (mark == "PASSED") {
+					//	color = '#008000'
+					//} else {
+					//	color = '#800000'
+					//}
 					const resultsEmbed = new Discord.RichEmbed()
-					.setColor(color)
+					.setColor('#800000')
 					.setTitle('Application results')
 					.setDescription(mark)
 					.addField('User ID', userID)
