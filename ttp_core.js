@@ -28,11 +28,11 @@ client.on('message', message => {
 					var comment = resultSplit[userIDposition+2]
 					var color
 					message.channel.send("Results sent, check your DMs!")
-					//if (mark == "PASSED") {
-					//	color = '#008000'
-					//} else {
-					//	color = '#800000'
-					//}
+					if (mark == "PASSED") {
+						color = '#008000'
+					} else {
+						color = '#800000'
+					}
 					const resultsEmbed = new Discord.RichEmbed()
 					.setColor('#800000')
 					.setTitle('Application results')
