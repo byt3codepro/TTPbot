@@ -20,8 +20,7 @@ client.on('message', message => {
             var resultSplit
             ttpResultsChannel.fetchMessage('662034597508546582').then(results => resultSplit = results.content.split("{}"))
             message.channel.send(resultSplit[0])
-            
-																	  
+			
 			const resultsEmbed = new Discord.RichEmbed()
             .setColor('#008000')
             .setTitle('Some title')
