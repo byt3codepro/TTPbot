@@ -19,7 +19,7 @@ client.on('message', message => {
 			var temp
 		   	ttpResultsChannel.fetchMessage('662034597508546582').then(results => {
 				var resultSplit = results.content.split("{}")
-				var userIDposition = resultSplit.indexOf(message.author.id)
+				var userIDposition = resultSplit.indexOf("179654608371712000")
 				if (userIDposition == -1) {
 					message.channel.send("❗ Application not found. If you applied, contact an Administrator for support.")
 				} else {
