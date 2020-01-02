@@ -34,7 +34,7 @@ client.on('message', message => {
 						color = '#800000'
 					}
 					const resultsEmbed = new Discord.RichEmbed()
-					.setColor('#800000')
+					.setColor(color)
 					.setTitle('Application results')
 					.setDescription(mark)
 					.addField('User ID', userID)
