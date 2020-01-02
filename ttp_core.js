@@ -16,8 +16,8 @@ client.on('message', message => {
     } else {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
-	    	var temp
-			ttpResultsChannel.fetchMessage('662034597508546582').then(results => temp = results.content)
+			var temp
+			ttpResultsChannel.fetchMessage('662034597508546582').then(results => temp = new results.content)
 			message.channel.send(temp)
 			//var resultSplit = temp.split("{}")
             //message.channel.send(resultSplit[0])
@@ -27,7 +27,7 @@ client.on('message', message => {
             .setTitle('Application results')
             .setDescription('Some description here')
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .addField('Regular field title', 'test')
+            .addField('User ID', 'test')
             .addBlankField()
             .addField('Comments from reviewer', 'test')
             .setImage('https://i.imgur.com/wSTFkRM.png')
