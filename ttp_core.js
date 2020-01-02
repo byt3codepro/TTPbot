@@ -30,21 +30,21 @@ client.on('message', message => {
 					var specialRole = " "
 					if (mark == "PASSED") {
 						if (role == "Tram Driver") {
-							message.author.addRole('641984034397749258') //Staff
-							message.author.addRole('645398767633170462') //LR
-							message.author.addRole('643841138482216979') //Passenger Service
-							message.author.addRole('642382484968833024') //Tram Driver
+							message.members.addRole('641984034397749258') //Staff
+							message.members.addRole('645398767633170462') //LR
+							message.members.addRole('643841138482216979') //Passenger Service
+							message.members.addRole('642382484968833024') //Tram Driver
 						} else {
 							if (role == "Technician") {
-								message.author.addRole('641984034397749258') //Staff
-								message.author.addRole('645398767633170462') //LR
-								message.author.addRole('643841189669240852') //Fleet Service
-								message.author.addRole('642478589186408470') //Technician
+								message.members.addRole('641984034397749258') //Staff
+								message.members.addRole('645398767633170462') //LR
+								message.members.addRole('643841189669240852') //Fleet Service
+								message.members.addRole('642478589186408470') //Technician
 							} else {
 								if (role == "Dispatcher") {
-									message.author.addRole('641984034397749258') //Staff
-									message.author.addRole('645398767633170462') //LR
-									message.author.addRole('643841357248724992') //Dispatch Service
+									message.members.addRole('641984034397749258') //Staff
+									message.members.addRole('645398767633170462') //LR
+									message.members.addRole('643841357248724992') //Dispatch Service
 									var specialRole = "❗ Please contact the Chief Central Dispatcher to get ranked Station or Central Dispatcher." 
 								} else {
 									var specialRole = "❗ We had trouble automaticially adding you roles. Please contact an administrator to role you."
