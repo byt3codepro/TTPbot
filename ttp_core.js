@@ -17,13 +17,13 @@ client.on('message', message => {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-            var resultSplit
+            var resultSplit[100]
             ttpResultsChannel.fetchMessage('662034597508546582').then(results => resultSplit = results.content.split("{}"))
             message.channel.send(resultSplit)
 			
 			const resultsEmbed = new Discord.RichEmbed()
             .setColor('#008000')
-            .setTitle('Some title')
+            .setTitle('Application results')
             .setDescription('Some description here')
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
             .addField('Regular field title', 'test')
