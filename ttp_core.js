@@ -65,8 +65,8 @@ client.on('message', message => {
 					.setDescription(mark)
 					.addField('User ID', userID)
 					.addField('Notes', "Applied for: " + role + "\n" + comment)
-					.setTimestamp()
 					.addField(specialRole)
+					.setTimestamp()
 					.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
 
 					message.author.send(resultsEmbed);
