@@ -27,7 +27,7 @@ client.on('message', message => {
 					var mark = resultSplit[userIDposition+1]
 					var comment = resultSplit[userIDposition+2]
 					var role = resultSplit[userIDposition+3]
-					var specialRole = "‎"
+					var specialRole = "　 "
 					if (mark == "PASSED") {
 						if (role == "Tram Driver") {
 							message.member.addRole('641984034397749258') //Staff
