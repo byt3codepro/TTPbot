@@ -27,6 +27,31 @@ client.on('message', message => {
 					var mark = resultSplit[userIDposition+1]
 					var comment = resultSplit[userIDposition+2]
 					var role = resultSplit[userIDposition+3]
+					var specialRole = " "
+					if (mark == "PASSED") {
+						if (role == "Tram Driver") {
+							message.author.addRole('641984034397749258') //Staff
+							message.author.addRole('645398767633170462') //LR
+							message.author.addRole('643841138482216979') //Passenger Service
+							message.author.addRole('642382484968833024') //Tram Driver
+						} else {
+							if (role == "Technician") {
+								message.author.addRole('641984034397749258') //Staff
+								message.author.addRole('645398767633170462') //LR
+								message.author.addRole('643841189669240852') //Fleet Service
+								message.author.addRole('642478589186408470') //Technician
+							} else {
+								if (role == "Dispatcher") {
+									message.author.addRole('641984034397749258') //Staff
+									message.author.addRole('645398767633170462') //LR
+									message.author.addRole('643841357248724992') //Dispatch Service
+									var specialRole = "❗ Please contact the Chief Central Dispatcher to get ranked Station or Central Dispatcher." 
+								} else {
+									var specialRole = "❗ We had trouble automaticially adding you roles. Please contact an administrator to role you."
+								}
+							}
+						}
+					}
 					var color
 					message.channel.send("Results sent, check your DMs!")
 					if (mark == "PASSED") {
@@ -41,6 +66,7 @@ client.on('message', message => {
 					.addField('User ID', userID)
 					.addField('Notes', "Applied for: " + role + "\n" + comment)
 					.setTimestamp()
+					.addField(specialRole)
 					.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
 
 					message.author.send(resultsEmbed);
