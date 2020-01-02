@@ -18,25 +18,22 @@ client.on('message', message => {
             let ttpResultsChannel = client.channels.get("662034469708103690")
             var resultSplit
             let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-            message.author.send("TEST.")
             ttpResultsChannel.fetchMessage('662034597508546582').then(results => message.channel.send(results.content))
             
             
             const resultsEmbed = new Discord.RichEmbed()
-            .setColor('#0099ff')
+            .setColor('#008000')
             .setTitle('Some title')
             .setURL('https://discord.js.org/')
             .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
             .setDescription('Some description here')
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .addField('Regular field title', 'Some value here')
+            .addField('Regular field title', 'test')
             .addBlankField()
-            .addField('Inline field title', 'Some value here', true)
-            .addField('Inline field title', 'Some value here', true)
-            .addField('Inline field title', 'Some value here', true)
+            .addField('Comments from reviewer', 'test')
             .setImage('https://i.imgur.com/wSTFkRM.png')
             .setTimestamp()
-            .setFooter('RĪGAS TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
+            .setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
             
             message.author.send(resultsEmbed);
         }
