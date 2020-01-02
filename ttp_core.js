@@ -38,7 +38,6 @@ client.on('message', message => {
 					.setTitle('Application results')
 					.setDescription(mark)
 					.addField('User ID', userID)
-					.addBlankField()
 					.addField('Notes', comment)
 					.setTimestamp()
 					.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
