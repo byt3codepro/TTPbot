@@ -19,20 +19,32 @@ client.on('message', message => {
 			var temp
 		   	ttpResultsChannel.fetchMessage('662034597508546582').then(results => {
 				var resultSplit = results.content.split("{}")
-            	message.channel.send(resultSplit[5])
-				
-				const resultsEmbed = new Discord.RichEmbed()
-            	.setColor('#008000')
-            	.setTitle('Application results')
-            	.setDescription('PASSED')
-            	.addField('User ID', 'test')
-            	.addBlankField()
-            	.addField('Notes', 'test')
-            	.setImage('https://i.imgur.com/wSTFkRM.png')
-            	.setTimestamp()
-            	.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
-                                                                      
-            	message.author.send(resultsEmbed);
+				var userIDposition = resultSplit.indexOf(message.author.id, 3)
+				if (userIDposition == -1) {
+					message.channel.send("❗ Application not found. If you applied, contact an Administrator for support.")
+				} else {
+					var userID = resultSplit[userIDposition]
+					var mark = resultSplit[userIDposition+1]
+					var comment = resultSplit[userIDposition+2]
+					var color
+					message.channel.send("Results sent, check your DMs!")
+					if (mark == "PASSED") {
+						color = '#008000'
+					} else {
+						color = '#800000'
+					}
+					const resultsEmbed = new Discord.RichEmbed()
+					.setColor(color)
+					.setTitle('Application results')
+					.setDescription(mark)
+					.addField('User ID', userID)
+					.addBlankField()
+					.addField('Notes', comment)
+					.setTimestamp()
+					.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
+
+					message.author.send(resultsEmbed);
+				}
         	})
         }
         
