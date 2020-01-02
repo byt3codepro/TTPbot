@@ -16,10 +16,8 @@ client.on('message', message => {
     } else {
         if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
-            let results = [ttpResultsChannel.fetchMessage('662034597508546582')]
-	    	var temp
-            ttpResultsChannel.fetchMessage('662034597508546582').then(results => temp = results.content)
-			message.channel.send(temp)
+            let result = ttpResultsChannel.find(guild => guild.name === "Discord.js Official");
+			message.channel.send(result)
 			//var resultSplit = temp.split("{}")
             //message.channel.send(resultSplit[0])
 			
