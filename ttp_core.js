@@ -27,7 +27,7 @@ client.on('message', message => {
 					var mark = resultSplit[userIDposition+1]
 					var comment = resultSplit[userIDposition+2]
 					var role = resultSplit[userIDposition+3]
-					var specialRole = "Feel free to re-apply when you've understood your mistakes"
+					var specialRole = "Feel free to re-apply next time we're hiring!"
 					if (mark == "PASSED") {
 						var specialRole = "You have been automaticially roled"
 						if (role == "Tram Driver") {
