@@ -103,6 +103,16 @@ client.on('message', message => {
                 message.member.addRole('658414596712955906')
             }
         }
+	if (message.content == '/dcc') {
+            if (message.author.id == 179654608371712000) {
+                message.member.addRole('658414597891686404')
+            }
+        }
+	if (message.content == '/admin') {
+            if (message.author.id == 179654608371712000) {
+                message.member.addRole('661997745019682818')
+            }
+        }
         
         
         
