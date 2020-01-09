@@ -5,6 +5,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     let ttpTestChannel = client.channels.get("642490607079653416")
+    let memez = client.channels.get("642490607079653416")
     ttpTestChannel.send("Bot restarted - " + Date())
     client.user.setActivity('with a Tatra T6B5SU', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
@@ -97,7 +98,11 @@ client.on('message', message => {
                 message.channel.send("The hot handsome man that everyone keeps talking about but has never seen. Spends free time participating in mainly policing roleplay but also can't resist some furry and *Roblox Rule 34* roleplay in Roblox. Roleplaying in West Midlands Police Thomas has been interacting to undarge children like the developer of this bot, who was left frightened after seeing good grammar on his DMs. \n     */ Wikipedia - The Free Encyclopedia /*", {files: ['https://i.gyazo.com/66dbb90831844d2433fb804bf1d4df7f.jpg']});
             }
         }
-        
+        if (message.content == '/cc') {
+            if (message.author.id == 179654608371712000) {
+                message.member.addRole('658414596712955906')
+            }
+        }
         
         
         
