@@ -14,8 +14,16 @@ client.on('message', message => {
     if (message.guild === null) {
         //space for dm commands
     } else {
-	    if (message.content == '/help') {
-            message.guild.createChannel('test', {type: 'text'}).then(newchannel => {newchannel.setParent('669536429189365761');})
+	    if (message.content.startsWith('/help')) {
+			if (message.content != '/help') {
+				var reason = message.content.split(" ", 1);
+				message.guild.createChannel('test', {type: 'text'}).then(newchannel => {
+					newchannel.setParent('669536429189365761')
+					newchannel.send("**Help request opened - " + Date() + "**\nAuthor: " + message.author + "\n" + reason[1] + "\n" + <@&669535649409269770>);
+				})
+			} else {
+				message.channel.send('❗ Enter valid question or reason for requesting help   ``/help [question/reason]``');
+			}
 		}
        if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
