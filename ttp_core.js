@@ -15,10 +15,7 @@ client.on('message', message => {
         //space for dm commands
     } else {
 	    if (message.content == '/help') {
-            message.guild.createChannel('test', {type: 'text'})
-			channels.get("test").then(newchannel => {
-				newchannel.setParent('669536429189365761');
-			}
+            message.guild.createChannel('test', {type: 'text'}).then(newchannel => {newchannel.setParent('669536429189365761');}
 		}
        if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
