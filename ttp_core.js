@@ -16,7 +16,8 @@ client.on('message', message => {
     } else {
 	    if (message.content == '/help') {
             message.guild.createChannel('test', {type: 'text'})
-			server.channels.find("test","🚨 » Support").setParent('669536429189365761');
+			//const helpreq = channels.get("test")
+			message.guild.channels.find("test","🚨 » Support").setParent('669536429189365761');
 		}
        if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
