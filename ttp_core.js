@@ -15,7 +15,7 @@ client.on('message', message => {
         //space for dm commands
     } else {
 	    if (message.content == '/help') {
-            message.guild.createChannel('test', {type: text})
+            message.guild.createChannel('test', {type: 'text'})
 			server.channels.find("test","🚨 » Support").setParent('669536429189365761');
 		}
        if (message.content == '/results') {
