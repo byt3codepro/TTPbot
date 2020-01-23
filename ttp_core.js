@@ -16,7 +16,7 @@ client.on('message', message => {
     } else {
 	    if (message.content.startsWith('/help')) {
 			if (message.content != '/help') {
-				var reason = message.content.split(" ", 1);
+				var reason = message.content.slice(6);
 				message.guild.createChannel('test', {type: 'text'}).then(newchannel => {
 					newchannel.setParent('669536429189365761')
 					newchannel.send("**Help request opened - " + Date() + "**\nAuthor: " + message.author + "\nQuestion or reason for requesting help: ``" + reason[1] + "``\n<@&669535649409269770>");
