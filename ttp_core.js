@@ -19,7 +19,7 @@ client.on('message', message => {
 				var reason = message.content.slice(6);
 				message.guild.createChannel('test', {type: 'text'}).then(newchannel => {
 					newchannel.setParent('669536429189365761')
-					newchannel.send("**Help request opened - " + Date() + "**\nAuthor: " + message.author + "\nQuestion or reason for requesting help: ``" + reason[1] + "``\n<@&669535649409269770>");
+					newchannel.send("**Help request opened - " + Date() + "**\nAuthor: " + message.author + "\nQuestion or reason for requesting help: ``" + message.content.substr(5) + "``\n<@&669535649409269770>");
 				})
 			} else {
 				message.channel.send('❗ Enter valid question or reason for requesting help   ``/help [question/reason]``');
