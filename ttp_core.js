@@ -6,7 +6,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
     let ttpTestChannel = client.channels.get("642490607079653416")
     ttpTestChannel.send("Bot restarted - " + Date())
-    client.user.setActivity('with a Tatra T6B5SU', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
+    client.user.setActivity('PowerPoint', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
@@ -14,21 +14,6 @@ client.on('message', message => {
     if (message.guild === null) {
         //space for dm commands
     } else {
-	    if (message.content == '/iiapp smells') {
-			if (message.author.id == 179654608371712000) {
-				message.member.addRole('608642648797872139')
-			}
-		}
-	    if (message.content.startsWith('/help')) {
-			if (message.content != '/help') {
-				message.guild.createChannel('test', {type: 'text'}).then(newchannel => {
-					newchannel.setParent('669536429189365761')
-					newchannel.send("**Help request opened - " + Date() + "**\nAuthor: " + message.author + "\nQuestion or reason for requesting help: ``" + message.content.substr(6) + "``\n<@&669535649409269770>");
-				})
-			} else {
-				message.channel.send('❗ Enter valid question or reason for requesting help   ``/help [question/reason]``');
-			}
-		}
        if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
 			var temp
