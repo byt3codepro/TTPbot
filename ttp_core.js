@@ -7,7 +7,7 @@ client.on('ready', () => {
     //let ttpTestChannel = client.channels.get("642490607079653416")
     //ttpTestChannel.send("Bot restarted - " + Date())
 	let bitch = client.channels.get("658414557852729373") // 658414557852729373
-    bitch.send("abi is a terrible furry")
+    bitch.send("smells as corrupt as russia isaac")
     //client.user.setActivity('PowerPoint', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
