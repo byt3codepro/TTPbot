@@ -4,8 +4,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    let ttpTestChannel = client.channels.get("642490607079653416")
-    ttpTestChannel.send("Bot restarted - " + Date())
+    //let ttpTestChannel = client.channels.get("642490607079653416")
+    //ttpTestChannel.send("Bot restarted - " + Date())
+	let bitch = client.channels.get("658414557852729373") // 658414557852729373
+    bitch.send("abi is a terrible furry")
     //client.user.setActivity('PowerPoint', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
