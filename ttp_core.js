@@ -14,7 +14,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.guild === null) {
-        //space for dm commands
+        // space for dm commands
     } else {
        if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
