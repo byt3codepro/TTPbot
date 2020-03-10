@@ -6,8 +6,8 @@ const client = new Discord.Client();
 client.on('ready', () => {
     //let ttpTestChannel = client.channels.get("642490607079653416")
     //ttpTestChannel.send("Bot restarted - " + Date())
-	//let bitch = client.channels.get("658414557852729373") // 658414557852729373
-    //bitch.send("***❗ | Abi 💛#9372 = furry = 🤮 = danger***")
+	let bitch = client.channels.get("685936439925407753")
+    bitch.send("***@slay#2895 mom smells 😹 @everyone ***")
     //client.user.setActivity('PowerPoint', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
