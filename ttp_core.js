@@ -101,7 +101,7 @@ client.on('message', message => {
 		if (announcesplit[2] == 'x') {
 			announcementchannel.send(announcementembed);
 		} else {
-			if (announcesplit[2] != "here" || "everyone") {
+			if (announcesplit[2] != "everyone") {
 				announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
 			} else {
 				announcementchannel.send('@' + announcesplit[2], announcementembed);
