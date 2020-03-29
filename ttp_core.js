@@ -104,7 +104,7 @@ client.on('message', message => {
 			if (announcesplit[2] == 'x') {
 				announcementchannel.send(announcementembed);
 			} else {
-				announcementchannel.send(<@announcesplit[2]>, announcementembed);
+				announcementchannel.send("<@" + announcesplit[2] + ">", announcementembed);
 			}
 		}
 	}
