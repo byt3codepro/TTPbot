@@ -92,13 +92,13 @@ client.on('message', message => {
 	}
 	if (message.content.startsWith('/announce')) {
 		var announcesplit = message.content.split("[]");
-		let announcetag = announcesplit[2]
 		let announcementchannel = client.channels.get(announcesplit[1])
 		const announcementembed = new Discord.RichEmbed()
 			.setColor('#d4af37')
 			.setTitle(announcesplit[3])
 			.setDescription(announcesplit[4])
 			.setFooter('AS Pasažieru Vilciens');
+		let announcetag = announcesplit[2]
 		if announcetag == "here" or "everyone" {
 			announcementchannel.send("@" + announcetag, announcementembed);
 		} else {
