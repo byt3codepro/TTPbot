@@ -92,7 +92,7 @@ client.on('message', message => {
 	}
 	if (message.content.startsWith('/announce')) {
 		var announcesplit = message.content.split("[]");
-		var announcetag = announcesplit[2]
+		let announcetag = announcesplit[2]
 		let announcementchannel = client.channels.get(announcesplit[1])
 		const announcementembed = new Discord.RichEmbed()
 			.setColor('#d4af37')
