@@ -92,15 +92,22 @@ client.on('message', message => {
 	}
 	if (message.content.startsWith('/announce')) {
 		var announcesplit = message.content.split("[]");
+		var announcetag = announcesplit[2]
 		let announcementchannel = client.channels.get(announcesplit[1])
 		const announcementembed = new Discord.RichEmbed()
 			.setColor('#d4af37')
-			.setTitle(announcesplit[2])
-			.setDescription(announcesplit[3])
-			.setTimestamp()
-			.setFooter('AS Pasažieru Vilciens', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Pasa%C5%BEieru_vilciens_logo.svg/1200px-Pasa%C5%BEieru_vilciens_logo.svg.png');
-
-		announcementchannel.send("@everyone", announcementembed);
+			.setTitle(announcesplit[3])
+			.setDescription(announcesplit[4])
+			.setFooter('AS Pasažieru Vilciens');
+		if announcetag == "@here" or "@everyone" {
+			announcementchannel.send(announcetag, announcementembed);
+		} else {
+			if announcetag == "x" {
+				announcementchannel.send(announcetag, announcementembed);
+			} else {
+				announcementchannel.send(<@announcesplit[2]>, announcementembed);
+			}
+		}
 	}
 	    
 	    
