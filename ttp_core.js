@@ -100,7 +100,7 @@ client.on('message', message => {
 			.setTimestamp()
 			.setFooter('AS Pasažieru Vilciens', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Pasa%C5%BEieru_vilciens_logo.svg/1200px-Pasa%C5%BEieru_vilciens_logo.svg.png');
 
-		message.announcementchannel.send("@everyone", announcementembed);
+		announcementchannel.send("@everyone", announcementembed);
 	}
 	    
 	    
