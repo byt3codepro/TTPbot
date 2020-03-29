@@ -91,31 +91,35 @@ client.on('message', message => {
             message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', {files: ['https://cdn.drawception.com/drawings/LrK4OWAvPQ.png']});
 	}
 	if (message.content.startsWith('/announce')) {
-		if (message.content == '/announce help') {
-			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific role, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
-		} else {
-			var announcesplit = message.content.split("[]");
-			let announcementchannel = client.channels.get(announcesplit[1])
-			const announcementembed = new Discord.RichEmbed()
-				.setColor('#d4af37')
-				.setTitle(announcesplit[3])
-				.setDescription(announcesplit[4])
-				.setFooter('AS Pasažieru Vilciens');
-			if (announcesplit[2] == 'x') {
-				announcementchannel.send(announcementembed);
+		if (message.member.hasPermission("ADMINISTRATOR")) {
+			if (message.content == '/announce help') {
+				message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific role, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
 			} else {
-				if (announcesplit[2] == "everyone") {
-					announcementchannel.send("@everyone", announcementembed);
+				var announcesplit = message.content.split("[]");
+				let announcementchannel = client.channels.get(announcesplit[1])
+				const announcementembed = new Discord.RichEmbed()
+					.setColor('#d4af37')
+					.setTitle(announcesplit[3])
+					.setDescription(announcesplit[4])
+					.setFooter('AS Pasažieru Vilciens');
+				if (announcesplit[2] == 'x') {
+					announcementchannel.send(announcementembed);
 				} else {
-					if (announcesplit[2] == "here") {
-						announcementchannel.send("@here", announcementembed);
+					if (announcesplit[2] == "everyone") {
+						announcementchannel.send("@everyone", announcementembed);
 					} else {
-					announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
+						if (announcesplit[2] == "here") {
+							announcementchannel.send("@here", announcementembed);
+						} else {
+						announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
+						}
 					}
 				}
 			}
 		}
-	}
+		} else {
+			message.channel.send('❗ Insufficient permissions');
+		}
         if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
                 if (message.member.hasPermission("ADMINISTRATOR")) {
