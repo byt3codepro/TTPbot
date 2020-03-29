@@ -98,15 +98,15 @@ client.on('message', message => {
 			.setTitle(announcesplit[3])
 			.setDescription(announcesplit[4])
 			.setFooter('AS Pasažieru Vilciens');
-		//if announcesplit[2] == 'here' or 'everyone' {
+		if (announcesplit[2] == 'here' or 'everyone') {
 			announcementchannel.send('@' + announcesplit[2], announcementembed);
-		//} else {
-		//	if announcesplit[2] == 'x' {
-		//		announcementchannel.send(announcementembed);
-		//	} else {
-		//		announcementchannel.send(<@announcesplit[2]>, announcementembed);
-		//	}
-		//}
+		} else {
+			if (announcesplit[2] == 'x') {
+				announcementchannel.send(announcementembed);
+			} else {
+				announcementchannel.send(<@announcesplit[2]>, announcementembed);
+			}
+		}
 	}
 	    
 	    
