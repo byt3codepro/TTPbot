@@ -90,6 +90,30 @@ client.on('message', message => {
         if (message.content == '/cmds') {
             message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', {files: ['https://cdn.drawception.com/drawings/LrK4OWAvPQ.png']});
 	}
+	if (message.content.startsWith('/announce')) {
+		var announcesplit = message.content.split("[]");
+		let announcementchannel = client.channels.get(announcesplit[1])
+		const announcementembed = new Discord.RichEmbed()
+			.setColor(#d4af37)
+			.setTitle('Announcement')
+			.setDescription(announcesplit[2])
+			.setTimestamp()
+			.setFooter('AS Pasažieru Vilciens', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Pasa%C5%BEieru_vilciens_logo.svg/1200px-Pasa%C5%BEieru_vilciens_logo.svg.png');
+
+		message.announcementchannel.send(announcementembed);
+	}
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
         if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
                 if (message.member.hasPermission("ADMINISTRATOR")) {
