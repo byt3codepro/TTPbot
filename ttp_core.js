@@ -6,7 +6,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
     //let ttpTestChannel = client.channels.get("642490607079653416")
     //ttpTestChannel.send("Bot restarted - " + Date())
-	//let bitch = client.channels.get("685936439925407753") 
+	//let bitch = client.channels.get("685936439925407753")
     //bitch.send("***slayerzplayerz mom smells 😹 @everyone ***")
     //client.user.setActivity('PowerPoint', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
@@ -94,13 +94,13 @@ client.on('message', message => {
 		var announcesplit = message.content.split("[]");
 		let announcementchannel = client.channels.get(announcesplit[1])
 		const announcementembed = new Discord.RichEmbed()
-			.setColor(#d4af37)
-			.setTitle('Announcement')
-			.setDescription(announcesplit[2])
+			.setColor('#d4af37')
+			.setTitle(announcesplit[2])
+			.setDescription(announcesplit[3])
 			.setTimestamp()
 			.setFooter('AS Pasažieru Vilciens', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Pasa%C5%BEieru_vilciens_logo.svg/1200px-Pasa%C5%BEieru_vilciens_logo.svg.png');
 
-		message.announcementchannel.send(announcementembed);
+		message.announcementchannel.send("@everyone", announcementembed);
 	}
 	    
 	    
