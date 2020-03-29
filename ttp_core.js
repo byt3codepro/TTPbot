@@ -92,38 +92,30 @@ client.on('message', message => {
 	}
 	if (message.content.startsWith('/announce')) {
 		var announcesplit = message.content.split("[]");
-		let announcementchannel = client.channels.get(announcesplit[1])
-		const announcementembed = new Discord.RichEmbed()
-			.setColor('#d4af37')
-			.setTitle(announcesplit[3])
-			.setDescription(announcesplit[4])
-			.setFooter('AS Pasažieru Vilciens');
-		if (announcesplit[2] == 'x') {
-			announcementchannel.send(announcementembed);
+		if (announcesplit[1] == "help") {
+			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific role, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text)
 		} else {
-			if (announcesplit[2] == "everyone") {
-				announcementchannel.send("@everyone", announcementembed);
+			let announcementchannel = client.channels.get(announcesplit[1])
+			const announcementembed = new Discord.RichEmbed()
+				.setColor('#d4af37')
+				.setTitle(announcesplit[3])
+				.setDescription(announcesplit[4])
+				.setFooter('AS Pasažieru Vilciens');
+			if (announcesplit[2] == 'x') {
+				announcementchannel.send(announcementembed);
 			} else {
-				if (announcesplit[2] == "here") {
-					announcementchannel.send("@here", announcementembed);
+				if (announcesplit[2] == "everyone") {
+					announcementchannel.send("@everyone", announcementembed);
 				} else {
-				announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
+					if (announcesplit[2] == "here") {
+						announcementchannel.send("@here", announcementembed);
+					} else {
+					announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
+					}
 				}
 			}
 		}
 	}
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
         if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
                 if (message.member.hasPermission("ADMINISTRATOR")) {
