@@ -98,12 +98,11 @@ client.on('message', message => {
 			.setTitle(announcesplit[3])
 			.setDescription(announcesplit[4])
 			.setFooter('AS Pasažieru Vilciens');
-		let announcetag = announcesplit[2]
-		if announcetag == "here" or "everyone" {
-			announcementchannel.send("@" + announcetag, announcementembed);
+		if announcesplit[2] == "here" or "everyone" {
+			announcementchannel.send("@" + announcesplit[2], announcementembed);
 		} else {
-			if announcetag == "x" {
-				announcementchannel.send(announcetag, announcementembed);
+			if announcesplit[2] == "x" {
+				announcementchannel.send(announcementembed);
 			} else {
 				announcementchannel.send(<@announcesplit[2]>, announcementembed);
 			}
