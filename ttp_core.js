@@ -99,12 +99,12 @@ client.on('message', message => {
 			.setDescription(announcesplit[4])
 			.setFooter('AS Pasažieru Vilciens');
 		if (announcesplit[2] == 'x') {
-			announcementchannel.send('@' + announcesplit[2], announcementembed);
+			announcementchannel.send(announcementembed);
 		} else {
-			if (announcesplit[2] == "here" || "everyone") {
-				announcementchannel.send(announcementembed);
-			} else {
+			if (announcesplit[2] != "here" || "everyone") {
 				announcementchannel.send("<@" + announcesplit[2] + ">", announcementembed);
+			} else {
+				announcementchannel.send('@' + announcesplit[2], announcementembed);
 			}
 		}
 	}
