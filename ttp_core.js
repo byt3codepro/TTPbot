@@ -99,8 +99,8 @@ client.on('message', message => {
 			.setTitle(announcesplit[3])
 			.setDescription(announcesplit[4])
 			.setFooter('AS Pasažieru Vilciens');
-		if announcetag == "@here" or "@everyone" {
-			announcementchannel.send(announcetag, announcementembed);
+		if announcetag == "here" or "everyone" {
+			announcementchannel.send("@" + announcetag, announcementembed);
 		} else {
 			if announcetag == "x" {
 				announcementchannel.send(announcetag, announcementembed);
