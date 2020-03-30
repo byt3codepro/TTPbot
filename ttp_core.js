@@ -117,6 +117,7 @@ client.on('message', message => {
 				}
 			}
 		}
+	}
         if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
                 if (message.member.hasPermission("ADMINISTRATOR")) {
