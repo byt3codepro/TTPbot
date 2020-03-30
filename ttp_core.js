@@ -116,6 +116,8 @@ client.on('message', message => {
 					}
 				}
 			}
+		} else {
+			message.channel.send('❗ Insufficient permissions');
 		}
 	}
         if (message.content.startsWith('/purge')) {
