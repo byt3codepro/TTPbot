@@ -14,7 +14,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-var whitelist = ["179654608371712000", "514127283636797450"];
+var whitelist = ["179654608371712000", "514127283636797450", "278212372202520576"];
     if (message.guild === null) {
         // space for dm commands
     } else {
