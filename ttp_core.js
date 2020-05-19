@@ -77,8 +77,8 @@ client.on('message', message => {
 				}
         	})
         }
+	var whitelist = ["179654608371712000", "278212372202520576"];
         if (message.content == 'ping?') {
-		var whitelist = [179654608371712000,514127283636797450];
             if (whitelist.includes(message.author.id) == true) {
                 message.react('❤️')
                 message.channel.send("🏓")
