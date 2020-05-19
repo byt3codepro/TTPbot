@@ -5,16 +5,16 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    //let ttpTestChannel = client.channels.get("642490607079653416") 
+    //let ttpTestChannel = client.channels.get("642490607079653416")
     //ttpTestChannel.send("Bot restarted - " + Date())
 	//let bitch = client.channels.get("685936439925407753")
     //bitch.send("***slayerzplayerz mom smells 😹 @everyone ***") 
-    client.user.setActivity('MAINTENANCE', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
-    client.user.setStatus('dnd') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
+    //client.user.setActivity('MAINTENANCE', { type: 'PLAYING' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
+    client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
 client.on('message', message => {
-var whitelist = ["179654608371712000", "514127283636797450", "278212372202520576"];
+var whitelist = ["179654608371712000", "514127283636797450"];
     if (message.guild === null) {
         // space for dm commands
     } else {
