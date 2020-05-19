@@ -1,4 +1,6 @@
 //©raltec 2019
+var whitelist = [179654608371712000, 514127283636797450];
+
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -77,7 +79,7 @@ client.on('message', message => {
         	})
         }
         if (message.content == 'ping?') {
-            if (message.author.id == 179654608371712000) {
+            if (whitelist.includes(message.author.id)) {
                 message.react('❤️')
                 message.channel.send("🏓")
                 message.channel.send("*** Pong!***");
