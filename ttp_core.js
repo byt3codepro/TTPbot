@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    //let ttpTestChannel = client.channels.get("642490607079653416")
+    //let ttpTestChannel = client.channels.get("642490607079653416") 
     //ttpTestChannel.send("Bot restarted - " + Date())
 	//let bitch = client.channels.get("685936439925407753")
     //bitch.send("***slayerzplayerz mom smells 😹 @everyone ***") 
