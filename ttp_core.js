@@ -8,7 +8,7 @@ client.on('ready', () => {
     //let ttpTestChannel = client.channels.get("642490607079653416")
     //ttpTestChannel.send("Bot restarted - " + Date())
 	//let bitch = client.channels.get("685936439925407753")
-    //bitch.send("***slayerzplayerz mom smells 😹 @everyone ***") 
+    //bitch.send("***slayerzplayerz mom smells 😹 @everyone ***")  
     //client.user.setActivity('nil', { type: 'nil' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
