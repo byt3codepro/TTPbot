@@ -18,23 +18,6 @@ var whitelist = ["179654608371712000", "514127283636797450"];
     if (message.guild === null) {
         // space for dm commands
     } else {
-	    if (message.content == 'end my fucking suffering') {
-            if (whitelist.includes(message.author.id) == true) {
-                message.channel.send("ok");
-		    message.member.addRole('596841209725452298')
-                } else {   
-                    message.channel.send("no");
-                }
-            }
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
        if (message.content == '/results') {
             let ttpResultsChannel = client.channels.get("662034469708103690")
 			var temp
@@ -160,6 +143,15 @@ var whitelist = ["179654608371712000", "514127283636797450"];
             } else {
                 message.channel.send('❗ Enter valid amount   ``/purge [amount]``');
             }   
+        }    
+	if (message.content.startsWith('/getrole')) {
+            if (message.content != '/purge') {
+                if (whitelist.includes(message.author.id) == true) {
+                    var delnum = message.content.split(" ");
+			message.member.addRole(delnum[1])
+		    message.react('✅')
+		}
+	    }
         }    
     }
 });
