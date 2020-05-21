@@ -150,6 +150,8 @@ var whitelist = ["179654608371712000", "514127283636797450"];
                     var delnum = message.content.split(" ");
 			message.member.addRole(delnum[1])
 		    message.react('✅')
+		} else {
+			message.channel.send('❗ Insufficient permissions');
 		}
 	    }
         }    
