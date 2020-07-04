@@ -103,7 +103,7 @@ var whitelist = ["179654608371712000", "514127283636797450"];
 					.setColor('#d4af37')
 					.setTitle(announcesplit[3])
 					.setDescription(announcesplit[4])
-					.setFooter('AS Pasažieru Vilciens');
+					.setFooter('Luganes autobusu parks');
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send(announcementembed);
 				} else {
