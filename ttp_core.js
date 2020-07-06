@@ -170,6 +170,22 @@ var whitelist = ["179654608371712000", "514127283636797450"];
 	    
 	    
 	    
+	  receivedMessage.channel.send("Hello World").then(async function (message) {
+	      await message.react('✅')
+	      const filter = (reaction, user) => {
+		   return reaction.emoji.name === `✅` && user.id === call.message.author.id;
+	      };
+
+	      const collector = message.createReactionCollector(filter, { time: time });
+
+	      collector.on('collect', (reaction, reactionCollector) => {
+		   //do stuff
+	      });
+	 });
+	    
+	    
+	    
+	    
 	    
 	    
 	    
