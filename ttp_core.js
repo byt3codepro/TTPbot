@@ -148,8 +148,10 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
             if (message.content != '/lv remove') {
                 if (message.content == '/lv') {
 			message.member.addRole("705757268448378971")
+			message.react('✅')
 		} else {
-			message.member.removeRole("705757268448378971")
+			message.member.removeRoles("705757268448378971")
+			message.react('✅')
 		}
 	    }
         }
