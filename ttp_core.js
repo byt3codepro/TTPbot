@@ -13,71 +13,15 @@ client.on('ready', () => {
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
+bot.on('guildMemberAdd', member => {
+    member.user.send("the test!")
+});
+
 client.on('message', message => {
 var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798"];
     if (message.guild === null) {
         // space for dm commands
     } else {
-       if (message.content == '/results') {
-            let ttpResultsChannel = client.channels.get("662034469708103690")
-			var temp
-		   	ttpResultsChannel.fetchMessage('662034597508546582').then(results => {
-				var resultSplit = results.content.split("{}")
-				var userIDposition = resultSplit.indexOf(message.author.id)
-				if (userIDposition == -1) {
-					message.channel.send("❗ Application not found. If you applied, contact an Administrator for support.")
-				} else {
-					var userID = resultSplit[userIDposition]
-					var mark = resultSplit[userIDposition+1]
-					var comment = resultSplit[userIDposition+2]
-					var role = resultSplit[userIDposition+3]
-					var specialRole = "Feel free to re-apply next time we're hiring!"
-					if (mark == "PASSED") {
-						var specialRole = "You have been automaticially roled"
-						if (role == "Tram Driver") {
-							message.member.addRole('641984034397749258') //Staff
-							message.member.addRole('645398767633170462') //LR
-							message.member.addRole('643841138482216979') //Passenger Service
-							message.member.addRole('642382484968833024') //Tram Driver
-						} else {
-							if (role == "Technician") {
-								message.member.addRole('641984034397749258') //Staff
-								message.member.addRole('645398767633170462') //LR
-								message.member.addRole('643841189669240852') //Fleet Service
-								message.member.addRole('642478589186408470') //Technician
-							} else {
-								if (role == "Dispatcher") {
-									message.member.addRole('641984034397749258') //Staff
-									message.member.addRole('645398767633170462') //LR
-									message.member.addRole('643841357248724992') //Dispatch Service
-									var specialRole = "❗ Please contact the Chief Central Dispatcher to get ranked Station or Central Dispatcher." 
-								} else {
-									var specialRole = "❗ We had trouble automaticially adding you roles. Please contact an administrator to role you."
-								}
-							}
-						}
-					}
-					var color
-					message.channel.send("Results sent, check your DMs!")
-					if (mark == "PASSED") {
-						color = '#008000'
-					} else {
-						color = '#800000'
-					}
-					const resultsEmbed = new Discord.RichEmbed()
-					.setColor(color)
-					.setTitle('Application results')
-					.setDescription(mark)
-					.addField('User ID', userID)
-					.addField('Notes', "Applied for: " + role + "\n" + comment)
-					.addField(specialRole, "─────────────────────")
-					.setTimestamp()
-					.setFooter('TRAMVAJU UN TROLEJBUSU PĀRVALDE', 'https://i.gyazo.com/c2da46134a992ace4d9ee3cda7cfe8b2.png');
-
-					message.author.send(resultsEmbed);
-				}
-        	})
-        }
         if (message.content == 'ping?') {
             if (whitelist.includes(message.author.id) == true) {
                 message.react('❤️')
@@ -89,8 +33,12 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
                     message.channel.send(a[Math.floor(Math.random() * a.length)]);
                 }
             }
-        if (message.content == '/cmds') {
-            message.channel.send('Due to budget cuts, this command has been disabled\nWe apologise for any inconvenience caused', {files: ['https://cdn.drawception.com/drawings/LrK4OWAvPQ.png']});
+        //if (message.content == '/cmds') {
+    	//	const announcementembed = new Discord.RichEmbed()
+	//	.setColor('#000000')
+	//	.setTitle("Commands for LAP bot")
+	//	.setFooter('Luganes autobusu parks')
+	//	.addField('Inline field title', 'Some value here', true)
 	}
 	if (message.content.startsWith('/announce')) {
 		if (whitelist.includes(message.author.id) == true) {
