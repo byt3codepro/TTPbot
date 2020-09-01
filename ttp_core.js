@@ -12,6 +12,11 @@ client.on('ready', () => {
     //client.user.setActivity('nil', { type: 'nil' }); //PLAYING / STREAMING / LISTENING / WATCHING         MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
+
+bot.on('guildMemberAdd', member => {
+    member.user.send("the test!")
+});
+
 client.on('message', message => {
 var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798"];
     if (message.guild === null) {
