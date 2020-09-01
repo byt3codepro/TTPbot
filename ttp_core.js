@@ -13,7 +13,7 @@ client.on('ready', () => {
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
 });
 
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     member.user.send("the test!")
 });
 
