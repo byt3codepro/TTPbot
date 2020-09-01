@@ -143,18 +143,15 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
             } else {
                 message.channel.send('❗ Enter valid amount   ``/purge [amount]``');
             }   
-        }    
-	if (message.content.startsWith('/lv')) {
-            if (message.content != '/lv remove') {
-                if (message.content == '/lv') {
-			message.member.addRole("705757268448378971")
-			message.react('✅')
-		} else {
-			message.member.removeRoles("705757268448378971")
-			message.react('✅')
-		}
-	    }
         }
+	if (message.content == '/lv') {
+		message.member.addRole("705757268448378971")
+		message.react('✅')
+	}
+	if (message.content == '/lv remove') {
+		message.member.removeRole("705757268448378971")
+		message.react('✅')
+	}
 	    
 	    
 	    
