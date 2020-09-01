@@ -33,13 +33,6 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
                     message.channel.send(a[Math.floor(Math.random() * a.length)]);
                 }
             }
-        //if (message.content == '/cmds') {
-    	//	const announcementembed = new Discord.RichEmbed()
-	//	.setColor('#000000')
-	//	.setTitle("Commands for LAP bot")
-	//	.setFooter('Luganes autobusu parks')
-	//	.addField('Inline field title', 'Some value here', true)
-	//}
 	if (message.content.startsWith('/announce')) {
 		if (whitelist.includes(message.author.id) == true) {
 			if (message.content == '/announce help') {
