@@ -14,7 +14,7 @@ client.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.user.send("the test!");
+    member.user.send("the test!")
 });
 
 client.on('message', message => {
@@ -39,7 +39,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 	//	.setTitle("Commands for LAP bot")
 	//	.setFooter('Luganes autobusu parks')
 	//	.addField('Inline field title', 'Some value here', true)
-	}
+	//}
 	if (message.content.startsWith('/announce')) {
 		if (whitelist.includes(message.author.id) == true) {
 			if (message.content == '/announce help') {
