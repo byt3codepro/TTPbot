@@ -14,7 +14,7 @@ client.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.user.send("the test!")
+    member.user.send("the test!");
 });
 
 client.on('message', message => {
