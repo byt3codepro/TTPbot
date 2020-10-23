@@ -82,7 +82,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
             }   
         }
 	if (message.content == '/lv') {
-		if (message.author.id == "602742940074246144") {
+		if (message.author.id == "264362178839183361") { //602742940074246144
 			message.channel.send('❗ Root Issue (7)\n```Root exited with false member value!\nLUG673432\n\n/lvYES.ID705757268448378971.X.REACT=X```');
 			message.react('❌')
 		} else {
