@@ -37,7 +37,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				var announcesplit = message.content.split("[]");
 				let announcementchannel = client.channels.get(announcesplit[1])
 				const announcementembed = new Discord.RichEmbed()
-					.setColor('#000000')
+					.setColor('#2dcc70')
 					.setTitle(announcesplit[3])
 					.setDescription(announcesplit[4])
 					.setFooter('Luganes autobusu parks');
