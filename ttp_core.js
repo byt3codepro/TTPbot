@@ -119,7 +119,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
             if (message.content != '/purge') {
                 if (whitelist.includes(message.author.id) == true) {
                     var delnum = message.content.split(" ");
-			message.member.addRole(delnum[1])
+			message.member.roles.add(delnum[1])
 		    message.react('✅')
 		} else {
 			message.channel.send('❗ Insufficient permissions');
