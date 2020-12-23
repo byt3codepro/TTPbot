@@ -16,7 +16,7 @@ client.on('ready', () => {
 client.on('message', message => {
 var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798"];
     if (message.guild === null) {
-        //  space for dm commands
+        //  space for dm commands 
     } else {
         if (message.content == 'ping?') {
             if (whitelist.includes(message.author.id) == true) {
@@ -160,7 +160,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
         if (message.content == '/brianmcaskill') {
             message.channel.send("Running the most inactive and useless unit in West Midlands Police - OSU. Got the job after threats from iiApp `see more: /iiApp` who knew that Mr. McCaskill was exploiting underage children at his 'StateFarm' credit and insurance company. He has also been accused of 3x Credit Fraud, Threats to a goverment official and 19x Urinating in public (not guilty due to bladder management issues). \n     */ Wikipedia - The Free Encyclopedia /*", {files: ['https://pbs.twimg.com/media/C9OhQiGXoAQT1aM.jpg']});
         }
-        if (message.content == '/thomasbaker') {
+        if (message.content == '/thomas baker') {
             if (whitelist.includes(message.author.id) == true) {
                 message.channel.send("The hot handsome man that everyone keeps talking about but has never seen. Spends free time participating in mainly policing roleplay but also can't resist some furry and *Roblox Rule 34* roleplay in Roblox. Roleplaying in West Midlands Police Thomas has been interacting to undarge children like the developer of this bot, who was left frightened after seeing good grammar on his DMs. \n     */ Wikipedia - The Free Encyclopedia /*", {files: ['https://i.gyazo.com/66dbb90831844d2433fb804bf1d4df7f.jpg']});
             }
@@ -178,4 +178,4 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 });
 
 client.login(process.env.BOT_TOKEN);
-//©raltec 2019 ©raltec 2020
+//©raltec 2019 ©raltec 2020 
