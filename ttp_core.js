@@ -40,7 +40,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 					.setColor('#2dcc70')
 					.setTitle(announcesplit[3])
 					.setDescription(announcesplit[4])
-					.setFooter('LUGANE');
+					.setFooter('Luganes pilsēta');
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send(announcementembed);
 				} else {
