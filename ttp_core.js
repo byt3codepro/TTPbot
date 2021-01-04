@@ -87,13 +87,13 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 			message.react('❌')
 		} else {
 			console.log(message.author)
-			message.author.roles.add('705757268448378971');
+			//message.author.roles.add('705757268448378971');
 			message.react('✅') 
 		}
 	}
 	if (message.content == '/lv remove') {
 		console.log(message.member)
-		message.author.roles.remove('705757268448378971');
+		//message.author.roles.remove('705757268448378971');
 		message.react('✅')
 	}
 	    
