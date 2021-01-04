@@ -81,21 +81,18 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
                 message.channel.send('❗ Enter valid amount   ``/purge [amount]``');
             }   
         }
+	    let role = message.guild.roles.cache.get("705757268448378971");
 	if (message.content == '/lv') {
 		if (message.author.id == "602742940074246144") {
 			message.channel.send('❗ Root Issue (7)\n```Root exited with false member value!\nLUG673432\n\n/lvYES.ID705757268448378971.X.REACT=X```');
 			message.react('❌')
 		} else {
-			console.log(message.member)
-			//message.author.roles.add('705757268448378971');
-			//message.member.roles.cache.add('705757268448378971');
+			message.member.roles.cache.add(role);
 			message.react('✅') 
 		}
 	}
 	if (message.content == '/lv remove') {
-		console.log(message)
-		//XXmessage.author.member.roles.remove('705757268448378971');
-		//message.member.roles.cache.remove('705757268448378971');
+		message.member.roles.cache.remove(role);
 		message.react('✅')
 	}
 	    
