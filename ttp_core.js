@@ -61,7 +61,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 	}
         if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
-                if (message.member.hasPermission("ADMINISTRATOR")) {
+                if (whitelist.includes(message.author.id) == true) {
                     var delnum = message.content.split(" ");
                     var bulkError = false
                     if (parseInt(delnum[1]) > 100) {
