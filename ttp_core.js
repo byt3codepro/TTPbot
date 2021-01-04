@@ -75,7 +75,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
                         }
                     }
                 } else {
-                    message.channel.send('❗ Insufficient permissions');
+                    message.channel.send('❗ Insufficient permissions'); 
                 }
             } else {
                 message.channel.send('❗ Enter valid amount   ``/purge [amount]``');
