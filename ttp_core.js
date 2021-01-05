@@ -7,7 +7,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
     //let ttpTestChannel = client.channels.get("642490607079653416")
     //ttpTestChannel.send("Bot restarted - " + Date())
-	let bitch = client.channels.get("747027173730156547")
+	let bitch = client.channels.cache.get("747027173730156547")
     bitch.send("***slayerzplayerz mom smells 😹***")  
     //client.user.setActivity('nil', { type: 'nil' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
     client.user.setStatus('online') //online - user is online / idle - user is AFK / offline - user is offline or invisible / dnd - user is in Do Not Disturb
