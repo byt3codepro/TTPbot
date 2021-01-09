@@ -124,8 +124,8 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				var appresultsplit = message.content.split(" ");
 				var id = appresultsplit[1]
 				
-				const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === '746662409724231798'
-				message.awaitReactions(filter, { time: 15000 })
+				const filter = (reaction, user) => reaction.emoji.name === '💌'
+				message.awaitReactions(filter, { time: 30000 })
 					.then(collected => console.log(`Collected ${collected.size} reactions`))
 				
 				//const resultsembed = new Discord.MessageEmbed()
