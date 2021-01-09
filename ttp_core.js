@@ -112,75 +112,8 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 		if (whitelist.includes(message.author.id) == true) {
 			//if (message.content.startsWith('/dm')) {
 				var botdmsplit = message.content.split("[]");
-				client.users.cache.get(botdmsplit[0]).send(botdmsplit[1]);
-			//}
-			/*if (message.content.startsWith('/app')) {
-				message.react('✅')
-				message.react('❌')
-				message.react('🚌')
-				message.react('🎫')
-				message.react('🔧')
-				message.react('💌')
-				var appresultsplit = message.content.split(" ");
-				var id = appresultsplit[1]
-				
-				var sendcount
-				const sendfilter = (reaction, user) => reaction.emoji.name === '💌' && whitelist.includes(user.id)
-				message.awaitReactions(sendfilter, { time: 10000 })
-					.then(collected => sendcount = collected.size)
-				setTimeout(wait, 10000)
-				function wait() {
-					if (sendcount >= 1) {
-						var passed
-						var failed
-						var bus
-						var ticket
-						var tech
-						const afilter = (reaction, user) => reaction.emoji.name === '✅' && whitelist.includes(user.id)
-						message.awaitReactions(afilter, { time: 1 })
-							.then(collected => passed = collected.size)
-						const bfilter = (reaction, user) => reaction.emoji.name === '❌' && whitelist.includes(user.id)
-						message.awaitReactions(bfilter, { time: 1 })
-							.then(collected => failed = collected.size)
-						const cfilter = (reaction, user) => reaction.emoji.name === '🚌' && whitelist.includes(user.id)
-						message.awaitReactions(cfilter, { time: 1 })
-							.then(collected => bus = collected.size)
-						const dfilter = (reaction, user) => reaction.emoji.name === '🎫' && whitelist.includes(user.id)
-						message.awaitReactions(dfilter, { time: 1 })
-							.then(collected => ticket = collected.size)
-						const efilter = (reaction, user) => reaction.emoji.name === '🔧' && whitelist.includes(user.id)
-						message.awaitReactions(efilter, { time: 1 })
-							.then(collected => tech = collected.size)
-
-						var rank = "ERROR, DM RALFOTR"
-						var finalmark = "ERROR, DM RALFOTR"
-						if (passed >= 1) {
-							finalmark = "PASSED"
-						} else if (failed >= 1) {
-							finalmark = "FAILED"
-						}
-						if (bus >= 1) {
-							rank = "Bus Driver"
-						} else if (ticket >= 1) {
-							rank = "Ticket Inspector"
-						} else if (tech >= 1) {
-							rank = "Technician"
-						}
-
-						const resultsembed = new Discord.MessageEmbed()
-						.setColor('#2dcc70')
-						.setTitle("Your application status has been updated!")
-						.setDescription("Hello!\nThank you for your interest in our group. We're sorry to announce that your application for " + rank + " within LAP has been **" + finalmark + "**. You can improve your application and re-apply. If you'd like to know what was wrong with your application, please request this in this DM within 48 hours, but note that you'll only be able to re-apply at the next recruitment cycle if you do so.")
-						.setFooter('SIA "Luganes autobusu parks"');
-
-						client.users.cache.get(id).send(resultsembed);
-
-						message.channel.send("Results sent! ``" + id + ", " + role + ", " + finalmark + "``");
-					} else {
-						message.channel.send("``Did not send application result!``");
-					}
-				}
-			}*/  
+				client.users.fetch(botdmsplit[0]).then((user) => {user.send(botdmsplit[1]);});
+			//}  
 		}
 	} 
 	    
