@@ -41,7 +41,8 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 	if (message.content.startsWith('/announce')) {
 		if (whitelist.includes(message.author.id) == true) {
 			if (message.content == '/announce help') {
-				message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific role, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
+				message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific 
+						    , put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
 			} else {
 				var announcesplit = message.content.split("[]");
 				let announcementchannel = client.channels.cache.get(announcesplit[1])
@@ -150,7 +151,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 					message.awaitReactions(efilter, { time: 1 })
 						.then(collected => tech = collected.size)
 					
-					var role = "ERROR, DM RALFOTR"
+					var rank = "ERROR, DM RALFOTR"
 					var finalmark = "ERROR, DM RALFOTR"
 					if (passed >= 1) {
 						finalmark = "PASSED"
@@ -158,11 +159,11 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 						finalmark = "FAILED"
 					}
 					if (bus >= 1) {
-						role = "Bus Driver"
+						rank = "Bus Driver"
 					} else if (ticket >= 1) {
-						role = "Ticket Inspector"
+						rank = "Ticket Inspector"
 					} else if (tech >= 1) {
-						role = "Technician"
+						rank = "Technician"
 					}
 					
 					const resultsembed = new Discord.MessageEmbed()
