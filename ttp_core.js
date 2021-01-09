@@ -21,7 +21,6 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 	let botdms = client.channels.cache.get("797253920421576725")
 	const dmreceivedEmbed = new Discord.MessageEmbed()
 	.setColor('#2dcc70')
-	//.setTitle("Bot Direct Message")
 	.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 	.setDescription(message.content)
 	botdms.send(dmreceivedEmbed);
@@ -105,17 +104,21 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 		message.member.roles.remove('705757268448378971');
 		message.react('✅')
 	}
+	if (message.content == '/lv remove') {
+		message.member.roles.remove('705757268448378971');
+		message.react('✅')
+	}   
+	if (message.channel.name == "bot-feed") {
+		if (whitelist.includes(message.author.id) == true) {
+			var botdmsplit = message.content.split("[]");
+			client.users.get(botdmsplit[1]).send(botdmsplit[2]);
+		}
+	} 
 	    
 	    
 	    
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+
 	    
 	    
 	    
