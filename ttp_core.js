@@ -121,6 +121,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				message.react('🎫')
 				message.react('🔧')
 				message.react('💌')
+				
 			}   
 		}
 	} 
