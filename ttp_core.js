@@ -114,7 +114,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				var botdmsplit = message.content.split("[]");
 				client.users.cache.get(botdmsplit[0]).send(botdmsplit[1]);
 			//}
-			if (message.content.startsWith('/app')) {
+			/*if (message.content.startsWith('/app')) {
 				message.react('✅')
 				message.react('❌')
 				message.react('🚌')
@@ -180,7 +180,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 						message.channel.send("``Did not send application result!``");
 					}
 				}
-			}   
+			}*/  
 		}
 	} 
 	    
