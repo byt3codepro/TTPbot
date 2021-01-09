@@ -134,20 +134,20 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 					var bus
 					var ticket
 					var tech
-					const mark = (reaction, user) => reaction.emoji.name === '✅' && whitelist.includes(user.id)
-					message.awaitReactions(mark, { time: 1 })
+					const afilter = (reaction, user) => reaction.emoji.name === '✅' && whitelist.includes(user.id)
+					message.awaitReactions(afilter, { time: 1 })
 						.then(collected => passed = collected.size)
-					const mark = (reaction, user) => reaction.emoji.name === '❌' && whitelist.includes(user.id)
-					message.awaitReactions(mark, { time: 1 })
+					const bfilter = (reaction, user) => reaction.emoji.name === '❌' && whitelist.includes(user.id)
+					message.awaitReactions(bfilter, { time: 1 })
 						.then(collected => failed = collected.size)
-					const mark = (reaction, user) => reaction.emoji.name === '🚌' && whitelist.includes(user.id)
-					message.awaitReactions(mark, { time: 1 })
+					const cfilter = (reaction, user) => reaction.emoji.name === '🚌' && whitelist.includes(user.id)
+					message.awaitReactions(cfilter, { time: 1 })
 						.then(collected => bus = collected.size)
-					const mark = (reaction, user) => reaction.emoji.name === '🎫' && whitelist.includes(user.id)
-					message.awaitReactions(mark, { time: 1 })
+					const dfilter = (reaction, user) => reaction.emoji.name === '🎫' && whitelist.includes(user.id)
+					message.awaitReactions(dfilter, { time: 1 })
 						.then(collected => ticket = collected.size)
-					const mark = (reaction, user) => reaction.emoji.name === '🔧' && whitelist.includes(user.id)
-					message.awaitReactions(mark, { time: 1 })
+					const efilter = (reaction, user) => reaction.emoji.name === '🔧' && whitelist.includes(user.id)
+					message.awaitReactions(efilter, { time: 1 })
 						.then(collected => tech = collected.size)
 					
 					var role = "ERROR, DM RALFOTR"
