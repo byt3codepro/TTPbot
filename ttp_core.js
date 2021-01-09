@@ -124,19 +124,59 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				var appresultsplit = message.content.split(" ");
 				var id = appresultsplit[1]
 				
-				var emojicount
-				const filter = (reaction, user) => reaction.emoji.name === '💌' && whitelist.includes(user.id)
-				message.awaitReactions(filter, { time: 15000 })
-					.then(collected => emojicount = collected.size)
-				
-				
-				//const resultsembed = new Discord.MessageEmbed()
-					//.setColor('#2dcc70')
-					//.setTitle(announcesplit[3])
-					//.setDescription(announcesplit[4])
-					//.setFooter('Luganes pilsēta');
-				
-				
+				var sendcount
+				const sendfilter = (reaction, user) => reaction.emoji.name === '💌' && whitelist.includes(user.id)
+				message.awaitReactions(sendfilter, { time: 15000 })
+					.then(collected => sendcount = collected.size)
+				if (sendcount >= 1) {
+					var passed
+					var failed
+					var bus
+					var ticket
+					var tech
+					const mark = (reaction, user) => reaction.emoji.name === '✅' && whitelist.includes(user.id)
+					message.awaitReactions(mark, { time: 1 })
+						.then(collected => passed = collected.size)
+					const mark = (reaction, user) => reaction.emoji.name === '❌' && whitelist.includes(user.id)
+					message.awaitReactions(mark, { time: 1 })
+						.then(collected => failed = collected.size)
+					const mark = (reaction, user) => reaction.emoji.name === '🚌' && whitelist.includes(user.id)
+					message.awaitReactions(mark, { time: 1 })
+						.then(collected => bus = collected.size)
+					const mark = (reaction, user) => reaction.emoji.name === '🎫' && whitelist.includes(user.id)
+					message.awaitReactions(mark, { time: 1 })
+						.then(collected => ticket = collected.size)
+					const mark = (reaction, user) => reaction.emoji.name === '🔧' && whitelist.includes(user.id)
+					message.awaitReactions(mark, { time: 1 })
+						.then(collected => tech = collected.size)
+					
+					var role = "ERROR, DM RALFOTR"
+					var finalmark = "ERROR, DM RALFOTR"
+					if (passed >= 1) {
+						finalmark = "PASSED"
+					} else if (failed >= 1) {
+						finalmark = "FAILED"
+					}
+					if (bus >= 1) {
+						role = "Bus Driver"
+					} else if (ticket >= 1) {
+						role = "Ticket Inspector"
+					} else if (tech >= 1) {
+						role = "Technician"
+					}
+					
+					const resultsembed = new Discord.MessageEmbed()
+					.setColor('#2dcc70')
+					.setTitle("Your application status has been updated!")
+					.setDescription("Hello!\nThank you for your interest in our group. We're sorry to announce that your application for" + finalmark + "within LAP has been **" + role + "**. You can improve your application and re-apply. If you'd like to know what was wrong with your application, please request this in this DM within 48 hours, but note that you'll only be able to re-apply at the next recruitment cycle if you do so.")
+					.setFooter('SIA "Luganes autobusu parks"');
+					
+					client.users.cache.get(id).send(resultsembed);
+					
+					message.channel.send("Results sent! ``" + id + ", " + role + ", " + finalmark + "``");
+				} else {
+					message.channel.send("``Did not send application result!``");
+				}
 			}   
 		}
 	} 
