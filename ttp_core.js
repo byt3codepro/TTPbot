@@ -18,7 +18,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
     if (message.guild === null) {
         //   space for dm commands 
 	    
-	    botdms.send(message) 
+	    botdms.send(message.content) 
 	    
 	//   space for dm commands  
     } else {
