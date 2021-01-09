@@ -124,7 +124,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				var appresultsplit = message.content.split(" ");
 				var id = appresultsplit[1]
 				
-				const filter = (reaction) => reaction.emoji.name === '💌'
+				const filter = (reaction, user) => reaction.emoji.name === '💌' && whitelist.includes(user.id)
 				message.awaitReactions(filter, { time: 30000 })
 					.then(collected => console.log(`Collected ${collected.size} reactions`))
 				
