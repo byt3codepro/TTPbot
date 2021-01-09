@@ -114,13 +114,26 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				var botdmsplit = message.content.split("[]");
 				client.users.cache.get(botdmsplit[1]).send(botdmsplit[2]);
 			}
-			if (message.content == '/app') {
+			if (message.content.startsWith('/app')) {
 				message.react('✅')
 				message.react('❌')
 				message.react('🚌')
 				message.react('🎫')
 				message.react('🔧')
 				message.react('💌')
+				var appresultsplit = message.content.split(" ");
+				var id = appresultsplit[1]
+				
+				const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === '746662409724231798'
+				message.awaitReactions(filter, { time: 15000 })
+					.then(collected => console.log(`Collected ${collected.size} reactions`))
+				
+				const resultsembed = new Discord.MessageEmbed()
+					.setColor('#2dcc70')
+					.setTitle(announcesplit[3])
+					.setDescription(announcesplit[4])
+					.setFooter('Luganes pilsēta');
+				
 				
 			}   
 		}
