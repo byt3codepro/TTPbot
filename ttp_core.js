@@ -128,7 +128,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 				const sendfilter = (reaction, user) => reaction.emoji.name === '💌' && whitelist.includes(user.id)
 				message.awaitReactions(sendfilter, { time: 10000 })
 					.then(collected => sendcount = collected.size)
-				setTimeout(wait, 3000)
+				setTimeout(wait, 10000)
 				function wait() {
 					if (sendcount >= 1) {
 						var passed
