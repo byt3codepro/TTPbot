@@ -170,7 +170,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 						const resultsembed = new Discord.MessageEmbed()
 						.setColor('#2dcc70')
 						.setTitle("Your application status has been updated!")
-						.setDescription("Hello!\nThank you for your interest in our group. We're sorry to announce that your application for" + finalmark + "within LAP has been **" + role + "**. You can improve your application and re-apply. If you'd like to know what was wrong with your application, please request this in this DM within 48 hours, but note that you'll only be able to re-apply at the next recruitment cycle if you do so.")
+						.setDescription("Hello!\nThank you for your interest in our group. We're sorry to announce that your application for " + rank + " within LAP has been **" + finalmark + "**. You can improve your application and re-apply. If you'd like to know what was wrong with your application, please request this in this DM within 48 hours, but note that you'll only be able to re-apply at the next recruitment cycle if you do so.")
 						.setFooter('SIA "Luganes autobusu parks"');
 
 						client.users.cache.get(id).send(resultsembed);
