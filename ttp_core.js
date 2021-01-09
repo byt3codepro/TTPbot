@@ -111,7 +111,7 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 	if (message.channel.name == "bot-feed") {
 		if (whitelist.includes(message.author.id) == true) {
 			var botdmsplit = message.content.split("[]");
-			client.users.get(botdmsplit[1]).send(botdmsplit[2]);
+			client.users.cache.get(botdmsplit[1]).send(botdmsplit[2]);
 		}
 	} 
 	    
