@@ -8,7 +8,7 @@ const {google} = require('googleapis');
 
 client.on('message', message => {
 		if (message.content == "?testing") {
-			logNamesAndMajors();
+			listMajors();
 		}
 });
 
