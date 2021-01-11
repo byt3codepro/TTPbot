@@ -16,7 +16,7 @@ client.on('message', message => {
 		}
 		
 		//   space for dm commands  
-    } else {
+    //} else {
 		//   space for server commands  
 		
 		
