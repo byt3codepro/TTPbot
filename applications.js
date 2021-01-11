@@ -11,7 +11,7 @@ client.on('ready', () => {
 client.on('message', message => {
 		//   space for dm commands  
 		
-		if (message.content.startsWith("?testing")) {
+		if (message.content == "?testing") {
 			message.reply("Tested!")
 		}
 		
