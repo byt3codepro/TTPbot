@@ -12,13 +12,6 @@ client.on('message', message => {
 		//}
 		
 		//   space for dm commands  
-    //} else {
-		//   space for server commands  
-		
-		
-		
-		//   space for server commands  
-    }
 });
 
 client.login(process.env.BOT_TOKEN);
