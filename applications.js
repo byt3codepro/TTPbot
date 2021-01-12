@@ -35,6 +35,7 @@ async function results(message) {
 			message.reply("Already sent!   #" + i);
 		}
 	}
+	message.reply("***END***");
 }
 
 client.login(process.env.BOT_TOKEN);
