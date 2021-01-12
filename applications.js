@@ -20,7 +20,7 @@ async function results(message) {
 	await doc.loadInfo(); // loads document properties and worksheets
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
-	for (let i = 1; i < 250; i++) {
+	for (let i = 2; i < 250; i++) {
 		const sent = sheet.getCellByA1('B' + i);
 		const isemptycheck = sheet.getCellByA1('W' + i);
 		if (sent.value === "FALSE") {
