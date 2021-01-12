@@ -7,11 +7,11 @@ const client = new Discord.Client();
 
 client.on('message', message => {
 		if (message.content == "/results") {
-			results();
+			results(message);
 		}
 });
 
-async function results() {
+async function results(message) {
 	// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	await doc.useServiceAccountAuth({
 		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
