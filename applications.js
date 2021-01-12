@@ -19,8 +19,8 @@ async function results() {
 	});
 	await doc.loadInfo(); // loads document properties and worksheets
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-	await sheet.loadCells('A2:W1000');
 	for (let i = 1; i < 1000; i++) {
+		await sheet.loadCells('A' + i + ':W' + i);
 		if (sheet.getCellByA1('B' + i).value == "FALSE") {
 			if (sheet.getCellByA1('W' + i).value == "") {
 				break;
