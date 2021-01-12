@@ -2,7 +2,7 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 // Initialize the sheet - doc ID is the long id in the sheets URL
-const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
+const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
 
 // Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 await doc.useServiceAccountAuth({
