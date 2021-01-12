@@ -10,9 +10,9 @@ doc.useServiceAccountAuth({
   private_key: process.env.GOOGLE_PRIVATE_KEY,
 });
 
-await doc.loadInfo(); // loads document properties and worksheets
+doc.loadInfo(); // loads document properties and worksheets
 console.log(doc.title);
-await doc.updateProperties({ title: 'renamed doc' });
+doc.updateProperties({ title: 'renamed doc' });
 
 const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	
