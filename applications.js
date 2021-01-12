@@ -9,7 +9,7 @@ async function accessSpreadsheet() {
 	const info = await promisify(doc.getInfo)();
 	const sheet = info.worksheets[0]
 	console.log('Title: ${sheet.title}, Rows: ${sheet.rowCount}')
-
+}
 	
 	
 	
@@ -29,4 +29,3 @@ client.on('message', message => {
 
 client.login(process.env.BOT_TOKEN);
 //©raltec 2021
-}
