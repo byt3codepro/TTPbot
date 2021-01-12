@@ -11,7 +11,7 @@ client.on('message', message => {
 		}
 });
 
-async function reults() {
+async function results() {
 	// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	await doc.useServiceAccountAuth({
 		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
