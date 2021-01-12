@@ -21,10 +21,14 @@ async function reults() {
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	for (let i = 1; i < array.length; i++) {
 		if (sheet.getCellByA1('B' + i) == "FALSE") {
-			const mark = sheet.getCellByA1('A' + i);
-			message.channel.send(mark.value)
+			if () {
+				break;
+			} else {
+				const mark = sheet.getCellByA1('A' + i);
+				message.reply(mark.value)
+			}
 		} else {
-			message.channel.send("Already sent!");
+			message.reply("Already sent!");
 		}
 	}
 }
