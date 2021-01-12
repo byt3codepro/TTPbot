@@ -23,13 +23,13 @@ async function results(message) {
 	for (let i = 2; i < 250; i++) {
 		const sent = sheet.getCellByA1('B' + i);
 		const isemptycheck = sheet.getCellByA1('W' + i);
-		if (sent.value === "FALSE") {
+		if (sent.value === "☐") {
 			if (isemptycheck.value === "") {
 				break;
 			} else {
 				const mark = sheet.getCellByA1('A' + i);
 				message.reply(mark.value);
-				sent.value = "TRUE"
+				sent.value = "☑"
 			}
 		} else {
 			message.reply("Already sent!   #" + i);
