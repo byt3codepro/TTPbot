@@ -1,15 +1,20 @@
 //©raltec 2021
 const { GoogleSpreadsheet } = require('google-spreadsheet');
-const { promisify } = require('util');
-const creds = process.env.creds
 
-async function accessSpreadsheet() {
-	const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
-	await promisify(doc.useServiceAccountAuth)(creds);
-	const info = await promisify(doc.getInfo)();
-	const sheet = info.worksheets[0]
-	console.log('Title: ${sheet.title}, Rows: ${sheet.rowCount}')
-}
+// Initialize the sheet - doc ID is the long id in the sheets URL
+const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
+
+// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+await doc.useServiceAccountAuth({
+  client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+  private_key: process.env.GOOGLE_PRIVATE_KEY,
+});
+
+await doc.loadInfo(); // loads document properties and worksheets
+console.log(doc.title);
+await doc.updateProperties({ title: 'renamed doc' });
+
+const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	
 	
 	
@@ -22,7 +27,8 @@ const client = new Discord.Client();
 
 client.on('message', message => {
 		if (message.content == "?testing") {
-			accessSpreadsheet();
+			console.log(sheet.title);
+			console.log(sheet.rowCount);
 		}
 });
 
