@@ -21,12 +21,14 @@ async function results(message) {
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	for (let i = 1; i < 1000; i++) {
 		await sheet.loadCells('A' + i + ':W' + i);
-		if (sheet.getCellByA1('B' + i).value == "FALSE") {
-			if (sheet.getCellByA1('W' + i).value == "") {
+		const sent = sheet.getCellByA1('B' + i);
+		const isemptycheck = sheet.getCellByA1('W' + i);
+		if (sent.value == "FALSE") {
+			if (isemptycheck.value == "") {
 				break;
 			} else {
 				const mark = sheet.getCellByA1('A' + i);
-				message.reply(mark.value)
+				message.reply(mark.value);
 			}
 		} else {
 			message.reply("Already sent!");
