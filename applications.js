@@ -20,7 +20,7 @@ async function accessSpreadsheet() {
 	await promisify(doc.useServiceAccountAuth)(creds);
 	const info = await promisify(doc.getInfo)();
 	const sheet = info.worksheets[0]
-	console.log('Title: ${sheet.title}', Rows: ${sheet.rowCount}')
+	console.log('Title: ${sheet.title}, Rows: ${sheet.rowCount}')
 }
 				
 				
