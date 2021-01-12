@@ -32,7 +32,7 @@ async function results(message) {
 				sent.value = "☑"
 			}
 		} else {
-			message.reply("Already sent!   #" + i);
+			message.reply("Already sent!     #" + i);
 		}
 	}
 	message.reply("***END***");
