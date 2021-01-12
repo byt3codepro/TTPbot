@@ -23,7 +23,7 @@ async function results(message) {
 	for (let i = 1; i < 250; i++) {
 		const sent = sheet.getCellByA1('B' + i);
 		const isemptycheck = sheet.getCellByA1('W' + i);
-		if (sent.value == "FALSE") {
+		if (sent.value == "TRUE") {
 			if (isemptycheck.value == "") {
 				break;
 			} else {
