@@ -20,8 +20,8 @@ async function reults() {
 	await doc.loadInfo(); // loads document properties and worksheets
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	for (let i = 1; i < array.length; i++) {
-		if (sheet.getCellByA1('B' + i) == "FALSE") {
-			if () {
+		if (sheet.getCellByA1('B' + i).value == "FALSE") {
+			if (sheet.getCellByA1('W' + i).value == "") {
 				break;
 			} else {
 				const mark = sheet.getCellByA1('A' + i);
