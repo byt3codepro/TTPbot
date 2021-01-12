@@ -31,7 +31,7 @@ async function results(message) {
 				message.reply(mark.value);
 			}
 		} else {
-			message.reply("Already sent!");
+			message.reply("Already sent!   #" + i);
 		}
 	}
 }
