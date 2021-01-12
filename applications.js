@@ -6,10 +6,10 @@ const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g'
 
 async function padla() {
 	// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
-	await doc.useServiceAccountAuth({
-	  client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-	  private_key: process.env.GOOGLE_PRIVATE_KEY,
-	});
+	//await doc.useServiceAccountAuth({
+	  //client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+	  //private_key: process.env.GOOGLE_PRIVATE_KEY,
+	//});
 
 	await doc.loadInfo(); // loads document properties and worksheets
 	console.log(doc.title);
