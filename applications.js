@@ -1,5 +1,5 @@
 //©raltec 2021
-const GoogleSpreadsheet = require('google-spreadsheet');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { promisify } = require('util');
 const creds = process.env.creds
 
