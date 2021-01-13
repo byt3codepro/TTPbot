@@ -20,6 +20,7 @@ async function results(message) {
 	await doc.loadInfo(); // loads document properties and worksheets
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
+	const guild = await client.guilds.fetch('705686666043457606')
 	for (let i = 2; i < 250; i++) {
 		var resultsembed
 		var reasons = ""
@@ -35,11 +36,7 @@ async function results(message) {
 		const robloxuser = sheet.getCellByA1('L' + i);
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
-		client.guilds.fetch('705686666043457606')
-		  .then(guild => {
-		    applicant = guild.members.cache.find((member) => member.name == tag.value)
-		  })
-		  .catch(console.error)
+    		const applicant = guild.members.cache.find((member) => member.name == tag.value)
 		if (mark.value === null) {
 			break;
 		} else {
@@ -135,7 +132,7 @@ async function results(message) {
 					}
 				}
 				sent.value = "☑"
-				console.log(applicant)
+				console.log(applicant.id)
 				//applicantid.send(resultsembed).catch(err => message.reply(err + "     ``USER:(" + tag.value + ")``"));
 				await sheet.saveUpdatedCells();
 			} else {
