@@ -24,10 +24,10 @@ async function results(message) {
 		const sent = sheet.getCellByA1('B' + i);
 		const isemptycheck = sheet.getCellByA1('W' + i);
 		if (sent.value === "☐") {
-			if (isemptycheck.value === "") {
+			const mark = sheet.getCellByA1('A' + i);
+			if (mark.value === nil) {
 				break;
 			} else {
-				const mark = sheet.getCellByA1('A' + i);
 				message.reply(mark.value);
 				sent.value = "☑"
 				await sheet.saveUpdatedCells();
