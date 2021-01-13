@@ -23,6 +23,7 @@ async function results(message) {
 	for (let i = 2; i < 250; i++) {
 		var resultsembed
 		var reasons = ""
+		var applicant
 		const mark = sheet.getCellByA1('A' + i);
 		const sent = sheet.getCellByA1('B' + i);
 		const comments = sheet.getCellByA1('C' + i);
@@ -36,7 +37,7 @@ async function results(message) {
 		const rank = sheet.getCellByA1('P' + i);
 		client.guilds.fetch('705686666043457606')
 		  .then(guild => {
-		    const applicant = guild.members.cache.find((member) => member.name == tag.value)
+		    applicant = guild.members.cache.find((member) => member.name == tag.value)
 		  })
 		  .catch(console.error)
 		if (mark.value === null) {
