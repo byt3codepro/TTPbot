@@ -35,7 +35,7 @@ async function results(message) {
 		const robloxuser = sheet.getCellByA1('L' + i);
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
-    		const applicant = guild.members.cache.find((member) => member.user.tag == tag.value)
+    		const applicant = guild.members.cache.find((member) => member.user.tag == tag.value).catch(console.error)
 		if (mark.value === null) {
 			break;
 		} else {
