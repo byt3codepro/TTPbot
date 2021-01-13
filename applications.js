@@ -22,7 +22,7 @@ async function results(message) {
 	await sheet.loadCells();
 	for (let i = 2; i < 250; i++) {
 		const mark = sheet.getCellByA1('A' + i);
-		if (mark.value === nil) {
+		if (mark.value === null) {
 				break;
 		} else {
 			const sent = sheet.getCellByA1('B' + i);
