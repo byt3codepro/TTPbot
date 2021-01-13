@@ -74,6 +74,7 @@ async function results(message) {
 						.setTitle("Application " + mark.value)
 						.setDescription("Hello, " + robloxuser.value + "!\nThank you for your interest in our group. We're sorry to announce that your application for " + rank.value + " within LAP has been **rejected**. You can improve your application and re-apply.")
 						.addFields(
+							{ name: '\u200B', value: '\u200B' },
 							{ name: 'Reason(s)', value: reasons },
 						)
 						.setFooter('For any questions, feedback or errors - reply in this DM');
