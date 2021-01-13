@@ -24,7 +24,6 @@ async function results(message) {
 	for (let i = 2; i < 250; i++) {
 		var resultsembed
 		var reasons = ""
-		var applicant
 		const mark = sheet.getCellByA1('A' + i);
 		const sent = sheet.getCellByA1('B' + i);
 		const comments = sheet.getCellByA1('C' + i);
