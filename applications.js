@@ -37,7 +37,7 @@ async function results(message) {
 			break;
 		} else {
 			if (sent.value === "☐") {
-				if (comments === "") {
+				if (comments === null) {
 					if (mark.value === "PASSED") {
 						resultsembed = new Discord.MessageEmbed()
 						.setColor('#2dcc70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
