@@ -21,7 +21,7 @@ async function results(message) {
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
 	for (let i = 2; i < 250; i++) {
-		const resultsembed
+		var resultsembed
 		const mark = sheet.getCellByA1('A' + i);
 		const sent = sheet.getCellByA1('B' + i);
 		const comments = sheet.getCellByA1('C' + i);
