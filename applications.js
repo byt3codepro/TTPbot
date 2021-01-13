@@ -130,7 +130,7 @@ async function results(message) {
 					}
 				}
 				sent.value = "☑"
-				console.log(applicantid.id)
+				console.log(applicant.id)
 				//applicantid.send(resultsembed).catch(err => message.reply(err + "     ``USER:(" + tag.value + ")``"));
 				await sheet.saveUpdatedCells();
 			} else {
