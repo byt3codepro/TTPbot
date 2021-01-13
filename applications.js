@@ -21,19 +21,19 @@ async function results(message) {
 	const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
 	for (let i = 2; i < 250; i++) {
-		const sent = sheet.getCellByA1('B' + i);
-		const isemptycheck = sheet.getCellByA1('W' + i);
-		if (sent.value === "☐") {
-			const mark = sheet.getCellByA1('A' + i);
-			if (mark.value === nil) {
+		const mark = sheet.getCellByA1('A' + i);
+		if (mark.value === nil) {
 				break;
-			} else {
+		} else {
+			const sent = sheet.getCellByA1('B' + i);
+			const isemptycheck = sheet.getCellByA1('W' + i);
+			if (sent.value === "☐") {
 				message.reply(mark.value);
 				sent.value = "☑"
 				await sheet.saveUpdatedCells();
+			} else {
+				message.reply("Already sent!     #" + i);
 			}
-		} else {
-			message.reply("Already sent!     #" + i);
 		}
 	}
 	message.reply("***END***");
