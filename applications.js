@@ -34,7 +34,7 @@ async function results(message) {
 		const robloxuser = sheet.getCellByA1('L' + i);
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
-		const applicantid = client.users.cache.filter(user => user.username === tag.value);
+		const applicantid = client.users.cache.filter(user => user.tag === tag.value);
 		if (mark.value === null) {
 			break;
 		} else {
