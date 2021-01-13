@@ -35,7 +35,7 @@ async function results(message) {
 		const robloxuser = sheet.getCellByA1('L' + i);
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
-    		const applicant = guild.members.cache.find((padla) => padla.name == tag.value)
+    		const applicant = guild.members.cache.find((member) => member.user.tag == tag.value)
 		if (mark.value === null) {
 			break;
 		} else {
@@ -131,7 +131,7 @@ async function results(message) {
 					}
 				}
 				sent.value = "☑"
-				console.log(guild.members.cache.find((member) => member.user.tag == tag.value))
+				console.log(applicant.id)
 				//applicantid.send(resultsembed).catch(err => message.reply(err + "     ``USER:(" + tag.value + ")``"));
 				await sheet.saveUpdatedCells();
 			} else {
