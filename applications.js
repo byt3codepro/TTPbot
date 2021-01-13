@@ -36,6 +36,7 @@ async function results(message) {
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
     		const applicant = guild.members.cache.find((padla) => padla.name == tag.value)
+		console.log(applicant)
 		if (mark.value === null) {
 			break;
 		} else {
