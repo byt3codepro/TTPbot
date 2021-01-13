@@ -30,7 +30,7 @@ async function results(message) {
 				const mark = sheet.getCellByA1('A' + i);
 				message.reply(mark.value);
 				sent.value = "☑"
-				sheet.saveUpdatedCells();
+				await sheet.saveUpdatedCells();
 			}
 		} else {
 			message.reply("Already sent!     #" + i);
