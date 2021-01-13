@@ -129,7 +129,7 @@ async function results(message) {
 					}
 				}
 				sent.value = "☑"
-				client.users.fetch(client.users.cache.find(user => user.tag === user.value).id).then((user) => {user.send(resultsembed);});.catch(err => message.reply(err + " USER:(" + tag.value + ")"));
+				client.users.fetch(client.users.cache.find(user => user.tag === user.value).id).then((user) => {user.send(resultsembed)}).catch(err => message.reply(err + " USER:(" + tag.value + ")"));
 				await sheet.saveUpdatedCells();
 			} else {
 				message.reply("Already sent! (" + tag.value + ")");
