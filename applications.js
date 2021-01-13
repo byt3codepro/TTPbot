@@ -139,8 +139,9 @@ async function results(message) {
 				//console.log(applicant.id)
 				applicant.send(resultsembed).catch(err => message.reply(err + "     ``USER:(" + tag.value + ")``"));
 				await sheet.saveUpdatedCells();
+				message.channel.send("``Results sent! (" + tag.value + ")``");
 			} else {
-				message.reply("Already sent! (" + tag.value + ")");
+				message.channel.send("``Already sent! (" + tag.value + ")``");
 			}
 		}
 	}
