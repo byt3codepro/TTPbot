@@ -7,11 +7,16 @@ const client = new Discord.Client();
 
 client.on('message', message => {
 		if (message.content == "/results") {
-			results(message);
+			if (whitelist.includes(message.author.id) == true) {
+				results(message);
+			} else {
+				message.channel.send("❗ Insufficient permissions")
+			}
 		}
 });
 
 async function results(message) {
+	var editor = ["179654608371712000", "514127283636797450", "746662409724231798", "562556023861280768"];
 	// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	await doc.useServiceAccountAuth({
 		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -139,9 +144,9 @@ async function results(message) {
 				//console.log(applicant.id)
 				applicant.send(resultsembed).catch(err => message.reply(err + "     ``USER:(" + tag.value + ")``"));
 				await sheet.saveUpdatedCells();
-				message.channel.send("``Results sent! (" + tag.value + ")``");
+				message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
 			} else {
-				message.channel.send("``Already sent! (" + tag.value + ")``");
+				message.channel.send("``[!] Already sent! (" + tag.value + ")``");
 			}
 		}
 	}
