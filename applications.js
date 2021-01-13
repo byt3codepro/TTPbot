@@ -34,7 +34,7 @@ async function results(message) {
 		const robloxuser = sheet.getCellByA1('L' + i);
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
-		const applicantid = client.users.cache.filter(user => user.tag === tag.value);
+		const applicant = client.users.cache.filter(user => user.tag === tag.value);
 		if (mark.value === null) {
 			break;
 		} else {
@@ -130,7 +130,7 @@ async function results(message) {
 					}
 				}
 				sent.value = "☑"
-				console.log(applicantid)
+				console.log(applicantid.id)
 				//applicantid.send(resultsembed).catch(err => message.reply(err + "     ``USER:(" + tag.value + ")``"));
 				await sheet.saveUpdatedCells();
 			} else {
