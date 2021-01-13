@@ -32,6 +32,7 @@ async function results(message) {
 		const unsatisfyingfail = sheet.getCellByA1('G' + i);
 		const toomanyerrorsfail = sheet.getCellByA1('H' + i);
 		const robloxuser = sheet.getCellByA1('L' + i);
+		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
 		if (mark.value === null) {
 			break;
@@ -127,11 +128,11 @@ async function results(message) {
 						.setFooter('For any questions, feedback or errors - reply in this DM');
 					}
 				}
-				message.reply(resultsembed);
 				sent.value = "☑"
+				client.users.fetch(client.users.cache.find(user => user.tag === user.value).id).then((user) => {user.send(resultsembed);});.catch(err => message.reply(err + " USER:(" + tag.value + ")"));
 				await sheet.saveUpdatedCells();
 			} else {
-				message.reply("Already sent!     #" + i);
+				message.reply("Already sent! (" + tag.value + ")");
 			}
 		}
 	}
