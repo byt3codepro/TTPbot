@@ -34,6 +34,7 @@ async function results(message) {
 		const robloxuser = sheet.getCellByA1('L' + i);
 		const tag = sheet.getCellByA1('M' + i);
 		const rank = sheet.getCellByA1('P' + i);
+		const applicantid = client.guilds.fetch('705686666043457606').find(user => user.username === tag.value);
 		if (mark.value === null) {
 			break;
 		} else {
@@ -129,7 +130,7 @@ async function results(message) {
 					}
 				}
 				sent.value = "☑"
-				client.users.fetch(client.users.cache.find(user => user.tag === user.value).id).then((user) => {user.send(resultsembed)}).catch(err => message.reply(err + " USER:(" + tag.value + ")"));
+				applicantid.send(resultsembed).catch(err => message.reply(err + " USER:(" + tag.value + ")"));
 				await sheet.saveUpdatedCells();
 			} else {
 				message.reply("Already sent! (" + tag.value + ")");
