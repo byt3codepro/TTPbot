@@ -22,7 +22,7 @@ async function results(message) {
 	await sheet.loadCells();
 	for (let i = 2; i < 250; i++) {
 		var resultsembed
-		var reasons
+		var reasons = ""
 		const mark = sheet.getCellByA1('A' + i);
 		const sent = sheet.getCellByA1('B' + i);
 		const comments = sheet.getCellByA1('C' + i);
@@ -37,8 +37,8 @@ async function results(message) {
 			break;
 		} else {
 			if (sent.value === "☐") {
-				if (comments === "") {
-					//if (mark.value === "PASSED") {
+				//if (comments === "") {
+					if (mark.value === "PASSED") {
 						resultsembed = new Discord.MessageEmbed()
 						.setColor('#2dcc70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
 						.setTitle("Application " + mark.value)
@@ -66,7 +66,7 @@ async function results(message) {
 						if (toomanyerrorsfail.value === "x") {
 							reasons = reasons + "**Too many errors on Basic knowledge test:** You received too less points in the test section, therefore, your application was automatically declined.\n"
 						}
-						if (reasons === null) {
+						if (reasons === "") {
 							reasons = "N/A"	
 						}
 						resultsembed = new Discord.MessageEmbed()
