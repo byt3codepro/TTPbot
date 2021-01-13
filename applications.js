@@ -40,13 +40,13 @@ async function results(message) {
 					resultsembed = new Discord.MessageEmbed()
 					.setColor('#2dcc70') //RED - #E74C3C            ORANGE - #CA6F1E
 					.setTitle("Application " + mark.value)
-					.setDescription("Hello, " + robloxuser + "! Thank you for your interest in our group. We're happy to announce that your application for " + rank + " within LAP has been **approved**. Information about training and ranking in the Roblox group and our Discord server will be done soon.")
+					.setDescription("Hello, " + robloxuser.value + "! Thank you for your interest in our group. We're happy to announce that your application for " + rank.value + " within LAP has been **approved**. Information about training and ranking in the Roblox group and our Discord server will be done soon.")
 					.setFooter('For any questions, feedback or errors - reply in this DM');
 				} else {
 					resultsembed = new Discord.MessageEmbed()
 					.setColor('#2dcc70') //RED - #E74C3C            ORANGE - #CA6F1E
 					.setTitle("Application " + mark.value)
-					.setDescription("Hello, " + robloxuser + "! Thank you for your interest in our group. We're sorry to announce that your application for " + rank + " within LAP has been **rejected**. You can improve your application and re-apply.")
+					.setDescription("Hello, " + robloxuser.value + "! Thank you for your interest in our group. We're sorry to announce that your application for " + rank.value + " within LAP has been **rejected**. You can improve your application and re-apply.")
 					.setFooter('For any questions, feedback or errors - reply in this DM');
 				}
 				message.reply(resultsembed);
