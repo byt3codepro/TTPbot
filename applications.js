@@ -13,7 +13,7 @@ client.on('message', message => {
 
 async function results(message) {
 	var editor = ["746662409724231798"];
-	if (whitelist.includes(message.author.id) == true) {
+	if (editor.includes(message.author.id) == true) {
 		// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 		await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
