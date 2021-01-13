@@ -37,7 +37,7 @@ async function results(message) {
 			break;
 		} else {
 			if (sent.value === "☐") {
-				//if (comments === "") {
+				if (comments === "") {
 					if (mark.value === "PASSED") {
 						resultsembed = new Discord.MessageEmbed()
 						.setColor('#2dcc70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
@@ -74,13 +74,59 @@ async function results(message) {
 						.setTitle("Application " + mark.value)
 						.setDescription("Hello, " + robloxuser.value + "!\nThank you for your interest in our group. We're sorry to announce that your application for " + rank.value + " within LAP has been **rejected**. You can improve your application and re-apply.")
 						.addFields(
-							{ name: '\nReason(s)', value: reasons },
+							{ name: 'Reason(s)', value: reasons },
 						)
 						.setFooter('For any questions, feedback or errors - reply in this DM');
 					}
-				//} else {
-					
-				//}
+				} else {
+					if (mark.value === "PASSED") {
+						resultsembed = new Discord.MessageEmbed()
+						.setColor('#2dcc70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
+						.setTitle("Application " + mark.value)
+						.setDescription("Hello, " + robloxuser.value + "!\nThank you for your interest in our group. We're happy to announce that your application for " + rank.value + " within LAP has been **approved**. Information about training and ranking in the Roblox group and our Discord server will be done soon.")
+						.addFields(
+							{ name: 'Comments', value: comments.value },
+						)
+						.setFooter('For any questions, feedback or errors - reply in this DM');
+					} else if (mark.value === "AWAITING FURTHER CLARIFICATION") {
+						resultsembed = new Discord.MessageEmbed()
+						.setColor('#CA6F1E')
+						.setTitle("Application " + mark.value)
+						.setDescription("Hello, " + robloxuser.value + "!\nThank you for your interest in our group. Your application for " + rank.value + " within LAP has been marked as **AWAITING FURTHER CLARIFICATION**. Please see comments for more information.")
+						.addFields(
+							{ name: 'Comments', value: comments.value },
+						)
+						.setFooter('For any questions, feedback or errors - reply in this DM');
+					} else {
+						if (grammarfail.value === "x") {
+							reasons = reasons + "**Too bad grammar:** Your application had too many grammatical errors. Try improving your grammar skills and try applying again next time!\n"
+						}
+						if (tooshortfail.value === "x") {
+							reasons = reasons + "**Too short answers:** Your answers were too short for us or didn't contain enough valuable content.\n"
+						}
+						if (appsforroleclosedfail.value === "x") {
+							reasons = reasons + "**Applications for this role is closed:** Make sure to check if the applications are still open and demand is not met already!\n"
+						}
+						if (unsatisfyingfail.value === "x") {
+							reasons = reasons + "**Non-satisfactory answers:** We wanted to hear something different from your answers. Next time try telling us about you and your hobbies in more detail and show why we should choose you above other applicants!\n"
+						}
+						if (toomanyerrorsfail.value === "x") {
+							reasons = reasons + "**Too many errors on Basic knowledge test:** You received too less points in the test section, therefore, your application was automatically declined.\n"
+						}
+						if (reasons === "") {
+							reasons = "N/A"	
+						}
+						resultsembed = new Discord.MessageEmbed()
+						.setColor('#E74C3C')
+						.setTitle("Application " + mark.value)
+						.setDescription("Hello, " + robloxuser.value + "!\nThank you for your interest in our group. We're sorry to announce that your application for " + rank.value + " within LAP has been **rejected**. You can improve your application and re-apply.")
+						.addFields(
+							{ name: 'Reason(s)', value: reasons },
+							{ name: 'Comments', value: comments.value },
+						)
+						.setFooter('For any questions, feedback or errors - reply in this DM');
+					}
+				}
 				message.reply(resultsembed);
 				sent.value = "☑"
 				await sheet.saveUpdatedCells();
