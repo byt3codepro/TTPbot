@@ -38,7 +38,7 @@ async function results(message) {
 		} else {
 			if (sent.value === "☐") {
 				if (comments === "") {
-					if (mark.value === "PASSED") {
+					//if (mark.value === "PASSED") {
 						resultsembed = new Discord.MessageEmbed()
 						.setColor('#2dcc70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
 						.setTitle("Application " + mark.value)
@@ -80,7 +80,7 @@ async function results(message) {
 					}
 				//} else {
 					
-				}
+				//}
 				message.reply(resultsembed);
 				sent.value = "☑"
 				await sheet.saveUpdatedCells();
