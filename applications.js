@@ -181,13 +181,16 @@ function dm(message) {
 			message.channel.send("❗ Missing ``MESSAGE``!\nType ``/dm`` to see the full command.")
 			message.react("❌")
 		} else {
-			try {
-				client.users.fetch(targetid).then((user) => {user.send(letter);});
-				message.react("✅")
-			} catch (err) {
-				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n ``" + err + "``\n(Bot administrator contacted: <@746662409724231798>)")
-				message.react("❌")
-			}
+			client.users
+				.fetch(targetid)
+				.then(user => {
+					user.send(letter)
+					message.react('✅')
+				})
+				.catch(err => {
+					message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n ``' + err + '``\n(Bot administrator contacted: <@...>)')
+					message.react('❌')
+    				})
 		}
 	} else {
 		message.channel.send("❗ Insufficient permissions")
