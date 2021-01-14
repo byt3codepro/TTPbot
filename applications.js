@@ -164,10 +164,10 @@ async function results(message) {
 			message.channel.send("❗ Insufficient permissions")
 		}
 }
-function dm(message) {
+async function dm(message) {
 	var admin = ["746662409724231798","482586747201519617"]; //can dm users via bot, using the /dm command
 	if (admin.includes(message.author.id) == true) {
-		const split = message.content.split(",");
+		await const split = message.content.split(",");
 		const targetid = split[1]
 		const message = split[2]
 		if (targetid == "undefined" && message == "undefined") {
@@ -193,7 +193,7 @@ function dm(message) {
 		message.channel.send("❗ Insufficient permissions")
 	}
 }
-function receivedm(message) {
+async function receivedm(message) {
 	if (message.attachments.size > 0) {
 	    if (message.attachments.every(attachIsImage)){
 		message.channel.send("❗ This bot cannot transfer images - please send a link of your image. The message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
