@@ -16,7 +16,7 @@ client.on('message', message => {
 			if (message.content == prefix + "results") {
 				results(message)
 			} else
-			if (message.startsWith(prefix + "dm")) {
+			if (message.content.startsWith(prefix + "dm")) {
 				dm(message)
 			}
 		}
@@ -174,11 +174,11 @@ function dm(message) {
 			message.channel.send("Command format: ``/dm,[USER_ID],[MESSAGE]``")
 		} else
 		if (targetid == "undefined" || targetid == null) {
-			message.channel.send("❗ Missing ``USER_ID``! Type ``/dm`` to see the full command.")
+			message.channel.send("❗ Missing ``USER_ID``!\nType ``/dm`` to see the full command.")
 			message.react("❌")
 		} else
 		if (letter == "undefined" || letter == null) {
-			message.channel.send("❗ Missing ``MESSAGE``! Type ``/dm`` to see the full command.")
+			message.channel.send("❗ Missing ``MESSAGE``!\nType ``/dm`` to see the full command.")
 			message.react("❌")
 		} else {
 			try {
