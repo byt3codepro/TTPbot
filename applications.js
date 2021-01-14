@@ -182,7 +182,7 @@ function dm(message) {
 			message.react("❌")
 		} else {
 			try {
-				client.users.fetch(targetid).then((user) => {user.send(message);});
+				client.users.fetch(targetid).then((user) => {user.send(letter);});
 				message.react("✅")
 			} catch (err) {
 				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n ``" + err + "``\n(Bot administrator contacted: <@746662409724231798>)")
