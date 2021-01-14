@@ -38,12 +38,12 @@ async function results(message) {
 		var newsent = 0
 		var alreadysent = 0
 		var errorsent = 0
+		var output = "```"
 		for (let i = 2; i < 250; i++) {
 			var errored = false
 			var resultsembed
 			var reasons = ""
 			var applicant
-			var output = "```"
 			const mark = sheet.getCellByA1('A' + i);
 			const sent = sheet.getCellByA1('B' + i);
 			const comments = sheet.getCellByA1('C' + i);
