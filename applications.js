@@ -169,15 +169,15 @@ async function dm(message) {
 	if (admin.includes(message.author.id) == true) {
 		const split = await message.content.split(",");
 		const targetid = split[1]
-		const message = split[2]
-		if (targetid == "undefined" && message == "undefined") {
+		const letter = split[2]
+		if (targetid == "undefined" && letter == "undefined") {
 			message.channel.send("Command format: ``/dm,[USER_ID],[MESSAGE]``")
 		} else
 		if (targetid == "undefined") {
 			message.channel.send("❗ Missing ``USER_ID``! Type ``/dm`` to see the full command.")
 			message.react("❌")
 		} else
-		if (message == "undefined") {
+		if (letter == "undefined") {
 			message.channel.send("❗ Missing ``MESSAGE``! Type ``/dm`` to see the full command.")
 			message.react("❌")
 		} else {
