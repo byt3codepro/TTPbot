@@ -165,9 +165,10 @@ async function results(message) {
 		}
 }
 async function dm(message) {
+	var split
+	await split = message.content.split(",");
 	var admin = ["746662409724231798","482586747201519617"]; //can dm users via bot, using the /dm command
 	if (admin.includes(message.author.id) == true) {
-		await const split = message.content.split(",");
 		const targetid = split[1]
 		const message = split[2]
 		if (targetid == "undefined" && message == "undefined") {
