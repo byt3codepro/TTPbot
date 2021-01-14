@@ -35,9 +35,9 @@ async function results(message) {
 		const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
 		const guild = await client.guilds.fetch('705686666043457606')
-		const newsent = 0
-		const alreadysent = 0
-		const errorsent = 0
+		var newsent = 0
+		var alreadysent = 0
+		var errorsent = 0
 		for (let i = 2; i < 250; i++) {
 			var resultsembed
 			var reasons = ""
