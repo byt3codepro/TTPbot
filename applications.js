@@ -35,6 +35,9 @@ async function results(message) {
 		const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
 		const guild = await client.guilds.fetch('705686666043457606')
+		const newsent = 0
+		const alreadysent = 0
+		const errorsent = 0
 		for (let i = 2; i < 250; i++) {
 			var resultsembed
 			var reasons = ""
@@ -159,16 +162,19 @@ async function results(message) {
 						} else {
 							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>>``" + tag.value + "``\n``" + err + "``\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n<@746662409724231798>")
 						}
-						sent.value = "☐"	
+						sent.value = "☐"
+						errorsent = errorsent + 1
 					}
 					await sheet.saveUpdatedCells();
 					message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
+					newsent = newsent + 1
 				} else {
 					message.channel.send("``Already sent! (" + tag.value + ")``");
+					alreadysent = alreadysent + 1
 				}
 			}
 		}
-		message.reply("***END***");
+		message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
 		}
