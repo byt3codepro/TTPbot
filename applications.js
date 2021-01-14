@@ -1,4 +1,5 @@
 //©raltec 2021
+//Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
 	
@@ -8,12 +9,16 @@ const client = new Discord.Client();
 client.on('message', message => {
 	const prefix = "/";
 	
-	if (message.startsWith(prefix)) {
-		if (message.content == prefix + "results") {
-			results(message);
-		} else
-		if (message.content == prefix + "dm") {
-			dm(message);
+	if (message.guild === null) {
+		receivedm(message);
+	} else {
+		if (message.content.startsWith(prefix)) {
+			if (message.content == prefix + "results") {
+				results(message);
+			} else
+			if (message.content == prefix + "dm") {
+				dm(message);
+			}
 		}
 	}
 });
@@ -183,6 +188,19 @@ function dm(message) {
 	} else {
 		message.channel.send("❗ Insufficient permissions")
 	}
+}
+function receivedm(message) {
+	if (message.attachments.size > 0) {
+	    if (message.attachments.every(attachIsImage)){
+		message.channel.send("❗ This bot cannot transfer images - please send a link of your image. The message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
+	    }
+	}
+	let botdms = client.channels.cache.get("799266353999642664")
+	const dmreceivedEmbed = new Discord.MessageEmbed()
+	.setColor('#2dcc70')
+	.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
+	.setDescription(message.content)
+	botdms.send(dmreceivedEmbed);	
 }
 
 client.login(process.env.BOT_TOKEN);
