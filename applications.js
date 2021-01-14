@@ -151,11 +151,12 @@ async function results(message) {
 					}
 					sent.value = "☑"
 					//console.log(applicant.id)
-					applicant.send(resultsembed)
-						.catch(err => {
-							message.reply(err + "     ``USER:(" + tag.value + ")``")
-							sent.value = "☐"
-						});
+					try {
+						applicant.send(resultsembed)
+					} catch (err) {
+						message.reply(err + "     ``USER:(" + tag.value + ")``")
+						sent.value = "☐"	
+					}
 					await sheet.saveUpdatedCells();
 					message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
 				} else {
