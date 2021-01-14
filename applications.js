@@ -174,7 +174,7 @@ async function results(message) {
 				}
 			}
 		}
-		//message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
+		message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
 		}
@@ -213,16 +213,15 @@ function dm(message) {
 }
 function receivedm(message) {
 	if (message.attachments.size > 0) {
-	    if (message.attachments.every(attachIsImage)){
-		message.channel.send("❗ This bot cannot transfer images - please send a link of your image. The message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
-	    }
-	}
+		message.channel.send("❗ This bot cannot transfer images or files - please send a link of your image or file. The message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
+	} else {
 	let botdms = client.channels.cache.get("799266353999642664")
 	const dmreceivedEmbed = new Discord.MessageEmbed()
 	.setColor('#2dcc70')
 	.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 	.setDescription(message.content)
-	botdms.send(dmreceivedEmbed);	
+	botdms.send(dmreceivedEmbed);
+	}
 }
 
 client.login(process.env.BOT_TOKEN);
