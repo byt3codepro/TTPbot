@@ -154,13 +154,17 @@ async function results(message) {
 					try {
 						applicant.send(resultsembed)
 					} catch (err) {
-						message.reply(err + "     ``USER:(" + tag.value + ")``")
+						if err === "TypeError: Cannot read property 'send' of undefined" {
+							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>>``" + tag.value + "``\n``" + err + "``\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!``")
+						} else {
+							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>>``" + tag.value + "``\n``" + err + "``\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n<@746662409724231798>")
+						}
 						sent.value = "☐"	
 					}
 					await sheet.saveUpdatedCells();
 					message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
 				} else {
-					message.channel.send("``[!] Already sent! (" + tag.value + ")``");
+					message.channel.send("``Already sent! (" + tag.value + ")``");
 				}
 			}
 		}
