@@ -108,14 +108,14 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
 		message.member.roles.remove('705757268448378971');
 		message.react('✅')
 	}   
-	if (message.channel.name == "bot-feed") {
+	/*if (message.channel.name == "bot-feed") {
 		if (whitelist.includes(message.author.id) == true) {
 			//if (message.content.startsWith('/dm')) {
 				var botdmsplit = message.content.split("[]");
 				client.users.fetch(botdmsplit[0]).then((user) => {user.send(botdmsplit[1]);});
 			//}  
 		}
-	} 
+	}*/
 	    
 	    
 	    
