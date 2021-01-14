@@ -12,7 +12,7 @@ client.on('message', message => {
 });
 
 async function results(message) {
-	var editor = ["746662409724231798"]; //application editor Used IDs (can use /results cmd)
+	var editor = ["746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	if (editor.includes(message.author.id) == true) {
 		// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 		await doc.useServiceAccountAuth({
