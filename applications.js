@@ -175,7 +175,7 @@ async function results(message) {
 						newsent = newsent + 1
 					}
 				} else {
-					output = output + "    Already sent! (" + tag.value + ")\n"
+					output = output + "     Already sent! (" + tag.value + ")\n"
 					alreadysent = alreadysent + 1
 				}
 			}
