@@ -23,6 +23,7 @@ client.on('message', message => {
 	}
 });
 
+
 async function results(message) {
 	var editor = ["746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	if (editor.includes(message.author.id) == true) {
@@ -160,9 +161,9 @@ async function results(message) {
 						applicant.send(resultsembed)
 					} catch (err) {
 						if (err == "TypeError: Cannot read property 'send' of undefined") {
-							output = output + "``\n[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!``\n"
+							output = output + "\n[!!!] Failed to send results! (" + tag.value + ")\n" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!\n"
 						} else {
-							output = output + "``\n[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n"
+							output = output + "\n[!!!] Failed to send results! (" + tag.value + ")\n" + err + "\nWe haven't heard of this error! Tag a bot developer for additional help.\n"
 						}
 						errored = true
 						sent.value = "☐"
