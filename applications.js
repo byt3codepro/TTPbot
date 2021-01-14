@@ -39,6 +39,7 @@ async function results(message) {
 		var alreadysent = 0
 		var errorsent = 0
 		for (let i = 2; i < 250; i++) {
+			var errored = false
 			var resultsembed
 			var reasons = ""
 			var applicant
@@ -158,16 +159,19 @@ async function results(message) {
 						applicant.send(resultsembed)
 					} catch (err) {
 						if (err === "TypeError: Cannot read property 'send' of undefined") {
-							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>>``" + tag.value + "``\n``" + err + "``\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!``")
+							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "``\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!``")
 						} else {
-							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>>``" + tag.value + "``\n``" + err + "``\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n<@746662409724231798>")
+							message.channel.send("``[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "``\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n<@746662409724231798>")
 						}
+						errored = true
 						sent.value = "☐"
 						errorsent = errorsent + 1
 					}
 					await sheet.saveUpdatedCells();
-					message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
-					newsent = newsent + 1
+					if (errored === false) {
+						message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
+						newsent = newsent + 1
+					}
 				} else {
 					message.channel.send("``Already sent! (" + tag.value + ")``");
 					alreadysent = alreadysent + 1
