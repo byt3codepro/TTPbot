@@ -10,14 +10,14 @@ client.on('message', message => {
 	const prefix = "/";
 	
 	if (message.guild === null) {
-		receivedm(message);
+		receivedm(message)
 	} else {
 		if (message.content.startsWith(prefix)) {
 			if (message.content == prefix + "results") {
-				results(message);
+				results(message)
 			} else
 			if (message.content == prefix + "dm") {
-				dm(message);
+				dm(message)
 			}
 		}
 	}
@@ -175,14 +175,18 @@ function dm(message) {
 		} else
 		if (targetid == "undefined") {
 			message.channel.send("❗ Missing ``USER_ID``! Type ``/dm`` to see the full command.")
+			message.react("❌")
 		} else
 		if (message == "undefined") {
 			message.channel.send("❗ Missing ``MESSAGE``! Type ``/dm`` to see the full command.")
+			message.react("❌")
 		} else {
 			try {
 				client.users.fetch(targetid).then((user) => {user.send(message);});
+				message.react("✅")
 			} catch (err) {
 				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n ``" + err + "``\n(Bot administrator contacted: <@746662409724231798>)")
+				message.react("❌")
 			}
 		}
 	} else {
