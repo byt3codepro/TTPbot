@@ -18,12 +18,12 @@ var whitelist = ["179654608371712000", "514127283636797450", "746662409724231798
     if (message.guild === null) {
         //   space for dm commands 
 	    
-	let botdms = client.channels.cache.get("797253920421576725")
+	/*let botdms = client.channels.cache.get("797253920421576725")
 	const dmreceivedEmbed = new Discord.MessageEmbed()
 	.setColor('#2dcc70')
 	.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 	.setDescription(message.content)
-	botdms.send(dmreceivedEmbed);
+	botdms.send(dmreceivedEmbed);*/
 	    
 	//   space for dm commands  
     } else {
