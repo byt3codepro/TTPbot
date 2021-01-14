@@ -6,9 +6,16 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('message', message => {
-		if (message.content == "/results") {
+	const prefix = "/";
+	
+	if (message.startsWith(prefix)) {
+		if (message.content == prefix + "results") {
 			results(message);
+		} else
+		if (message.content == prefix + "dm") {
+			dm(message);
 		}
+	}
 });
 
 async function results(message) {
@@ -151,6 +158,31 @@ async function results(message) {
 		} else {
 			message.channel.send("❗ Insufficient permissions")
 		}
+}
+function dm(message) {
+	var admin = ["746662409724231798","482586747201519617"]; //can dm users via bot, using the /dm command
+	if (admin.includes(message.author.id) == true) {
+		const split = message.content.split(",");
+		const targetid = split[1]
+		const message = split[2]
+		if (targetid == "undefined" && message == "undefined") {
+			message.channel.send("Command format: ``/dm,[USER_ID],[MESSAGE]``")
+		} else
+		if (targetid == "undefined") {
+			message.channel.send("❗ Missing ``USER_ID``! Type ``/dm`` to see the full command.")
+		} else
+		if (message == "undefined") {
+			message.channel.send("❗ Missing ``MESSAGE``! Type ``/dm`` to see the full command.")
+		} else {
+			try {
+				client.users.fetch(targetid).then((user) => {user.send(message);});
+			} catch (err) {
+				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n ``" + err + "``\n(Bot administrator contacted: <@746662409724231798>)")
+			}
+		}
+	} else {
+		message.channel.send("❗ Insufficient permissions")
+	}
 }
 
 client.login(process.env.BOT_TOKEN);
