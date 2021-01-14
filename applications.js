@@ -43,7 +43,7 @@ async function results(message) {
 			var resultsembed
 			var reasons = ""
 			var applicant
-			var output = ""
+			var output = "```"
 			const mark = sheet.getCellByA1('A' + i);
 			const sent = sheet.getCellByA1('B' + i);
 			const comments = sheet.getCellByA1('C' + i);
@@ -160,9 +160,9 @@ async function results(message) {
 						applicant.send(resultsembed)
 					} catch (err) {
 						if (err == "TypeError: Cannot read property 'send' of undefined") {
-							message.channel.send("``\n[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!``\n")
+							output = output + "``\n[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!``\n"
 						} else {
-							message.channel.send("``\n[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n")
+							output = output + "``\n[!!!] Failed to send results! (" + tag.value + ")``\n\n>>> ``" + tag.value + "``\n``" + err + "\nWe haven't heard of this error! Bot administrator has been tagged to investigate this issue.``\n"
 						}
 						errored = true
 						sent.value = "☐"
@@ -179,7 +179,7 @@ async function results(message) {
 				}
 			}
 		}
-		message.channel.send(output)
+		message.channel.send(output + "```")
 		message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
