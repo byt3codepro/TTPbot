@@ -174,7 +174,7 @@ async function results(message) {
 				}
 			}
 		}
-		message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
+		//message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
 		}
