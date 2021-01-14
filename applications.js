@@ -161,9 +161,9 @@ async function results(message) {
 						applicant.send(resultsembed)
 					} catch (err) {
 						if (err == "TypeError: Cannot read property 'send' of undefined") {
-							output = output + "\n[!!!] Failed to send results! (" + tag.value + ")\n" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!\n"
+							output = output + "\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!\n"
 						} else {
-							output = output + "\n[!!!] Failed to send results! (" + tag.value + ")\n" + err + "\nWe haven't heard of this error! Tag a bot developer for additional help.\n"
+							output = output + "\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nWe haven't heard of this error! Tag a bot developer for additional help.\n"
 						}
 						errored = true
 						sent.value = "☐"
@@ -171,17 +171,17 @@ async function results(message) {
 					}
 					await sheet.saveUpdatedCells();
 					if (errored === false) {
-						output = output + "[ ✓ ] Results sent! (" + tag.value + ")\n"
+						output = output + "[✓] Results sent! (" + tag.value + ")\n"
 						newsent = newsent + 1
 					}
 				} else {
-					output = output + "      Already sent! (" + tag.value + ")\n"
+					output = output + "    Already sent! (" + tag.value + ")\n"
 					alreadysent = alreadysent + 1
 				}
 			}
 		}
 		message.channel.send(output + "```")
-		message.channel.send("```All results sent!\n-------------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
+		message.channel.send("```All results sent!\n-----------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
 		}
@@ -192,14 +192,14 @@ function dm(message) {
 		const split = message.content.split(",");
 		const targetid = split[1]
 		const letter = split[2]
-		if (targetid == "undefined" || targetid == null && letter == "undefined" || letter == null) {
+		if (targetid == "undefined" || targetid == null || targetid == "" && letter == "undefined" || letter == null || letter == "") {
 			message.channel.send("Command format: ``/dm,[USER_ID],[MESSAGE]``")
 		} else
-		if (targetid == "undefined" || targetid == null) {
+		if (targetid == "undefined" || targetid == null || targetid == "") {
 			message.channel.send("❗ Missing ``USER_ID``!\nType ``/dm`` to see the full command.")
 			message.react("❌")
 		} else
-		if (letter == "undefined" || letter == null) {
+		if (letter == "undefined" || letter == null || letter == "") {
 			message.channel.send("❗ Missing ``MESSAGE``!\nType ``/dm`` to see the full command.")
 			message.react("❌")
 		} else {
@@ -210,8 +210,14 @@ function dm(message) {
 					message.react('✅')
 				})
 				.catch(err => {
-					message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n ``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
-					message.react('❌')
+					if (err === "DiscordAPIError: 404: Not Found") {
+						message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
+					} else if (err.startsWith('DiscordAPIError: Invalid Form Body')) {
+						message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``Make sure that you use the User ID, not the username or tag! Error:\n" + err + '``')
+					} else {
+						message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
+					}
+					message.react('❌')  
     				})
 		}
 	} else {
@@ -220,7 +226,7 @@ function dm(message) {
 }
 function receivedm(message) {
 	if (message.attachments.size > 0) {
-		message.channel.send("❗ This bot cannot transfer images or files - please send a link of your image or file. The message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
+		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
 	let botdms = client.channels.cache.get("799266353999642664")
 	const dmreceivedEmbed = new Discord.MessageEmbed()
