@@ -153,7 +153,8 @@ async function results(message) {
 					//console.log(applicant.id)
 					applicant.send(resultsembed)
 						.catch(err =>
-							message.reply(err + "     ``USER:(" + tag.value + ")``")
+							message.reply(err + "     ``USER:(" + tag.value + ")``");
+							sent.value = "☐"
 						);
 					await sheet.saveUpdatedCells();
 					message.channel.send("``[✓] Results sent! (" + tag.value + ")``");
