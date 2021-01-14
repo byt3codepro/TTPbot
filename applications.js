@@ -170,9 +170,9 @@ function dm(message) {
 		const split = message.content.split(",");
 		const targetid = split[1]
 		const letter = split[2]
-		if (targetid == "undefined" || targetid == null && letter == "undefined" || letter == null) {
-			message.channel.send("Command format: ``/dm,[USER_ID],[MESSAGE]``")
-		} else
+		//if (targetid == "undefined" || targetid == null && letter == "undefined" || letter == null) {
+		//	message.channel.send("Command format: ``/dm,[USER_ID],[MESSAGE]``")
+		//} else
 		if (targetid == "undefined" || targetid == null) {
 			message.channel.send("❗ Missing ``USER_ID``! Type ``/dm`` to see the full command.")
 			message.react("❌")
