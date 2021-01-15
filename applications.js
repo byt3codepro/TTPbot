@@ -41,7 +41,7 @@ async function results(message) {
 		var newsent = 0
 		var alreadysent = 0
 		var errorsent = 0
-		var output = "``"
+		var output = "```"
 		for (let i = 2; i < 250; i++) {
 			var errored = false
 			var resultsembed
@@ -173,16 +173,16 @@ async function results(message) {
 					}
 					await sheet.saveUpdatedCells();
 					if (errored === false) {
-						output = output + "[✓] Results sent! (" + tag.value + ")\n"
+						output = output + "[+] Results sent! (" + tag.value + ")\n"
 						newsent = newsent + 1
 					}
 				} else {
-					output = output + "     Already sent! (" + tag.value + ")\n"
+					output = output + "    Already sent! (" + tag.value + ")\n"
 					alreadysent = alreadysent + 1
 				}
 			}
 		}
-		message.channel.send(output + "``")
+		message.channel.send(output + "```")
 		message.channel.send("```All results sent!\n-----------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
