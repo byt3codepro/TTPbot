@@ -41,7 +41,7 @@ async function results(message) {
 		var newsent = 0
 		var alreadysent = 0
 		var errorsent = 0
-		var output = "```"
+		var output = "``"
 		for (let i = 2; i < 250; i++) {
 			var errored = false
 			var resultsembed
@@ -182,7 +182,7 @@ async function results(message) {
 				}
 			}
 		}
-		message.channel.send(output + "```")
+		message.channel.send(output + "``")
 		message.channel.send("```All results sent!\n-----------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
 			message.channel.send("❗ Insufficient permissions")
