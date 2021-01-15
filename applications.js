@@ -214,8 +214,6 @@ function dm(message) {
 				.catch(err => {
 					if (err === "DiscordAPIError: 404: Not Found") {
 						message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
-					} else if (err.startsWith('DiscordAPIError: Invalid Form Body')) {
-						message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``Make sure that you use the User ID, not the username or tag! Error:\n" + err + '``')
 					} else {
 						message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
 					}
