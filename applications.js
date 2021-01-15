@@ -10,7 +10,9 @@ client.on('message', message => {
 	const prefix = "/";
 	
 	if (message.guild === null) {
-		receivedm(message)
+		if (message.author != client.user.id) {
+			receivedm(message)
+		}
 	} else {
 		if (message.content.startsWith(prefix)) {
 			if (message.content == prefix + "results") {
