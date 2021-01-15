@@ -163,9 +163,9 @@ async function results(message) {
 						applicant.send(resultsembed)
 					} catch (err) {
 						if (err == "TypeError: Cannot read property 'send' of undefined") {
-							output = output + "\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!\n"
+							output = output + "======================================\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!\n======================================\n"
 						} else {
-							output = output + "\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nWe haven't heard of this error! Tag a bot developer for additional help.\n"
+							output = output + "======================================\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nWe haven't heard of this error! Tag a bot developer for additional help.\n======================================\n"
 						}
 						errored = true
 						sent.value = "☐"
