@@ -241,6 +241,7 @@ function receivedm(message) {
 }
 async function issuefine(message) {
 	if (message.channel.id == "799266353999642664") {
+		var speeder
 		const split = message.content.split(" ");
 		const username = split[1]
 		const plate = split[2]
@@ -273,11 +274,11 @@ async function issuefine(message) {
 		)
 		const guild = await client.guilds.fetch('705686666043457606')
 		try {
-			applicant = guild.members.cache.find((member) => member.user.tag == tag.value)
+			speeder = guild.members.cache.find((member) => member.user.name == username)
 		} catch(err) {
 			message.channl.send(err)
 		}
-		user.send(fineEmbed)
+		speeder.send(fineEmbed)
 	}
 }
 
