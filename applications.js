@@ -242,7 +242,7 @@ function receivedm(message) {
 function issuefine(message) {
 	if (message.channel.id == "799266353999642664") {
 		const split = message.content.split(" ");
-		const userid = split[1]
+		const username = split[1]
 		const plate = split[2]
 		const allowedspeed = split[3]
 		const actualspeed = split[4]
@@ -267,24 +267,22 @@ function issuefine(message) {
 		.addFields(
 		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
 		{ name: 'Faktiskais ātrums', value: actualspeed + " (+" + difference + ")", inline: true },
-		{ name: 'Vadītāja ID', value: userid, inline: false },
+		{ name: 'Vadītāja ID', value: username, inline: false },
 		{ name: 'Numurzīme', value: plate, inline: true },
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
 		)
-		client.users
-				.fetch(userid)
-				.then(user => {
-					user.send(fineEmbed)
-					message.react('✅')
-				})
-				.catch(err => {
-					if (err === "DiscordAPIError: 404: Not Found") {
-						message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
-					} else {
-						message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
-					}
-					message.react('❌')  
-    				})
+		try {
+			var user = guild.members.cache.find((member) => member.user.name == username.value)
+			user.send(fineEmbed)
+			message.react('✅')
+		} catch(err) {
+			if (err === "DiscordAPIError: 404: Not Found") {
+				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
+			} else {
+				message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
+			}
+			message.react('❌')  
+		}
 	}
 }
 
