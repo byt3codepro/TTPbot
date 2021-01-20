@@ -259,16 +259,15 @@ function issuefine(message) {
 		
 		const fineEmbed = new Discord.MessageEmbed()
 		.setColor('#011d4d')
-		.setTitle('ADMINISTRATĪVĀ PĀRKĀPUMA PROTOKOLS-PAZIŅOJUMS')
+		.setTitle('ADMINISTRATĪVĀ PĀRKĀPUMA\nPROTOKOLS-PAZIŅOJUMS')
 		.setAuthor("Valsts policijas Vidzemes reģiona pārvalde")
 		.setThumbnail('https://i.gyazo.com/fe9f314bd6df1ec33e7c26df5014076b.jpg')
 		.setDescription("Sastādīts Luganes pilsētā, Šautuves ielā 2, " + yyyy + ". gada " + dd + ". " + monthName + ".")
-		.addField('Atļautais ātrums', allowedspeed, true)
-		.addField('Faktiskais ātrums', actualspeed + "(+" + actualspeed-allowedspeed + ")", true)
 		.addFields(
 		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
-		{ name: 'Faktiskais ātrums', value: actualspeed + "(+" + actualspeed-allowedspeed + ")", inline: true },
-		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Faktiskais ātrums', value: actualspeed + "(+" + actualspeed - allowedspeed + ")", inline: true },
+		)
+		.addFields(
 		{ name: 'Pārkāpums fiksēts', value: date +", "+ time, inline: true },
 		{ name: 'Paziņojums izrakstīts', value: date +", "+ time, inline: true }
 		)
