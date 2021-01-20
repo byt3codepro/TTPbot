@@ -270,7 +270,8 @@ function issuefine(message) {
 		{ name: 'Faktiskais ātrums', value: actualspeed + "(+" + actualspeed-allowedspeed + ")", inline: true },
 		{ name: '\u200B', value: '\u200B' },
 		{ name: 'Pārkāpums fiksēts', value: date +", "+ time, inline: true },
-		{ name: 'Paziņojums izrakstīts', value: date +", "+ time, inline: true },
+		{ name: 'Paziņojums izrakstīts', value: date +", "+ time, inline: true }
+		)
 		client.users
 				.fetch(userid)
 				.then(user => {
