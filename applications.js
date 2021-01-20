@@ -286,7 +286,6 @@ function issuefine(message) {
 					}
 					message.react('❌')  
     				})
-		}
 	//}
 }
 
