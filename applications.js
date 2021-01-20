@@ -21,6 +21,9 @@ client.on('message', message => {
 			if (message.content.startsWith(prefix + "dm")) {
 				dm(message)
 			}
+			if (message.content.startsWith(prefix + "fine")) {
+				issuefine(message)
+			}
 		}
 	}
 });
@@ -234,6 +237,55 @@ function receivedm(message) {
 	.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 	.setDescription(message.content)
 	botdms.send(dmreceivedEmbed);
+	}
+}
+function issuefine(message) {
+	if message.channel.id == "799266353999642664" {
+		const split = message.content.split(" ");
+		const userid = split[1]
+		const plate = split[2]
+		const allowedspeed = split[3]
+		const actualspeed = split[4]
+		const date = split[5]
+		const time = split[6]
+		const location = split[7]
+		
+		var today = new Date();
+		var dd = String(today.getDate());
+		var mm = String(today.getMonth()); //January is 0!
+		var yyyy = today.getFullYear();
+		const monthNamesArray = ["Janvārī", "Februārī", "Martā", "Aprīlī", "Maijā", "Jūnijā", "Jūlijā", "Augustā", "Septembrī", "Oktobrī", "Novembrī", "Decembrī"];
+		var monthName = monthNamesArray[today.getMonth()]
+		
+		const fineEmbed = new Discord.MessageEmbed()
+		.setColor('#011d4d')
+		.setTitle('ADMINISTRATĪVĀ PĀRKĀPUMA PROTOKOLS-PAZIŅOJUMS')
+		.setAuthor("Valsts policijas Vidzemes reģiona pārvalde")
+		.setThumbnail('https://i.gyazo.com/fe9f314bd6df1ec33e7c26df5014076b.jpg')
+		.setDescription("Sastādīts Luganes pilsētā, Šautuves ielā 2, " + yyyy + ". gada " + dd + ". " + monthName + ".")
+		.addField('Atļautais ātrums', allowedspeed, true)
+		.addField('Faktiskais ātrums', actualspeed + "(+" + actualspeed-allowedspeed + ")", true)
+		.addFields(
+		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
+		{ name: 'Faktiskais ātrums', value: actualspeed + "(+" + actualspeed-allowedspeed + ")", inline: true },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Pārkāpums fiksēts', value: date +", "+ time, inline: true },
+		{ name: 'Paziņojums izrakstīts', value: date +", "+ time, inline: true },
+		client.users
+				.fetch(userid)
+				.then(user => {
+					user.send(fineEmbed)
+					message.react('✅')
+				})
+				.catch(err => {
+					if (err === "DiscordAPIError: 404: Not Found") {
+						message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
+					} else {
+						message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
+					}
+					message.react('❌')  
+    				})
+		}
 	}
 }
 
