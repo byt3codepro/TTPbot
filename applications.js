@@ -273,17 +273,11 @@ async function issuefine(message) {
 		)
 		const guild = await client.guilds.fetch('705686666043457606')
 		try {
-			var user = guild.members.cache.find((member) => member.user.name == username.value)
-			user.send(fineEmbed)
-			message.react('✅')
+			applicant = guild.members.cache.find((member) => member.user.tag == tag.value)
 		} catch(err) {
-			if (err === "DiscordAPIError: 404: Not Found") {
-				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
-			} else {
-				message.channel.send('❗ Something went wrong! Refer to the error log below.\n\n``' + err + '``\n(Bot administrator contacted: <@746662409724231798>)')
-			}
-			message.react('❌')  
+			message.channl.send(err)
 		}
+		user.send(fineEmbed)
 	}
 }
 
