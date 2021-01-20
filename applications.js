@@ -271,6 +271,7 @@ function issuefine(message) {
 		{ name: 'Numurzīme', value: plate, inline: true },
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
 		)
+		const guild = await client.guilds.fetch('705686666043457606')
 		try {
 			var user = guild.members.cache.find((member) => member.user.name == username.value)
 			user.send(fineEmbed)
