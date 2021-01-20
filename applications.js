@@ -266,10 +266,9 @@ function issuefine(message) {
 		.addFields(
 		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
 		{ name: 'Faktiskais ātrums', value: actualspeed/* + "(+" + actualspeed - allowedspeed + ")"*/, inline: true },
-		{ name: 'Pārkāpums fiksēts', value: date + ", " + time, inline: true }
-		)
-		.addFields(
-		{ name: 'Pārkāpums fiksēts', value: date +", "+ time, inline: true },
+		{ name: 'Vadītāja ID', value: userid, inline: false },
+		{ name: 'Numurzīme', value: plate, inline: true },
+		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
 		)
 		client.users
 				.fetch(userid)
