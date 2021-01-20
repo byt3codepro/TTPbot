@@ -240,7 +240,7 @@ function receivedm(message) {
 	}
 }
 function issuefine(message) {
-	//if message.channel.id == "799266353999642664" {
+	if message.channel.id == "799266353999642664" {
 		const split = message.content.split(" ");
 		const userid = split[1]
 		const plate = split[2]
@@ -286,7 +286,7 @@ function issuefine(message) {
 					}
 					message.react('❌')  
     				})
-	//}
+	}
 }
 
 client.login(process.env.BOT_TOKEN);
