@@ -239,7 +239,7 @@ function receivedm(message) {
 	botdms.send(dmreceivedEmbed);
 	}
 }
-function issuefine(message) {
+async function issuefine(message) {
 	if (message.channel.id == "799266353999642664") {
 		const split = message.content.split(" ");
 		const username = split[1]
