@@ -266,7 +266,7 @@ function issuefine(message) {
 		.setDescription("Sastādīts Luganes pilsētā, Šautuves ielā 2, " + yyyy + ". gada " + dd + ". " + monthName + ".")
 		.addFields(
 		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
-		{ name: 'Faktiskais ātrums', value: actualspeed + "(+" + difference + ")", inline: true },
+		{ name: 'Faktiskais ātrums', value: actualspeed + " (+" + difference + ")", inline: true },
 		{ name: 'Vadītāja ID', value: userid, inline: false },
 		{ name: 'Numurzīme', value: plate, inline: true },
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
