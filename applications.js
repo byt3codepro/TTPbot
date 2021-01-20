@@ -265,11 +265,11 @@ function issuefine(message) {
 		.setDescription("Sastādīts Luganes pilsētā, Šautuves ielā 2, " + yyyy + ". gada " + dd + ". " + monthName + ".")
 		.addFields(
 		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
-		{ name: 'Faktiskais ātrums', value: actualspeed + "(+" + actualspeed - allowedspeed + ")", inline: true },
+		{ name: 'Faktiskais ātrums', value: actualspeed/* + "(+" + actualspeed - allowedspeed + ")"*/, inline: true },
+		{ name: 'Pārkāpums fiksēts', value: date + ", " + time, inline: true }
 		)
 		.addFields(
 		{ name: 'Pārkāpums fiksēts', value: date +", "+ time, inline: true },
-		{ name: 'Paziņojums izrakstīts', value: date +", "+ time, inline: true }
 		)
 		client.users
 				.fetch(userid)
