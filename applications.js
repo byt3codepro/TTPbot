@@ -273,7 +273,7 @@ async function issuefine(message) {
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
 		)
 		const guild = await client.guilds.fetch('705686666043457606')
-		await speeder = guild.members.cache.find((member) => member.displayName == username)
+		speeder = guild.members.cache.find((member) => member.displayName == username)
 			.then(() => {
 				speeder.send(fineEmbed)
 			}).catch((err) => {
