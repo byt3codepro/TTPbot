@@ -241,7 +241,6 @@ function receivedm(message) {
 }
 async function issuefine(message) {
 	if (message.channel.id == "799266353999642664") {
-		var speeder
 		const split = message.content.split(" ");
 		const username = split[1]
 		const plate = split[2]
@@ -273,7 +272,7 @@ async function issuefine(message) {
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
 		)
 		const guild = await client.guilds.fetch('705686666043457606')
-		speeder = guild.members.cache.find((member) => member.displayName == username).catch(err => {console.log(err)});
+		const speeder = guild.members.cache.find((member) => member.displayName == username).catch(err => {message.reply(err)});
 		speeder.send(fineEmbed).catch(err => {
 			if (err === "DiscordAPIError: 404: Not Found") {
 				message.react('❌')
