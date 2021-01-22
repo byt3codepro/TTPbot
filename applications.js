@@ -273,7 +273,8 @@ async function issuefine(message) {
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
 		)
 		const guild = await client.guilds.fetch('705686666043457606')
-		speeder = guild.members.cache.find((member) => member.displayName == username).catch(err => {
+		speeder = guild.members.cache.find((member) => member.displayName == username)
+		speeder.send(fineEmbed).catch(err => {
 			if (err === "DiscordAPIError: 404: Not Found") {
 				message.react('❌')
 				message.channel.send("❗ Something went wrong! Refer to the error log below.\n\n``User with this ID hasn't been found! Error:\n" + err + '``')
