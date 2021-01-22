@@ -274,7 +274,7 @@ async function issuefine(message) {
 		)
 		const guild = await client.guilds.fetch('705686666043457606')
 		try {
-			speeder = guild.members.cache.find((member) => member.user.displayName == username)
+			speeder = guild.members.cache.find((member) => member.displayName == username)
 		} catch(err) {
 			message.channl.send(err)
 		}
