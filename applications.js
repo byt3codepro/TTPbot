@@ -266,8 +266,8 @@ async function issuefine(message) {
 		.setThumbnail('https://i.gyazo.com/fe9f314bd6df1ec33e7c26df5014076b.jpg')
 		.setDescription("Sastādīts Luganes pilsētā, Šautuves ielā 2, " + yyyy + ". gada " + dd + ". " + monthName + ".")
 		.addFields(
-		{ name: 'Atļautais ātrums', value: allowedspeed, inline: true },
-		{ name: 'Faktiskais ātrums', value: actualspeed + " (+" + difference + ")", inline: true },
+		{ name: 'Atļautais ātrums', value: allowedspeed + " km/h", inline: true },
+		{ name: 'Faktiskais ātrums', value: actualspeed + " (+" + difference + ")" + " km/h", inline: true },
 		{ name: 'Vadītāja ID', value: username, inline: false },
 		{ name: 'Numurzīme', value: plate, inline: true },
 		{ name: 'Pārkāpums fiksēts', value: date + ", " + time + ", " + location, inline: false }
