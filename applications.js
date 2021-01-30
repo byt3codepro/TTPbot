@@ -75,13 +75,13 @@ async function results(message) {
 						if (mark.value === "PASSED") {
 							if (rank.value == "Driver") {
 								applicant.roles.add('729096087733796871')
-								trainingchannel.send("<@" + member.user.id + "> --- <@760023801022251038>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@760023801022251038>")
 							} else if (rank.value == "Technician") {
 								applicant.roles.add('729721228457410642')
-								trainingchannel.send("<@" + member.user.id + "> --- <@760023702900572180>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@760023702900572180>")
 							} else if (rank.value == "Ticket Inspector") {
 								applicant.roles.add('729721437371236404')
-								trainingchannel.send("<@" + member.user.id + "> --- <@760023575566090271>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@760023575566090271>")
 							}
 							applicant.roles.add('705755874718777397')
 							applicant.roles.add('756557729790689421')
