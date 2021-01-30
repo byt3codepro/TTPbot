@@ -31,6 +31,7 @@ client.on('message', message => {
 
 async function results(message) {
 	var editor = ["746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
+	let trainingchannel = client.channels.cache.get("748638653705748480")
 	if (editor.includes(message.author.id) == true) {
 		// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 		await doc.useServiceAccountAuth({
@@ -72,15 +73,15 @@ async function results(message) {
 				if (sent.value === "☐") {
 					if (comments.value === null) {
 						if (mark.value === "PASSED") {
-							if (rank.value == "Bus Driver") {
+							if (rank.value == "Driver") {
 								applicant.roles.add('729096087733796871')
-								"<@" + member.user.id + "> --- <@760023801022251038>"
+								trainingchannel.send("<@" + member.user.id + "> --- <@760023801022251038>")
 							} else if (rank.value == "Technician") {
 								applicant.roles.add('729721228457410642')
-								"<@" + member.user.id + "> --- <@760023702900572180>"
+								trainingchannel.send("<@" + member.user.id + "> --- <@760023702900572180>")
 							} else if (rank.value == "Ticket Inspector") {
 								applicant.roles.add('729721437371236404')
-								"<@" + member.user.id + "> --- <@760023575566090271>"
+								trainingchannel.send("<@" + member.user.id + "> --- <@760023575566090271>")
 							}
 							applicant.roles.add('705755874718777397')
 							applicant.roles.add('756557729790689421')
