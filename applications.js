@@ -72,6 +72,18 @@ async function results(message) {
 				if (sent.value === "☐") {
 					if (comments.value === null) {
 						if (mark.value === "PASSED") {
+							if (rank.value == "Bus Driver") {
+								applicant.roles.add('729096087733796871')
+								"<@" + member.user.id + "> --- <@760023801022251038>"
+							} else if (rank.value == "Technician") {
+								applicant.roles.add('729721228457410642')
+								"<@" + member.user.id + "> --- <@760023702900572180>"
+							} else if (rank.value == "Ticket Inspector") {
+								applicant.roles.add('729721437371236404')
+								"<@" + member.user.id + "> --- <@760023575566090271>"
+							}
+							applicant.roles.add('705755874718777397')
+							applicant.roles.add('756557729790689421')
 							resultsembed = new Discord.MessageEmbed()
 							.setColor('#2dcc70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
 							.setTitle("Application " + mark.value)
