@@ -318,7 +318,7 @@ setInterval(function reminderCheck() {
 		var Type = sheet.getCellByA1('B' + i)
 		var Author = sheet.getCellByA1('C' + i)
 		var Text = sheet.getCellByA1('D' + i)
-		if Time == null) {
+		if (Time == null) {
 			break;
 		} else {
 			const split = Time.split(":");
