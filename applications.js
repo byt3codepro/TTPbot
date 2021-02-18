@@ -312,6 +312,8 @@ async function remind(message) {
 				sheet.getCellByA1('C' + i).value = message.author.id
 				sheet.getCellByA1('D' + i).value = split[3]
 				break;
+			} else {
+				console.log("dirsa ir")	
 			}
 		}
 	}
