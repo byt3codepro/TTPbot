@@ -6,6 +6,15 @@ const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g'
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+async function (startdoc) {
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY,
+	});
+	await doc.loadInfo(); // loads document properties and worksheets
+}
+startdoc()
+
 client.on('message', message => {
 	const prefix = "/";
 	
@@ -33,15 +42,15 @@ client.on('message', message => {
 
 
 async function results(message) {
-	var editor = ["746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
+	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
 	if (editor.includes(message.author.id) == true) {
 		// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
-		await doc.useServiceAccountAuth({
+		/*await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 			private_key: process.env.GOOGLE_PRIVATE_KEY,
 		});
-		await doc.loadInfo(); // loads document properties and worksheets
+		await doc.loadInfo(); // loads document properties and worksheets*/
 		const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
 		const guild = await client.guilds.fetch('705686666043457606')
@@ -207,7 +216,7 @@ async function results(message) {
 		}
 }
 function dm(message) {
-	var admin = ["746662409724231798","482586747201519617","290452091946663936"]; //can dm users via bot, using the /dm command
+	var admin = ["749330903632707727","746662409724231798","482586747201519617","290452091946663936"]; //can dm users via bot, using the /dm command
 	if (admin.includes(message.author.id) == true) {
 		const split = message.content.split(",");
 		const targetid = split[1]
@@ -295,10 +304,10 @@ async function issuefine(message) {
 async function remind(message) {
 	var remindperm = ["746662409724231798","482586747201519617"]; //can set reminders, using the /remind command
 	if (remindperm.includes(message.author.id) == true) {
-		await doc.useServiceAccountAuth({
+		/*await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 			private_key: process.env.GOOGLE_PRIVATE_KEY,
-		});
+		});*/
 		await doc.loadInfo(); // loads document properties and worksheets
 		const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
@@ -319,11 +328,11 @@ async function remind(message) {
 	}
 }
 setInterval(async function reminderCheck() {
-	await doc.useServiceAccountAuth({
+	/*await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 			private_key: process.env.GOOGLE_PRIVATE_KEY,
 		});
-	await doc.loadInfo(); // loads document properties and worksheets
+	await doc.loadInfo(); // loads document properties and worksheets*/
 	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
 	let botcmdschannel = client.channels.cache.get("799266353999642664")
