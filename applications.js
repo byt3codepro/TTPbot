@@ -24,6 +24,9 @@ client.on('message', message => {
 			if (message.content.startsWith(prefix + "fine")) {
 				issuefine(message)
 			}
+			if (message.content.startsWith(prefix + "remind")) {
+				issuefine(remind)
+			}
 		}
 	}
 });
@@ -290,6 +293,47 @@ async function issuefine(message) {
 		speeder.send(fineEmbed)
 	}
 }
+async function remind(message) {
+	var remindperm = ["746662409724231798"]; //can set reminders, using the /remind command
+	if (admin.includes(message.author.id) == true) {
+		await doc.useServiceAccountAuth({
+			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+			private_key: process.env.GOOGLE_PRIVATE_KEY,
+		});
+		await doc.loadInfo(); // loads document properties and worksheets
+		const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+		await sheet.loadCells();
+		for (let i = 2; i < 250; i++) {
+			sheet.getCellByA1('A' + i);
+		}
+	}
+}
+setInterval(function reminderCheck() {
+	let botcmdschannel = client.channels.cache.get("799266353999642664")
+	var d = new Date();
+  	var min = d.getUTCMinutes();
+	var hr = d.getUTCHours();
+	for (let i = 1; i < 250; i++) {
+		var Time = sheet.getCellByA1('A' + i)
+		var Type = sheet.getCellByA1('B' + i)
+		var Author = sheet.getCellByA1('C' + i)
+		var Text = sheet.getCellByA1('D' + i)
+		if Time == null) {
+			break;
+		} else {
+			const split = Time.split(":");
+			if (split[0] == hr && split[1] == min) {
+				if (Type == "Reminder") {
+					client.users.fetch(Author).then((user) => {
+    						user.send(Text);
+					});
+				} else if (Type == "TimedCommand") {
+					botcmdschannel.send(Text)
+				}
+			}
+		}
+	}
+}, 60 * 1000); //every 60 secs
 
 client.login(process.env.BOT_TOKEN);
 //©raltec 2021
