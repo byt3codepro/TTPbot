@@ -332,7 +332,7 @@ setInterval(async function reminderCheck() {
 			if (split[0] == hr && split[1] == min) {
 				if (Type == "Reminder") {
 					client.users.fetch(Author).then(user => {
-						console.log(sheet.getCellByA1('D' + i).value)
+						user.send(sheet.getCellByA1('D' + i).value)
 					})
 				} else if (Type == "TimedCommand") {
 					botcmdschannel.send(Text)
