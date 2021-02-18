@@ -309,6 +309,13 @@ async function remind(message) {
 	}
 }
 setInterval(function reminderCheck() {
+	await doc.useServiceAccountAuth({
+			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+			private_key: process.env.GOOGLE_PRIVATE_KEY,
+		});
+	await doc.loadInfo(); // loads document properties and worksheets
+	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+	await sheet.loadCells();
 	let botcmdschannel = client.channels.cache.get("799266353999642664")
 	var d = new Date();
   	var min = d.getUTCMinutes();
