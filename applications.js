@@ -177,7 +177,6 @@ async function results(message) {
 						}
 					}
 					sent.value = "☑"
-					//console.log(applicant.id)
 					try {
 						applicant.send(resultsembed)
 					} catch (err) {
@@ -312,6 +311,7 @@ async function remind(message) {
 				sheet.getCellByA1('B' + i).value = split[2]
 				sheet.getCellByA1('C' + i).value = message.author.id
 				sheet.getCellByA1('D' + i).value = split[3]
+				await sheet.saveUpdatedCells();
 				break;
 			} else {
 				console.log("dirsa ir")	
