@@ -331,9 +331,9 @@ setInterval(async function reminderCheck() {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
 				if (Type == "Reminder") {
-					client.users.fetch(Author).then((user) => {
-    						user.send(Text);
-					});
+					client.users.fetch(Author).then(user => {
+						user.send(Text)
+					})
 				} else if (Type == "TimedCommand") {
 					botcmdschannel.send(Text)
 				}
