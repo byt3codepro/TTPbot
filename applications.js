@@ -293,7 +293,7 @@ async function issuefine(message) {
 		speeder.send(fineEmbed)
 	}
 }
-async function remind(message) {
+function remind(message) {
 	var remindperm = ["746662409724231798"]; //can set reminders, using the /remind command
 	if (admin.includes(message.author.id) == true) {
 		await doc.useServiceAccountAuth({
@@ -308,7 +308,7 @@ async function remind(message) {
 		}
 	}
 }
-setInterval(function reminderCheck() {
+setInterval(async function reminderCheck() {
 	await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 			private_key: process.env.GOOGLE_PRIVATE_KEY,
