@@ -293,7 +293,7 @@ async function issuefine(message) {
 		speeder.send(fineEmbed)
 	}
 }
-function remind(message) {
+/*async function remind(message) {
 	var remindperm = ["746662409724231798"]; //can set reminders, using the /remind command
 	if (admin.includes(message.author.id) == true) {
 		await doc.useServiceAccountAuth({
@@ -307,7 +307,7 @@ function remind(message) {
 			sheet.getCellByA1('A' + i);
 		}
 	}
-}
+}*/
 setInterval(async function reminderCheck() {
 	await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
