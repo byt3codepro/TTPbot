@@ -321,10 +321,10 @@ setInterval(async function reminderCheck() {
   	var min = d.getUTCMinutes();
 	var hr = d.getUTCHours();
 	for (let i = 1; i < 250; i++) {
-		var Time = sheet.getCellByA1('A' + i)
-		var Type = sheet.getCellByA1('B' + i)
-		var Author = sheet.getCellByA1('C' + i)
-		var Text = sheet.getCellByA1('D' + i)
+		var Time = sheet.getCellByA1('A' + i).value
+		var Type = sheet.getCellByA1('B' + i).value
+		var Author = sheet.getCellByA1('C' + i).value
+		var Text = sheet.getCellByA1('D' + i).value
 		if (Time == null) {
 			break;
 		} else {
