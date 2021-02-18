@@ -6,7 +6,7 @@ const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g'
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-async function (startdoc) {
+async function startdoc() {
 	await doc.useServiceAccountAuth({
 		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 		private_key: process.env.GOOGLE_PRIVATE_KEY,
