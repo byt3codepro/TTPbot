@@ -347,6 +347,7 @@ setInterval(async function reminderCheck() {
 				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
+				const rows = await sheet.getRows();
 				await rows[i].delete();
 				await sheet.saveUpdatedCells();
 			}
