@@ -348,7 +348,7 @@ setInterval(async function reminderCheck() {
 			}
 		}
 	}
-}, 60 * 1000); //every 60 secs
+}, 60 * 1000); //every 60 secs 
 
 client.login(process.env.BOT_TOKEN);
 //©raltec 2021
