@@ -20,12 +20,12 @@ client.on('message', message => {
 			} else
 			if (message.content.startsWith(prefix + "dm")) {
 				dm(message)
-			}
+			} else
 			if (message.content.startsWith(prefix + "fine")) {
 				issuefine(message)
-			}
+			} else
 			if (message.content.startsWith(prefix + "remind")) {
-				issuefine(remind)
+				remind(message)
 			}
 		}
 	}
@@ -293,7 +293,7 @@ async function issuefine(message) {
 		speeder.send(fineEmbed)
 	}
 }
-/*async function remind(message) {
+async function remind(message) {
 	var remindperm = ["746662409724231798"]; //can set reminders, using the /remind command
 	if (admin.includes(message.author.id) == true) {
 		await doc.useServiceAccountAuth({
@@ -303,11 +303,19 @@ async function issuefine(message) {
 		await doc.loadInfo(); // loads document properties and worksheets
 		const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
-		for (let i = 2; i < 250; i++) {
-			sheet.getCellByA1('A' + i);
+		const split = Time.split("[]");
+		var time = split[1].split(":");
+		for (let i = 1; i < 250; i++) {
+			if (sheet.getCellByA1('A' + i).value == null) {
+				sheet.getCellByA1('A' + i).value = time[0]-2 + ":" + time[1]
+				sheet.getCellByA1('B' + i).value = split[2]
+				sheet.getCellByA1('C' + i).value = message.author.id
+				sheet.getCellByA1('D' + i).value = split[3]
+				break;
+			}
 		}
 	}
-}*/
+}
 setInterval(async function reminderCheck() {
 	await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
