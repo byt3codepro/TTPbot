@@ -342,6 +342,7 @@ setInterval(async function reminderCheck() {
 				if (Type == "Reminder") {
 					client.users.fetch(Author).then(user => {
 						user.send(sheet.getCellByA1('D' + i).value)
+						console.log("send to " + user)
 					})
 				} else if (Type == "TimedCommand") {
 					botcmdschannel.send(Text)
