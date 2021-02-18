@@ -293,7 +293,7 @@ async function issuefine(message) {
 	}
 }
 async function remind(message) {
-	var remindperm = ["746662409724231798"]; //can set reminders, using the /remind command
+	var remindperm = ["746662409724231798","482586747201519617"]; //can set reminders, using the /remind command
 	if (remindperm.includes(message.author.id) == true) {
 		await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -314,10 +314,11 @@ async function remind(message) {
 				break;
 			}
 		}
+	} else {
+		message.channel.send("❗ Insufficient permissions")	
 	}
 }
 setInterval(async function reminderCheck() {
-	console.log("check")
 	await doc.useServiceAccountAuth({
 			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 			private_key: process.env.GOOGLE_PRIVATE_KEY,
@@ -339,15 +340,17 @@ setInterval(async function reminderCheck() {
 		} else {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
-				if (Type == "Reminder") {
+				if (Type == "dm") {
 					client.users.fetch(Author).then(user => {
 						user.send(sheet.getCellByA1('D' + i).value)
-						console.log("send to " + user)
 					})
-				} else if (Type == "TimedCommand") {
+				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
+				await rows[i].delete();
+				await sheet.saveUpdatedCells();
 			}
+			
 		}
 	}
 }, 60 * 1000); //every 60 secs 
