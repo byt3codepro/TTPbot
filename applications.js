@@ -357,8 +357,7 @@ setInterval(async function reminderCheck() {
 					botcmdschannel.send(Text)
 				}
 				const rows = await sheet.getRows();
-				console.log("ROW0 " + rows[0])
-				console.log("ROW1 " + rows[1])
+				console.log(rows[0])
 				await rows[0].delete();
 				await sheet.saveUpdatedCells();
 			}
