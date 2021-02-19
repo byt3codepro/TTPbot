@@ -358,7 +358,7 @@ setInterval(async function reminderCheck() {
 				}
 				const rows = await sheet.getRows();
 				console.log(rows[i])
-				await rows[i].delete();
+				await rows.delete();
 				await sheet.saveUpdatedCells();
 			}
 			
