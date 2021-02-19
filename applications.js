@@ -359,7 +359,7 @@ setInterval(async function reminderCheck() {
 				const rows = await sheet.getRows();
 				console.log("ROW0 " + rows[0])
 				console.log("ROW1 " + rows[1])
-				await rows[i].delete();
+				await rows[0].delete();
 				await sheet.saveUpdatedCells();
 			}
 			
