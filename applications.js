@@ -368,7 +368,8 @@ setInterval(async function reminderCheck() {
 						break;
 					} else {
 						if (rows[i].delreq == "x") {
-							rows[i].delete();
+							await rows[i].delete();
+							await sheet.saveUpdatedCells();
 							i--
 						}
 					}
