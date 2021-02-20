@@ -313,7 +313,7 @@ async function remind(message) {
 		await sheet.loadCells();
 		const split = message.content.split("[]");
 		var time = split[1].split(":");
-		for (let i = 1; i < 250; i++) {
+		for (let i = 2; i < 250; i++) {
 			if (sheet.getCellByA1('A' + i).value == null) {
 				sheet.getCellByA1('A' + i).value = Number(time[0])-2 + ":" + time[1]
 				sheet.getCellByA1('B' + i).value = split[2]
