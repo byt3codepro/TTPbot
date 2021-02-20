@@ -374,7 +374,6 @@ setInterval(async function reminderCheck() {
 						}
 					}
 				}
-				await sheet.saveUpdatedCells();
 			}
 			
 		}
