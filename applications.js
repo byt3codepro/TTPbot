@@ -369,6 +369,7 @@ setInterval(async function reminderCheck() {
 					} else {
 						if (rows[i].delreq == "x") {
 							rows[i].delete();
+							i--
 						}
 					}
 				}
