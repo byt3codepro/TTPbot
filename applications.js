@@ -344,11 +344,17 @@ setInterval(async function reminderCheck() {
 		var Type = sheet.getCellByA1('B' + i).value
 		var Author = sheet.getCellByA1('C' + i).value
 		var Text = sheet.getCellByA1('D' + i).value
+		var DelReq = sheet.getCellByA1('E' + i).value
+		var Perm = sheet.getCellByA1('F' + i).value
 		if (Time == null) {
 			break;
 		} else {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
+				if (Perm !== "x") {
+					DelReq = "x"
+				}
+				await sheet.saveUpdatedCells();
 				if (Type == "dm") {
 					client.users.fetch(Author).then(user => {
 						user.send(sheet.getCellByA1('D' + i).value)
@@ -357,7 +363,15 @@ setInterval(async function reminderCheck() {
 					botcmdschannel.send(Text)
 				}
 				var rows = await sheet.getRows();
-				await rows[i-2].delete();
+				for (let i = 0; i < 250; i++) {
+					if (rows[i].timeutc == undefined) {
+						break;
+					} else {
+						if (rows[i].delreq == "x") {
+							rows[i].delete();
+						}
+					}
+				}
 				await sheet.saveUpdatedCells();
 			}
 			
