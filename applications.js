@@ -356,9 +356,13 @@ setInterval(async function reminderCheck() {
 				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
-				var rows = await sheet.getRows();
-				await rows[i].delete();
-				await sheet.saveUpdatedCells();
+				console.log(rows.length); // 2
+				for (let i = 1; i < 10; i++) {
+					console.log(rows[0].timeutc); // 'Larry Page'
+				}
+				//var rows = await sheet.getRows();
+				//await rows[i].delete();
+				//await sheet.saveUpdatedCells();
 			}
 			
 		}
