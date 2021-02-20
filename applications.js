@@ -353,8 +353,8 @@ setInterval(async function reminderCheck() {
 			if (split[0] == hr && split[1] == min) {
 				if (Perm != "x") {
 					sheet.getCellByA1('E' + i).value = 'x'
+					await sheet.saveUpdatedCells();
 				}
-				await sheet.saveUpdatedCells();
 				if (Type == "dm") {
 					client.users.fetch(Author).then(user => {
 						user.send(sheet.getCellByA1('D' + i).value)
@@ -362,9 +362,11 @@ setInterval(async function reminderCheck() {
 				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
-				/*for (let i = 0; i < 250; i++) {
+				for (let i = 0; i < 250; i++) {
 					var rows = await sheet.getRows();
-					if (rows[i] == undefined || rows[i].timeutc == undefined) {
+					if (rows[i] == undefined) {
+						break;
+					} else if (rows[i].timeutc == undefined) {
 						break;
 					} else {
 						if (rows[i].delreq == "x") {
@@ -373,7 +375,7 @@ setInterval(async function reminderCheck() {
 							i = 0
 						}
 					}
-				}*/
+				}
 			}
 			
 		}
