@@ -356,9 +356,9 @@ setInterval(async function reminderCheck() {
 				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
-				//var rows = await sheet.getRows();
-				//await rows[i].delete();
-				//await sheet.saveUpdatedCells();
+				var rows = await sheet.getRows();
+				await rows[i].delete();
+				await sheet.saveUpdatedCells();
 			}
 			
 		}
