@@ -367,7 +367,7 @@ setInterval(async function reminderCheck() {
 					if (i < 0) {
 						i = 0	
 					}
-					if (rows[i].timeutc == undefined) {
+					if (rows[i] == undefined || rows[i].timeutc == undefined) {
 						break;
 					} else {
 						if (rows[i].delreq == "x") {
