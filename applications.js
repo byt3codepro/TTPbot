@@ -352,7 +352,7 @@ setInterval(async function reminderCheck() {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
 				//if (Perm == null) {
-					DelReq = "x"
+					sheet.getCellByA1('E' + i).value = 'x'
 				//}
 				await sheet.saveUpdatedCells();
 				if (Type == "dm") {
