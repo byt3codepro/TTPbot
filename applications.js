@@ -351,9 +351,9 @@ setInterval(async function reminderCheck() {
 		} else {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
-				if (Perm == null) {
+				//if (Perm == null) {
 					DelReq = "x"
-				}
+				//}
 				await sheet.saveUpdatedCells();
 				if (Type == "dm") {
 					client.users.fetch(Author).then(user => {
