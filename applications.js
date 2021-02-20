@@ -362,14 +362,13 @@ setInterval(async function reminderCheck() {
 				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
-				var rows = await sheet.getRows();
 				for (let i = 0; i < 250; i++) {
+					var rows = await sheet.getRows();
 					if (rows[i].timeutc == undefined) {
 						break;
 					} else {
 						if (rows[i].delreq == "x") {
 							rows[i].delete();
-							i--
 						}
 					}
 				}
