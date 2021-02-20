@@ -351,7 +351,7 @@ setInterval(async function reminderCheck() {
 		} else {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
-				if (Perm == null) {
+				if (Perm != "x") {
 					sheet.getCellByA1('E' + i).value = 'x'
 				}
 				await sheet.saveUpdatedCells();
@@ -364,16 +364,13 @@ setInterval(async function reminderCheck() {
 				}
 				for (let i = 0; i < 250; i++) {
 					var rows = await sheet.getRows();
-					if (i < 0) {
-						i = 0	
-					}
 					if (rows[i] == undefined || rows[i].timeutc == undefined) {
 						break;
 					} else {
 						if (rows[i].delreq == "x") {
 							await rows[i].delete();
 							await sheet.saveUpdatedCells();
-							i--
+							i = 0
 						}
 					}
 				}
