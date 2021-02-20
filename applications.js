@@ -362,7 +362,7 @@ setInterval(async function reminderCheck() {
 				} else if (Type == "cmd") {
 					botcmdschannel.send(Text)
 				}
-				for (let i = 0; i < 250; i++) {
+				/*for (let i = 0; i < 250; i++) {
 					var rows = await sheet.getRows();
 					if (rows[i] == undefined || rows[i].timeutc == undefined) {
 						break;
@@ -373,7 +373,7 @@ setInterval(async function reminderCheck() {
 							i = 0
 						}
 					}
-				}
+				}*/
 			}
 			
 		}
