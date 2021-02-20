@@ -339,7 +339,7 @@ setInterval(async function reminderCheck() {
 	var d = new Date();
   	var min = d.getUTCMinutes();
 	var hr = d.getUTCHours();
-	for (let i = 1; i < 250; i++) {
+	for (let i = 2; i < 250; i++) {
 		var Time = sheet.getCellByA1('A' + i).value
 		var Type = sheet.getCellByA1('B' + i).value
 		var Author = sheet.getCellByA1('C' + i).value
@@ -357,12 +357,8 @@ setInterval(async function reminderCheck() {
 					botcmdschannel.send(Text)
 				}
 				var rows = await sheet.getRows();
-				console.log(rows.length); // 2
-				for (let i = 0; i < 10; i++) {
-					console.log(rows[i].timeutc); // 'Larry Page'
-				}
-				//await rows[i].delete();
-				//await sheet.saveUpdatedCells();
+				await rows[i-2].delete();
+				await sheet.saveUpdatedCells();
 			}
 			
 		}
