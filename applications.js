@@ -351,7 +351,7 @@ setInterval(async function reminderCheck() {
 		} else {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
-				if (Perm !== "x") {
+				if (Perm != "x") {
 					DelReq = "x"
 				}
 				await sheet.saveUpdatedCells();
@@ -364,6 +364,9 @@ setInterval(async function reminderCheck() {
 				}
 				for (let i = 0; i < 250; i++) {
 					var rows = await sheet.getRows();
+					if (i < 0) {
+						i = 0	
+					}
 					if (rows[i].timeutc == undefined) {
 						break;
 					} else {
