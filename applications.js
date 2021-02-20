@@ -358,8 +358,8 @@ setInterval(async function reminderCheck() {
 				}
 				var rows = await sheet.getRows();
 				console.log(rows.length); // 2
-				for (let i = 1; i < 10; i++) {
-					console.log(rows[0].timeutc); // 'Larry Page'
+				for (let i = 0; i < 10; i++) {
+					console.log(rows[i].timeutc); // 'Larry Page'
 				}
 				//await rows[i].delete();
 				//await sheet.saveUpdatedCells();
