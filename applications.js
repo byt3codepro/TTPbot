@@ -341,18 +341,17 @@ setInterval(async function reminderCheck() {
 	var hr = d.getUTCHours();
 	for (let i = 2; i < 250; i++) {
 		var Time = sheet.getCellByA1('A' + i).value
-		var Type = sheet.getCellByA1('B' + i).value
-		var Author = sheet.getCellByA1('C' + i).value
-		var Text = sheet.getCellByA1('D' + i).value
-		var DelReq = sheet.getCellByA1('E' + i).value
-		var Perm = sheet.getCellByA1('F' + i).value
 		if (Time == null) {
 			break;
 		} else {
 			const split = Time.split(":");
 			if (split[0] == hr && split[1] == min) {
+				var Type = sheet.getCellByA1('B' + i).value
+				var Author = sheet.getCellByA1('C' + i).value
+				var Text = sheet.getCellByA1('D' + i).value
+				var Perm = sheet.getCellByA1('F' + i).value
 				if (Perm != "x") {
-					sheet.getCellByA1('E' + i).value = 'x'
+					sheet.getCellByA1('E' + i).value = 'x' //reqdel = "x"
 					await sheet.saveUpdatedCells();
 				}
 				if (Type == "dm") {
