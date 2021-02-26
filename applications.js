@@ -16,6 +16,7 @@ async function startdoc() {
 startdoc()
 
 client.on('message', message => {
+	var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450", "746662409724231798", "562556023861280768", "482586747201519617"];
 	const prefix = "/";
 	
 	if (message.guild === null) {
@@ -45,12 +46,6 @@ async function results(message) {
 	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
 	if (editor.includes(message.author.id) == true) {
-		// Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
-		/*await doc.useServiceAccountAuth({
-			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-			private_key: process.env.GOOGLE_PRIVATE_KEY,
-		});
-		await doc.loadInfo(); // loads document properties and worksheets*/
 		const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
 		const guild = await client.guilds.fetch('705686666043457606')
@@ -304,10 +299,6 @@ async function issuefine(message) {
 async function remind(message) {
 	var remindperm = ["746662409724231798","482586747201519617"]; //can set reminders, using the /remind command
 	if (remindperm.includes(message.author.id) == true) {
-		/*await doc.useServiceAccountAuth({
-			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-			private_key: process.env.GOOGLE_PRIVATE_KEY,
-		});*/
 		await doc.loadInfo(); // loads document properties and worksheets
 		const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
@@ -328,11 +319,6 @@ async function remind(message) {
 	}
 }
 setInterval(async function reminderCheck() {
-	/*await doc.useServiceAccountAuth({
-			client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-			private_key: process.env.GOOGLE_PRIVATE_KEY,
-		});
-	await doc.loadInfo(); // loads document properties and worksheets*/
 	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
 	let botcmdschannel = client.channels.cache.get("799266353999642664")
@@ -379,7 +365,61 @@ setInterval(async function reminderCheck() {
 			
 		}
 	}
-}, 60 * 1000); //every 60 secs 
+}, 60 * 1000); //every 60 secs
+function ping(message) {
+	if (whitelist.includes(message.author.id) == true) {
+                message.react('❤️')
+                message.channel.send("🏓")
+                message.channel.send("*** Pong!***");
+                } else {        
+                    var a = ['no', 'leave me alone', 'you aint worth my time', 'why do u even want ur ping', 'ask another bot im busy', 'not you again', 'god help me', '*Ping Service 1x* has been added to your cart\nNew Total: € 6.90', 'noobs doesnt even have a ping', '**666 ms!** ***Burn in hell!***', 'GET LOST', 'im tired of you', 'idk', 'you get coal from me this christmas, only normal people get a ping present', 'This is a Premium feature! You are too poor to afford Premium of such cool bot!']
+                    message.react('⛔')
+                    message.channel.send(a[Math.floor(Math.random() * a.length)]);
+                }
+        }
+}
+function announce(message) {
+	if (whitelist.includes(message.author.id) == true) {
+		if (message.content == '/announce help') {
+			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
+		} else {
+			var announcesplit = message.content.split("[]");
+			let announcementchannel = client.channels.cache.get(announcesplit[1])
+			const announcementembed = new Discord.MessageEmbed()
+				.setColor('#2dcc70')
+				.setTitle(announcesplit[3])
+				.setDescription(announcesplit[4])
+				.setFooter('Luganes pilsēta');
+			if (announcesplit[2] == 'x') {
+				announcementchannel.send(announcementembed);
+			} else {
+				if (announcesplit[2] == "everyone") {
+					announcementchannel.send("@everyone", announcementembed);
+				} else {
+					if (announcesplit[2] == "here") {
+						announcementchannel.send("@here", announcementembed);
+					} else {
+					announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
+					}
+				}
+			}
+		}
+	} else {
+		message.channel.send('❗ Insufficient permissions');
+	}	
+}
+function lvrole(message) {
+	if (message.content == '/lv') {
+		message.member.roles.add('705757268448378971');
+		message.react('✅') 
+	} else if (message.content == '/lv remove') {
+		message.member.roles.remove('705757268448378971');
+		message.react('✅')
+	} else {
+		message.reply("❗ Incorrect format:\n> Add role: ``/lv``\n> Remove role: ``/lv remove``");
+		message.react('✅')
+	}
+}
 
 client.login(process.env.BOT_TOKEN);
 //©raltec 2021
