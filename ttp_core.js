@@ -27,18 +27,7 @@ var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450
 	    
 	//   space for dm commands  
     } else {
-        if (message.content == 'ping?') {
-            if (whitelist.includes(message.author.id) == true) {
-                message.react('❤️')
-                message.channel.send("🏓")
-                message.channel.send("*** Pong!***");
-                } else {        
-                    var a = ['no', 'leave me alone', 'you aint worth my time', 'why do u even want ur ping', 'ask another bot im busy', 'not you again', 'god help me', '*Ping Service 1x* has been added to your cart\nNew Total: € 6.90', 'noobs doesnt even have a ping', '**666 ms!** ***Burn in hell!***', 'GET LOST', 'im tired of you', 'idk', 'you get coal from me this christmas, only normal people get a ping present', 'This is a Premium feature! You are too poor to afford Premium of such cool bot!']
-                    message.react('⛔')
-                    message.channel.send(a[Math.floor(Math.random() * a.length)]);
-                }
-            }
-	if (message.content.startsWith('/announce')) {
+	/*if (message.content.startsWith('/announce')) {
 		if (whitelist.includes(message.author.id) == true) {
 			if (message.content == '/announce help') {
 				message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
@@ -67,8 +56,8 @@ var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450
 		} else {
 			message.channel.send('❗ Insufficient permissions');
 		}
-	}
-        if (message.content.startsWith('/purge')) {
+	}*/
+        /*if (message.content.startsWith('/purge')) {
             if (message.content != '/purge') {
                 if (whitelist.includes(message.author.id) == true) {
                     var delnum = message.content.split(" ");
@@ -89,9 +78,9 @@ var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450
             } else {
                 message.channel.send('❗ Enter valid amount   ``/purge [amount]``');
             }   
-        }
+        }*/
 	    let role = message.guild.roles.cache.get("705757268448378971");
-	if (message.content == '/lv') {
+	/*if (message.content == '/lv') {
 		if (message.author.id == "602742940074246144") {
 			message.channel.send('❗ Root Issue (7)\n```Root exited with false member value!\nLUG673432\n\n/lvYES.ID705757268448378971.X.REACT=X```');
 			message.react('❌')
@@ -103,11 +92,11 @@ var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450
 	if (message.content == '/lv remove') {
 		message.member.roles.remove('705757268448378971');
 		message.react('✅')
-	}
-	if (message.content == '/lv remove') {
+	}*/
+	/*if (message.content == '/lv remove') {
 		message.member.roles.remove('705757268448378971');
 		message.react('✅')
-	}   
+	}*/  
 	/*if (message.channel.name == "bot-feed") {
 		if (whitelist.includes(message.author.id) == true) {
 			//if (message.content.startsWith('/dm')) {
@@ -131,28 +120,7 @@ var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450
 	    
 	    
 	    
-	if (message.content.startsWith('/getrole')) {
-            if (message.content != '/purge') {
-                if (whitelist.includes(message.author.id) == true) {
-                    var delnum = message.content.split(" ");
-			message.member.roles.add(delnum[1])
-		    message.react('✅')
-		} else {
-			message.channel.send('❗ Insufficient permissions');
-		}
-	    }
-        }
-	if (message.content.startsWith('/removerole')) {
-            if (message.content != '/purge') {
-                if (whitelist.includes(message.author.id) == true) {
-                    var delnum = message.content.split(" ");
-			message.member.roles.remove(delnum[1])
-		    message.react('✅')
-		} else {
-			message.channel.send('❗ Insufficient permissions');
-		}
-	    }
-        }
+
 	    
 	
 	    
