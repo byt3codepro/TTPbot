@@ -371,11 +371,10 @@ function ping(message) {
                 message.react('❤️')
                 message.channel.send("🏓")
                 message.channel.send("*** Pong!***");
-                } else {        
-                    var a = ['no', 'leave me alone', 'you aint worth my time', 'why do u even want ur ping', 'ask another bot im busy', 'not you again', 'god help me', '*Ping Service 1x* has been added to your cart\nNew Total: € 6.90', 'noobs doesnt even have a ping', '**666 ms!** ***Burn in hell!***', 'GET LOST', 'im tired of you', 'idk', 'you get coal from me this christmas, only normal people get a ping present', 'This is a Premium feature! You are too poor to afford Premium of such cool bot!']
-                    message.react('⛔')
-                    message.channel.send(a[Math.floor(Math.random() * a.length)]);
-                }
+        } else {        
+                var a = ['no', 'leave me alone', 'you aint worth my time', 'why do u even want ur ping', 'ask another bot im busy', 'not you again', 'god help me', '*Ping Service 1x* has been added to your cart\nNew Total: € 6.90', 'noobs doesnt even have a ping', '**666 ms!** ***Burn in hell!***', 'GET LOST', 'im tired of you', 'idk', 'you get coal from me this christmas, only normal people get a ping present', 'This is a Premium feature! You are too poor to afford Premium of such cool bot!']
+                message.react('⛔')
+                message.channel.send(a[Math.floor(Math.random() * a.length)]);
         }
 }
 function announce(message) {
