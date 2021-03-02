@@ -16,7 +16,6 @@ async function startdoc() {
 startdoc()
 
 client.on('message', message => {
-	var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450", "746662409724231798", "562556023861280768", "482586747201519617"];
 	const prefix = "/";
 	
 	if (message.guild === null) {
@@ -373,6 +372,7 @@ setInterval(async function reminderCheck() {
 	}
 }, 60 * 1000); //every 60 secs
 function ping(message) {
+	var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450", "746662409724231798", "562556023861280768", "482586747201519617"];
 	if (whitelist.includes(message.author.id) == true) {
                 message.react('❤️')
                 message.channel.send("🏓")
@@ -384,6 +384,7 @@ function ping(message) {
         }
 }
 function announce(message) {
+	var whitelist = ["749330903632707727", "179654608371712000", "514127283636797450", "746662409724231798", "562556023861280768", "482586747201519617"];
 	if (whitelist.includes(message.author.id) == true) {
 		if (message.content == '/announce help') {
 			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
