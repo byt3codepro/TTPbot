@@ -36,6 +36,12 @@ client.on('message', message => {
 			} else
 			if (message.content.startsWith(prefix + "remind")) {
 				remind(message)
+			} else
+			if (message.content.startsWith(prefix + "announce")) {
+				announce(message)
+			} else
+			if (message.content.startsWith(prefix + "ping")) {
+				ping(message)
 			}
 		}
 	}
