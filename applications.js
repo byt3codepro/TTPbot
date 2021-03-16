@@ -1,5 +1,5 @@
 //©raltec 2021
-//Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
+//Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs 
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
 	
