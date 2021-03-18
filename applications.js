@@ -222,7 +222,7 @@ function dm(message) {
 		const targetid = split[1]
 		const letter = split[2]
 		if (targetid == "undefined" || targetid == null || targetid == "" && letter == "undefined" || letter == null || letter == "") {
-			message.channel.send("Command format: ``/dm[]USER_ID[]MESSAGE``\nExample: /dm[]746662409724231798[]Noob.")
+			message.channel.send("Command format: ``/dm[]USER_ID[]MESSAGE``\nExample: ``/dm[]746662409724231798[]Noob.``")
 		} else
 		if (targetid == "undefined" || targetid == null || targetid == "") {
 			message.channel.send("❗ Missing ``USER_ID``!\nType ``/dm`` to see the full command.")
