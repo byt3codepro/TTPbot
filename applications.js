@@ -307,7 +307,7 @@ async function remind(message) {
 		await doc.loadInfo(); // loads document properties and worksheets
 		const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
-		const split = message.content.split("[]");
+		const split = message.content.split(",");
 		var time = split[1].split(":");
 		for (let i = 2; i < 250; i++) {
 			if (sheet.getCellByA1('A' + i).value == null) {
