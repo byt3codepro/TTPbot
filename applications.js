@@ -311,7 +311,7 @@ async function remind(message) {
 		var time = split[1].split(":");
 		for (let i = 2; i < 250; i++) {
 			if (sheet.getCellByA1('A' + i).value == null) {
-				sheet.getCellByA1('A' + i).value = Number(time[0])-2 + ":" + time[1]
+				sheet.getCellByA1('A' + i).value = Number(time[0])-3 + ":" + time[1]
 				sheet.getCellByA1('B' + i).value = split[2]
 				sheet.getCellByA1('C' + i).value = message.author.id
 				sheet.getCellByA1('D' + i).value = split[3]
