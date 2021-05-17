@@ -17,7 +17,7 @@ startdoc()
 
 client.on('ready', () => {
 	var counter = 1
-	setInterval(async function ActivitySet() {
+	setInterval(async function setActivity() {
 		//1 FOR PLAYING
  		//2 FOR LISTENING
  		//3 FOR WATCHING
@@ -51,7 +51,7 @@ client.on('ready', () => {
 			counter = 1
 		}
 	}, 20 * 1000); //every 20 secs
-	ActivitySet()
+	setActivity()
 });
 
 client.on('guildMemberAdd', member => {
