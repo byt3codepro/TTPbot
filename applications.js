@@ -15,8 +15,32 @@ async function startdoc() {
 }
 startdoc()
 
+var counter = 1
+setInterval(async function ActivitySet() {
+	if (counter == 1) {	
+		client.user.setActivity('with staff', { type: 'playing' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
+	} else
+	if (counter == 2) {	
+		client.user.setActivity('the DMs you send me', { type: 'watching' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
+	} else
+	if (counter == 3) {	
+		client.user.setActivity('to your suggestions', { type: 'listening' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
+	}
+	if (counter >= 3) {
+		counter = counter + 1
+	} else {
+		counter = 1
+	}
+}, 60 * 1000); //every 60 secs
+ActivitySet()
+
 client.on('guildMemberAdd', member => {
-   member.send("Welcome to the server!");
+	resultsembed = new Discord.MessageEmbed()
+		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
+		.setTitle("👋 Hiya! Welcome to Lugane!")
+		.setDescription("We're glad that you've decided to join our server and become a part of our community.\n🇱🇻 Want to access the Latvian channel? Ask this bot for a Latvian role in Latvian language, so we know that you're really Latvian.")
+		.setFooter("For any questions, feedback or errors - reply in this DM and we'll get back to you as soon as we can!");
+	member.send(welcomeEmbed);
 });
 
 client.on('message', message => {
@@ -49,42 +73,6 @@ client.on('message', message => {
 		}
 	}
 });
-var counter = 1
-setInterval(async function reminderCheck() {
-	if (counter == 1) {	
-		client.user.setActivity('with staff', { type: 'playing' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
-	} else
-	if (counter == 2) {	
-		client.user.setActivity('the DMs you send me', { type: 'watching' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
-	} else
-	if (counter == 3) {	
-		client.user.setActivity('to your suggestions', { type: 'listening' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
-	}
-	if (counter >= 3) {
-		counter = counter + 1
-	} else {
-		counter = 1
-	}
-}, 60 * 1000); //every 60 secs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 async function results(message) {
 	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
