@@ -17,7 +17,6 @@ startdoc()
 
 client.on('ready', () => {
 	var counter = 1
-	setActivity()
 	setInterval(async function setActivity() {
 		//1 FOR PLAYING
  		//2 FOR LISTENING
