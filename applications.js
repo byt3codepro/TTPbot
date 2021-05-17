@@ -22,8 +22,14 @@ client.on('ready', () => {
  		//2 FOR LISTENING
  		//3 FOR WATCHING
 		if (counter == 1) {	
+			client.user.setPresence({
+				game: {
+					name: 'with staff',
+					type: "Playing",
+				}
+			});
 			client.user.setActivity('with staff', { type: 1 });
-		} else
+		} /*else
 		if (counter == 2) {	
 			client.user.setActivity('the DMs you send me', { type: 3 });
 		} else
@@ -34,7 +40,7 @@ client.on('ready', () => {
 			counter = counter + 1
 		} else {
 			counter = 1
-		}
+		}*/
 	}, 20 * 1000); //every 20 secs
 	ActivitySet()
 });
