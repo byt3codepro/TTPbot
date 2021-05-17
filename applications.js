@@ -15,30 +15,35 @@ async function startdoc() {
 }
 startdoc()
 
-var counter = 1
-setInterval(async function ActivitySet() {
-	if (counter == 1) {	
-		client.user.setActivity('with staff', { type: 'playing' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
-	} else
-	if (counter == 2) {	
-		client.user.setActivity('the DMs you send me', { type: 'watching' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
-	} else
-	if (counter == 3) {	
-		client.user.setActivity('to your suggestions', { type: 'listening' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
-	}
-	if (counter >= 3) {
-		counter = counter + 1
-	} else {
-		counter = 1
-	}
-}, 60 * 1000); //every 60 secs
-ActivitySet()
+client.on('ready', () => {
+	var counter = 1
+	setInterval(async function ActivitySet() {
+		//1 FOR PLAYING
+ 		//2 FOR LISTENING
+ 		//3 FOR WATCHING
+		if (counter == 1) {	
+			client.user.setActivity('with staff', { type: 1 });
+		} else
+		if (counter == 2) {	
+			client.user.setActivity('the DMs you send me', { type: 3 });
+		} else
+		if (counter == 3) {	
+			client.user.setActivity('to your suggestions', { type: 2 });
+		}
+		if (counter >= 3) {
+			counter = counter + 1
+		} else {
+			counter = 1
+		}
+	}, 20 * 1000); //every 20 secs
+	ActivitySet()
+});
 
 client.on('guildMemberAdd', member => {
 	resultsembed = new Discord.MessageEmbed()
 		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
 		.setTitle("👋 Hiya! Welcome to Lugane!")
-		.setDescription("We're glad that you've decided to join our server and become a part of our community.\n🇱🇻 Want to access the Latvian channel? Ask this bot for a Latvian role in Latvian language, so we know that you're really Latvian.")
+		.setDescription("We're glad that you've decided to join our server and become a part of our community.\n📢  For general announcements click here: <#739210818666758226>\n⏰  For shift times click here: <#706091363963240472>\n📰  For job offers click here: <#742486789310119979>\n✨  For development peeks click here: <#731868485944082492>\n\n🇱🇻 Want to access the Latvian channel? Ask this bot for a Latvian role in Latvian language, so we know that you're really Latvian.")
 		.setFooter("For any questions, feedback or errors - reply in this DM and we'll get back to you as soon as we can!");
 	member.send(welcomeEmbed);
 });
