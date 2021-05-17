@@ -51,7 +51,6 @@ client.on('ready', () => {
 			counter = 1
 		}
 	}, 20 * 1000); //every 20 secs
-	ActivitySet()
 });
 
 client.on('guildMemberAdd', member => {
