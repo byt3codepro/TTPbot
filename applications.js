@@ -15,6 +15,10 @@ async function startdoc() {
 }
 startdoc()
 
+client.on('guildMemberAdd', member => {
+   member.send("Welcome to the server!");
+});
+
 client.on('message', message => {
 	const prefix = "/";
 	
@@ -45,6 +49,40 @@ client.on('message', message => {
 		}
 	}
 });
+var counter = 1
+setInterval(async function reminderCheck() {
+	if (counter == 1) {	
+		client.user.setActivity('with staff', { type: 'playing' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
+	} else
+	if (counter == 2) {	
+		client.user.setActivity('the DMs you send me', { type: 'watching' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
+	} else
+	if (counter == 3) {	
+		client.user.setActivity('to your suggestions', { type: 'listening' }); //PLAYING / STREAMING / LISTENING / WATCHING          MAINTENANCE
+	}
+	if (counter >= 3) {
+		counter = counter + 1
+	} else {
+		counter = 1
+	}
+}, 60 * 1000); //every 60 secs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 async function results(message) {
