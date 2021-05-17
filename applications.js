@@ -28,19 +28,28 @@ client.on('ready', () => {
 					type: "Playing",
 				}
 			});
-			client.user.setActivity('with staff', { type: 1 });
-		} /*else
-		if (counter == 2) {	
-			client.user.setActivity('the DMs you send me', { type: 3 });
 		} else
-		if (counter == 3) {	
-			client.user.setActivity('to your suggestions', { type: 2 });
+		if (counter == 2) {
+			client.user.setPresence({
+				game: {
+					name: 'the DMs you send me',
+					type: "Watching",
+				}
+			});
+		} else
+		if (counter == 3) {
+			client.user.setPresence({
+				game: {
+					name: 'to your suggestions',
+					type: "Listening",
+				}
+			});
 		}
 		if (counter >= 3) {
 			counter = counter + 1
 		} else {
 			counter = 1
-		}*/
+		}
 	}, 20 * 1000); //every 20 secs
 	ActivitySet()
 });
