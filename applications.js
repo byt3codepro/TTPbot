@@ -51,6 +51,54 @@ client.on('ready', () => {
 			counter = 1
 		}
 	}, 20 * 1000); //every 20 secs
+	setInterval(async function reminderCheck() {
+	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+	await sheet.loadCells();
+	let botcmdschannel = client.channels.cache.get("799266353999642664")
+	var d = new Date();
+  	var min = d.getUTCMinutes();
+	var hr = d.getUTCHours();
+	for (let i = 2; i < 250; i++) {
+		var Time = sheet.getCellByA1('A' + i).value
+		if (Time == null) {
+			break;
+		} else {
+			const split = Time.split(":");
+			if (split[0] == hr && split[1] == min) {
+				var Type = sheet.getCellByA1('B' + i).value
+				var Author = sheet.getCellByA1('C' + i).value
+				var Text = sheet.getCellByA1('D' + i).value
+				var Perm = sheet.getCellByA1('F' + i).value
+				if (Perm != "x") {
+					sheet.getCellByA1('E' + i).value = 'x' //reqdel = "x"
+					await sheet.saveUpdatedCells();
+				}
+				if (Type == "dm") {
+					client.users.fetch(Author).then(user => {
+						user.send(sheet.getCellByA1('D' + i).value)
+					})
+				} else if (Type == "cmd") {
+					botcmdschannel.send(Text)
+				}
+				for (let i = 0; i < 250; i++) {
+					var rows = await sheet.getRows();
+					if (rows[i] == undefined) {
+						break;
+					} else if (rows[i].timeutc == undefined) {
+						break;
+					} else {
+						if (rows[i].delreq == "x") {
+							await rows[i].delete();
+							await sheet.saveUpdatedCells();
+							i = 0
+						}
+					}
+				}
+			}
+			
+		}
+	}
+}, 60 * 1000); //every 60 secs
 });
 
 client.on('guildMemberAdd', member => {
@@ -368,54 +416,6 @@ async function remind(message) {
 		message.channel.send("❗ Insufficient permissions")	
 	}
 }
-setInterval(async function reminderCheck() {
-	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-	await sheet.loadCells();
-	let botcmdschannel = client.channels.cache.get("799266353999642664")
-	var d = new Date();
-  	var min = d.getUTCMinutes();
-	var hr = d.getUTCHours();
-	for (let i = 2; i < 250; i++) {
-		var Time = sheet.getCellByA1('A' + i).value
-		if (Time == null) {
-			break;
-		} else {
-			const split = Time.split(":");
-			if (split[0] == hr && split[1] == min) {
-				var Type = sheet.getCellByA1('B' + i).value
-				var Author = sheet.getCellByA1('C' + i).value
-				var Text = sheet.getCellByA1('D' + i).value
-				var Perm = sheet.getCellByA1('F' + i).value
-				if (Perm != "x") {
-					sheet.getCellByA1('E' + i).value = 'x' //reqdel = "x"
-					await sheet.saveUpdatedCells();
-				}
-				if (Type == "dm") {
-					client.users.fetch(Author).then(user => {
-						user.send(sheet.getCellByA1('D' + i).value)
-					})
-				} else if (Type == "cmd") {
-					botcmdschannel.send(Text)
-				}
-				for (let i = 0; i < 250; i++) {
-					var rows = await sheet.getRows();
-					if (rows[i] == undefined) {
-						break;
-					} else if (rows[i].timeutc == undefined) {
-						break;
-					} else {
-						if (rows[i].delreq == "x") {
-							await rows[i].delete();
-							await sheet.saveUpdatedCells();
-							i = 0
-						}
-					}
-				}
-			}
-			
-		}
-	}
-}, 60 * 1000); //every 60 secs
 function ping(message) {
 	var whitelistA = ["749330903632707727", "179654608371712000", "514127283636797450", "746662409724231798", "562556023861280768", "482586747201519617"];
 	if (whitelistA.includes(message.author.id) == true) {
