@@ -309,7 +309,7 @@ async function results(message) {
 		}
 }
 function dm(message) {
-	var admin = ["749330903632707727","746662409724231798","482586747201519617","290452091946663936","320510178023702528","264362178839183361"]; //can dm users via bot, using the /dm command
+	var admin = ["749330903632707727","746662409724231798","482586747201519617","290452091946663936","320510178023702528"]; //can dm users via bot, using the /dm command
 	if (admin.includes(message.author.id) == true) {
 		const split = message.content.split("[]");
 		const targetid = split[1]
