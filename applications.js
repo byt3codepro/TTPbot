@@ -51,7 +51,7 @@ client.on('ready', () => {
 			counter = 1
 		}
 	}, 20 * 1000); //every 20 secs
-	setInterval(async function reminderCheck() {
+	/*setInterval(async function reminderCheck() {
 	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
 	let botcmdschannel = client.channels.cache.get("799266353999642664")
@@ -99,7 +99,7 @@ client.on('ready', () => {
 		}
 	}
 }, 60 * 1000); //every 60 secs
-});
+});*/
 
 client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
