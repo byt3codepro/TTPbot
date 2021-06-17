@@ -15,7 +15,7 @@ async function startdoc() {
 }
 startdoc()
 
-client.on('ready', () => {
+/*client.on('ready', () => {
 	var counter = 1
 	setInterval(async function setActivity() {
 		//1 FOR PLAYING
@@ -50,7 +50,7 @@ client.on('ready', () => {
 		} else {
 			counter = 1
 		}
-	}, 20 * 1000); //every 20 secs
+	}, 20 * 1000); //every 20 secs*/
 	/*setInterval(async function reminderCheck() {
 	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	await sheet.loadCells();
