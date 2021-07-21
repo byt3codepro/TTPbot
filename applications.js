@@ -15,7 +15,7 @@ async function startdoc() {
 }
 startdoc()
 
-/*client.on('ready', () => {
+/*client.on('ready', () => { 
 	var counter = 1
 	setInterval(async function setActivity() {
 		//1 FOR PLAYING
