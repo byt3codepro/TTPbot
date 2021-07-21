@@ -309,7 +309,7 @@ async function results(message) {
 				}
 			}
 		}
-		if applicant_amount == 1 {
+		if(applicant_amount == 1) {
 			arrivals = "<@" + passed_applicants[0] + ">"
 		} else if(applicant_amount == 2) {
 			arrivals = "<@" + passed_applicants[0] + "> and <@" + passed_applicants[1] + ">"
