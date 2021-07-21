@@ -153,7 +153,7 @@ async function results(message) {
 		var errorsent = 0
 		var output = "```"
 		var applicant_amount = 0
-		var passed_applicants
+		var passed_applicants = []
 		var arrivals
 		for (let i = 2; i < 250; i++) {
 			var errored = false
