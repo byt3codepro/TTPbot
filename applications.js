@@ -141,7 +141,7 @@ client.on('message', message => {
 	}
 });
 async function results(message) {
-	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
+	var editor = ["749330903632707727","746662409724231798","482586747201519617","198890577578819585"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
 	let staffchannel = client.channels.cache.get("707583248817061972")
 	if (editor.includes(message.author.id) == true) {
@@ -310,23 +310,23 @@ async function results(message) {
 			}
 		}
 		if(applicant_amount == 1) {
-			arrivals = "<@" + passed_applicants[1] + ">"
+			arrivals = "<@" + passed_applicants[1] + "> as our new staff member!"
 		} else if(applicant_amount == 2) {
-			arrivals = "<@" + passed_applicants[1] + "> and <@" + passed_applicants[2] + ">"
+			arrivals = "<@" + passed_applicants[1] + "> and <@" + passed_applicants[2] + "> as our new staff members!"
 		} else if(applicant_amount > 2) {
 			arrivals = "<@" + passed_applicants[1] + ">"
 			for (let i = 2; i <= applicant_amount; i++) {
 				if(i != applicant_amount) {
 					arrivals = arrivals + ", <@" + passed_applicants[i] + ">"
 				} else {
-					arrivals = arrivals + " and <@" + passed_applicants[i] + ">"
+					arrivals = arrivals + " and <@" + passed_applicants[i] + "> as our new staff members!"
 				}
 			}
 		}
 		welcomeembed = new Discord.MessageEmbed()
-		.setColor('#E74C3C')
-		.setTitle("New arrivals! 🎉")
-		.setDescription("Welcome " + arrivals + " as our new staff members!")
+		.setColor('#2dcc70')
+		.setTitle("New arrivals!   🎉")
+		.setDescription("Welcome " + arrivals)
 		staffchannel.send(welcomeembed)
 		
 		message.channel.send(output + "```")
