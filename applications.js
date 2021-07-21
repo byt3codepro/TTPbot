@@ -190,7 +190,7 @@ async function results(message) {
 								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023801022251038> / <@&867375330092253184>")
 							} else if (rank.value == "Technician") {
 								applicant.roles.add('729721228457410642')
-								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023702900572180> / <@&867375235669032960>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023575566090271> / <@&867375235669032960>")
 							} else if (rank.value == "Ticket Inspector") {
 								applicant.roles.add('729721437371236404')
 								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023575566090271> / <@&867375235669032960>")
