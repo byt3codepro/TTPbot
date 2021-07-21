@@ -143,6 +143,7 @@ client.on('message', message => {
 async function results(message) {
 	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
+	let staffchannel = client.channels.cache.get("707583248817061972")
 	if (editor.includes(message.author.id) == true) {
 		const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 		await sheet.loadCells();
@@ -151,9 +152,13 @@ async function results(message) {
 		var alreadysent = 0
 		var errorsent = 0
 		var output = "```"
+		var applicant_amount = 0
+		var passed_applicants
+		var arrivals
 		for (let i = 2; i < 250; i++) {
 			var errored = false
 			var resultsembed
+			var welcomeembed
 			var reasons = ""
 			var applicant
 			const mark = sheet.getCellByA1('A' + i);
@@ -178,15 +183,17 @@ async function results(message) {
 				if (sent.value === "☐") {
 					if (comments.value === null) {
 						if (mark.value === "PASSED") {
+							passed_applicants[applicant_amount] = applicant.user.id
+							applicant_amount = applicant_amount + 1
 							if (rank.value == "Driver") {
 								applicant.roles.add('729096087733796871')
-								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023801022251038>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023801022251038> / <@&867375330092253184>")
 							} else if (rank.value == "Technician") {
 								applicant.roles.add('729721228457410642')
-								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023702900572180>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023702900572180> / <@&867375235669032960>")
 							} else if (rank.value == "Ticket Inspector") {
 								applicant.roles.add('729721437371236404')
-								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023575566090271>")
+								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023575566090271> / <@&867375235669032960>")
 							}
 							applicant.roles.add('705755874718777397')
 							applicant.roles.add('756557729790689421')
@@ -302,6 +309,26 @@ async function results(message) {
 				}
 			}
 		}
+		if applicant_amount == 1 {
+			arrivals = "<@" + passed_applicants[0] + ">"
+		} else if(applicant_amount == 2) {
+			arrivals = "<@" + passed_applicants[0] + "> and <@" + passed_applicants[1] + ">"
+		} else if(applicant_amount > 2) {
+			arrivals = "<@" + passed_applicants[0] + ">"
+			for (let i = 1; i =< applicant_amount; i++) {
+				if(i != applicant_amount) {
+					arrivals = arrivals + ", <@" + passed_applicants[i] + ">"
+				} else {
+					arrivals = arrivals + " and <@" + passed_applicants[i] + ">"
+				}
+			}
+		}
+		welcomeembed = new Discord.MessageEmbed()
+		.setColor('#E74C3C')
+		.setTitle("New arrivals! 🎉")
+		.setDescription("Welcome " + arrivals + " as our new staff members!")
+		staffchannel.send(welcomeembed)
+		
 		message.channel.send(output + "```")
 		message.channel.send("```All results sent!\n-----------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
 		} else {
