@@ -183,8 +183,8 @@ async function results(message) {
 				if (sent.value === "☐") {
 					if (comments.value === null) {
 						if (mark.value === "PASSED") {
-							passed_applicants[applicant_amount] = applicant.user.id
 							applicant_amount = applicant_amount + 1
+							passed_applicants[applicant_amount] = applicant.user.id
 							if (rank.value == "Driver") {
 								applicant.roles.add('729096087733796871')
 								trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023801022251038> / <@&867375330092253184>")
@@ -310,12 +310,12 @@ async function results(message) {
 			}
 		}
 		if(applicant_amount == 1) {
-			arrivals = "<@" + passed_applicants[0] + ">"
+			arrivals = "<@" + passed_applicants[1] + ">"
 		} else if(applicant_amount == 2) {
-			arrivals = "<@" + passed_applicants[0] + "> and <@" + passed_applicants[1] + ">"
+			arrivals = "<@" + passed_applicants[1] + "> and <@" + passed_applicants[2] + ">"
 		} else if(applicant_amount > 2) {
-			arrivals = "<@" + passed_applicants[0] + ">"
-			for (let i = 1; i <= applicant_amount; i++) {
+			arrivals = "<@" + passed_applicants[1] + ">"
+			for (let i = 2; i <= applicant_amount; i++) {
 				if(i != applicant_amount) {
 					arrivals = arrivals + ", <@" + passed_applicants[i] + ">"
 				} else {
