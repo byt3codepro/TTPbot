@@ -315,7 +315,7 @@ async function results(message) {
 			arrivals = "<@" + passed_applicants[0] + "> and <@" + passed_applicants[1] + ">"
 		} else if(applicant_amount > 2) {
 			arrivals = "<@" + passed_applicants[0] + ">"
-			for (let i = 1; i =< applicant_amount; i++) {
+			for (let i = 1; i <= applicant_amount; i++) {
 				if(i != applicant_amount) {
 					arrivals = arrivals + ", <@" + passed_applicants[i] + ">"
 				} else {
