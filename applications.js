@@ -141,7 +141,7 @@ client.on('message', message => {
 	}
 });
 async function results(message) {
-	var editor = ["749330903632707727","746662409724231798","482586747201519617","198890577578819585"]; //application editor Used IDs (can use /results cmd)
+	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
 	let staffchannel = client.channels.cache.get("707583248817061972")
 	if (editor.includes(message.author.id) == true) {
