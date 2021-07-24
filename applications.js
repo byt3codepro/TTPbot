@@ -327,7 +327,9 @@ async function results(message) {
 		.setColor('#2dcc70')
 		.setTitle("New arrivals!   🎉")
 		.setDescription("Welcome " + arrivals)
-		staffchannel.send(welcomeembed)
+		if(applicant_amount > 0) {
+			staffchannel.send(welcomeembed)
+		}
 		
 		message.channel.send(output + "```")
 		message.channel.send("```All results sent!\n-----------------\nResults sent: " + newsent + "\nAlready sent: " + alreadysent + "\nFailed to send: " + errorsent + "```")
