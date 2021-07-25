@@ -103,7 +103,7 @@ startdoc()
 
 client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
-		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70
+		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70 
 		.setTitle("👋 Hiya! Welcome to Lugane!")
 		.setDescription("**We're glad that you've decided to join our server and become a part of our community. Feel free to DM this bot and our Public Relations team will get back to you as fast as they can.**\n\n📢  For general announcements click here: <#706091363963240472>\n⏰  For shift times click here: <#739210818666758226>\n📰  For job offers click here: <#742486789310119979>\n✨  For development peeks click here: <#731868485944082492>\n\n\n🇱🇻 Want to access the Latvian channel? Ask this bot for a Latvian role in Latvian language, so we know that you're really Latvian.")
 		.setFooter("For any questions, feedback or errors - reply in this DM and we'll get back to you as soon as we can!");
