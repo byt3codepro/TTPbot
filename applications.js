@@ -13,14 +13,14 @@ async function startdoc() {
 	});
 	await doc.loadInfo(); // loads document properties and worksheets 
 }
-startdoc()
+startdoc() 
 
 /*client.on('ready', () => { 
 	var counter = 1
 	setInterval(async function setActivity() {
 		//1 FOR PLAYING
  		//2 FOR LISTENING
- 		//3 FOR WATCHING
+ 		//3 FOR WATCHING 
 		if (counter == 1) {	
 			client.user.setPresence({
 				activity: {
