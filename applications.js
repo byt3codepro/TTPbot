@@ -340,6 +340,7 @@ function receivedm(message) {
 		.setDescription(message.content)
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply(blacklistedEmbed)
+			botdms.send(dmreceivedEmbed);
 		} else {
 			botdms.send(dmreceivedEmbed);
 		}
