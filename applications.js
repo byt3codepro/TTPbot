@@ -332,7 +332,7 @@ function receivedm(message) {
 		let botdms = client.channels.cache.get("811369640390950922")
 		const blacklistedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
-		.setTitle("⚠️ Blocked")
+		.setTitle("⛔  Blocked")
 		.setDescription("You've been blocked from reaching our Support. This mostly happens because an individual has spammed our support, sent dangerous or NSFW content to the bot or done other actions that made us block communications with you.\n\nIf you wish to appeal this contact the server owner.\nPleaase note that your message was not sent.")
 		const dmreceivedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
