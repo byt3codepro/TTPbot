@@ -51,55 +51,6 @@ startdoc()
 			counter = 1
 		}
 	}, 20 * 1000); //every 20 secs*/
-	/*setInterval(async function reminderCheck() {
-	const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-	await sheet.loadCells();
-	let botcmdschannel = client.channels.cache.get("799266353999642664")
-	var d = new Date();
-  	var min = d.getUTCMinutes();
-	var hr = d.getUTCHours();
-	for (let i = 2; i < 250; i++) {
-		var Time = sheet.getCellByA1('A' + i).value
-		if (Time == null) {
-			break;
-		} else {
-			const split = Time.split(":");
-			if (split[0] == hr && split[1] == min) {
-				var Type = sheet.getCellByA1('B' + i).value
-				var Author = sheet.getCellByA1('C' + i).value
-				var Text = sheet.getCellByA1('D' + i).value
-				var Perm = sheet.getCellByA1('F' + i).value
-				if (Perm != "x") {
-					sheet.getCellByA1('E' + i).value = 'x' //reqdel = "x"
-					await sheet.saveUpdatedCells();
-				}
-				if (Type == "dm") {
-					client.users.fetch(Author).then(user => {
-						user.send(sheet.getCellByA1('D' + i).value)
-					})
-				} else if (Type == "cmd") {
-					botcmdschannel.send(Text)
-				}
-				for (let i = 0; i < 250; i++) {
-					var rows = await sheet.getRows();
-					if (rows[i] == undefined) {
-						break;
-					} else if (rows[i].timeutc == undefined) {
-						break;
-					} else {
-						if (rows[i].delreq == "x") {
-							await rows[i].delete();
-							await sheet.saveUpdatedCells();
-							i = 0
-						}
-					}
-				}
-			}
-			
-		}
-	}
-}, 60 * 1000); //every 60 secs
-});*/
 
 client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
@@ -374,15 +325,24 @@ function dm(message) {
 	}
 }
 function receivedm(message) {
+	var blacklisted = ["695646717860642916","746662409724231798"]
 	if (message.attachments.size > 0) {
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
-	let botdms = client.channels.cache.get("811369640390950922")
-	const dmreceivedEmbed = new Discord.MessageEmbed()
-	.setColor('#2dcc70')
-	.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
-	.setDescription(message.content)
-	botdms.send(dmreceivedEmbed);
+		let botdms = client.channels.cache.get("811369640390950922")
+		const blacklistedEmbed = new Discord.MessageEmbed()
+		.setColor('#2dcc70')
+		.setTitle("⚠️ Blocked")
+		.setDescription("You've been blocked from reaching our Support. This mostly happens because an individual has spammed our support, sent dangerous or NSFW content to the bot or done other actions that made us block communications with you.\n\nIf you wish to appeal this contact the server owner.\nPleaase note that your message was not sent.")
+		const dmreceivedEmbed = new Discord.MessageEmbed()
+		.setColor('#2dcc70')
+		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
+		.setDescription(message.content)
+		if(blacklisted.includes(message.author.id) == true) {
+			message.reply(blacklistedEmbed)
+		} else {
+			botdms.send(dmreceivedEmbed);
+		}
 	}
 }
 async function issuefine(message) {
