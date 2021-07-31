@@ -348,7 +348,7 @@ function receivedm(message) {
 async function issuefine(message) {
 	if (message.channel.id == "799266353999642664") {
 		var speeder
-		const split = message.content.split(" ");
+		const split = message.content.split("[]");
 		const username = split[1]
 		const plate = split[2]
 		const allowedspeed = split[3]
