@@ -429,7 +429,7 @@ function announce(message) {
 				.setColor('#2dcc70')
 				.setTitle(announcesplit[3])
 				.setDescription(announcesplit[4])
-				.setFooter(':lugane: LUGANE | DM me for assistance or information!');
+				.setFooter('LUGANE | DM me for assistance or information!');
 			if (announcesplit[2] == 'x') {
 				announcementchannel.send(announcementembed);
 			} else {
