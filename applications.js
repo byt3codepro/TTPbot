@@ -325,7 +325,7 @@ function dm(message) {
 	}
 }
 function receivedm(message) {
-	var blacklisted = ["695646717860642916","373856836002119681"]
+	var blacklisted = ["695646717860642916","373856836002119681","457956134993657866"]
 	if (message.attachments.size > 0) {
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
