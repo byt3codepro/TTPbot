@@ -15,43 +15,6 @@ async function startdoc() {
 }
 startdoc() 
 
-/*client.on('ready', () => { 
-	var counter = 1
-	setInterval(async function setActivity() {
-		//1 FOR PLAYING
- 		//2 FOR LISTENING
- 		//3 FOR WATCHING 
-		if (counter == 1) {	
-			client.user.setPresence({
-				activity: {
-					name: 'with Lugane staff',
-					type: "PLAYING",
-				}
-			});
-		} else
-		if (counter == 2) {
-			client.user.setPresence({
-				activity: {
-					name: 'the DMs you send me',
-					type: "WATCHING",
-				}
-			});
-		} else
-		if (counter == 3) {
-			client.user.setPresence({
-				activity: {
-					name: 'to your suggestions',
-					type: "LISTENING",
-				}
-			});
-		}
-		if (counter >= 3) {
-			counter = counter + 1
-		} else {
-			counter = 1
-		}
-	}, 20 * 1000); //every 20 secs*/
-
 client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
 		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70 
@@ -78,9 +41,6 @@ client.on('message', message => {
 			} else
 			if (message.content.startsWith(prefix + "fine")) {
 				issuefine(message)
-			} else
-			if (message.content.startsWith(prefix + "remind")) {
-				remind(message)
 			} else
 			if (message.content.startsWith(prefix + "announce")) {
 				announce(message)
@@ -325,7 +285,7 @@ function dm(message) {
 	}
 }
 function receivedm(message) {
-	var blacklisted = ["917010013539684412","885951568103477289","546039054886502408","807264669500047461","655454890029613066","863478930803130378","737567769087967245","506061677972815883","886206679400742963","839236488582660156","664649027593437204","900431815645478972","328485845298577408","692365185314455653","695646717860642916","373856836002119681","457956134993657866","771110812873916437","872147309092274186","874637732641636403"]
+	var blacklisted = ["925694943639511131","917010013539684412","885951568103477289","546039054886502408","807264669500047461","655454890029613066","863478930803130378","737567769087967245","506061677972815883","886206679400742963","839236488582660156","664649027593437204","900431815645478972","328485845298577408","692365185314455653","695646717860642916","373856836002119681","457956134993657866","771110812873916437","872147309092274186","874637732641636403"]
 	if (message.attachments.size > 0) {
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
@@ -381,28 +341,6 @@ async function issuefine(message) {
 		const guild = await client.guilds.fetch('705686666043457606')
 		speeder = guild.members.cache.find((member) => member.displayName == username)
 		speeder.send(fineEmbed)
-	}
-}
-async function remind(message) {
-	var remindperm = ["746662409724231798","482586747201519617"]; //can set reminders, using the /remind command
-	if (remindperm.includes(message.author.id) == true) {
-		await doc.loadInfo(); // loads document properties and worksheets
-		const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-		await sheet.loadCells();
-		const split = message.content.split(",");
-		var time = split[1].split(":");
-		for (let i = 2; i < 250; i++) {
-			if (sheet.getCellByA1('A' + i).value == null) {
-				sheet.getCellByA1('A' + i).value = Number(time[0]) + ":" + time[1]
-				sheet.getCellByA1('B' + i).value = split[2]
-				sheet.getCellByA1('C' + i).value = message.author.id
-				sheet.getCellByA1('D' + i).value = split[3]
-				await sheet.saveUpdatedCells();
-				break;
-			}
-		}
-	} else {
-		message.channel.send("❗ Insufficient permissions")	
 	}
 }
 function ping(message) {
