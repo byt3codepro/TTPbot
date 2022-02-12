@@ -52,7 +52,7 @@ client.on('message', message => {
 	}
 });
 async function results(message) {
-	var editor = ["749330903632707727","746662409724231798","482586747201519617"]; //application editor Used IDs (can use /results cmd)
+	var editor = ["749330903632707727","746662409724231798","482586747201519617","216455849382510593"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
 	let staffchannel = client.channels.cache.get("707583248817061972")
 	if (editor.includes(message.author.id) == true) {
@@ -356,7 +356,7 @@ function ping(message) {
         }
 }
 function announce(message) {
-	var whitelistB = ["749330903632707727", "746662409724231798", "562556023861280768", "482586747201519617", "320510178023702528"];
+	var whitelistB = ["290452091946663936","216455849382510593","749330903632707727", "746662409724231798", "562556023861280768", "482586747201519617", "320510178023702528"];
 	if (whitelistB.includes(message.author.id) == true) {
 		if (message.content == '/announce help') {
 			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
