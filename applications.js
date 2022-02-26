@@ -391,6 +391,7 @@ function announce(message) {
 }
 function ban(message) {
 	console.log("test")
+	message.reply("test VCCODEPUBLISHED")
 }
 
 client.login(process.env.BOT_TOKEN);
