@@ -48,7 +48,7 @@ client.on('message', message => {
 			if (message.content.startsWith(prefix + "ping")) {
 				ping(message)
 			}
-			if (message.content.startsWith(prefix + "ban")) {
+			if (message.content.startsWith(prefix + "lban")) {
 				ban(message)
 			}
 		}
