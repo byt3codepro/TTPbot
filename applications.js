@@ -390,9 +390,26 @@ function announce(message) {
 	}	
 }
 function ban(message) {
-	console.log("test")
-	message.reply("test VCCODEPUBLISHED")
-	message.reply("2x PUBLISHED")
+	if(message.author.has(checkAdmin)){
+		message.channel.send("ADMINISTRATOR TRUE")
+	}else{
+		message.channel.send("❗ Insufficient permissions")
+	}
+	/*const split = message.content.split(" ");
+		const targetid = split[1]
+		if(isNaN(split[2])){ //checks if 2nd variable is a number (day count OR reason)
+			const days = 0
+			const reason = split[2]
+		}else{
+			const days = split[2]
+			const reason = split[3]
+		}
+		
+		
+
+	message.author.ban({days: 1, reason: 'test'})
+		.then(console.log)
+		.catch(console.error);*/
 }
 
 client.login(process.env.BOT_TOKEN);
