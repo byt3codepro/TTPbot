@@ -389,7 +389,7 @@ function announce(message) {
 		message.channel.send('❗ Insufficient permissions');
 	}	
 }
-function ban(message) {
+function ban(message) { //13.6.0
 	/*if(message.member.permissions.has("ADMINISTRATOR")) {
 		message.channel.send("ADMINISTRATOR TRUE")
 	}else{
