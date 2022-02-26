@@ -390,7 +390,7 @@ function announce(message) {
 	}	
 }
 function ban(message) {
-	if(message.member.has("ADMINISTRATOR")){
+	if(message.member.permissions.has("ADMINISTRATOR")){
 		message.channel.send("ADMINISTRATOR TRUE")
 	}else{
 		message.channel.send("❗ Insufficient permissions")
