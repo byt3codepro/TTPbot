@@ -392,6 +392,7 @@ function announce(message) {
 function ban(message) {
 	console.log("test")
 	message.reply("test VCCODEPUBLISHED")
+	message.reply("2x PUBLISHED")
 }
 
 client.login(process.env.BOT_TOKEN);
