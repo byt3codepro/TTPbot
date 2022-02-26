@@ -48,6 +48,9 @@ client.on('message', message => {
 			if (message.content.startsWith(prefix + "ping")) {
 				ping(message)
 			}
+			if (message.content.startsWith(prefix + "ban")) {
+				ban(message)
+			}
 		}
 	}
 });
@@ -386,17 +389,8 @@ function announce(message) {
 		message.channel.send('❗ Insufficient permissions');
 	}	
 }
-function lvrole(message) {
-	if (message.content == '/lv') {
-		message.member.roles.add('705757268448378971');
-		message.react('✅') 
-	} else if (message.content == '/lv remove') {
-		message.member.roles.remove('705757268448378971');
-		message.react('✅')
-	} else {
-		message.reply("❗ Incorrect format:\n> Add role: ``/lv``\n> Remove role: ``/lv remove``");
-		message.react('✅')
-	}
+function dm(message) {
+	console.log("test")
 }
 
 client.login(process.env.BOT_TOKEN);
