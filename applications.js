@@ -1,10 +1,10 @@
-//©raltec 2021
+//©raltec 2021 2022
 //Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
 	
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Discord, Intents } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 async function startdoc() { 
 	await doc.useServiceAccountAuth({
@@ -413,4 +413,4 @@ function ban(message) {
 }
 
 client.login(process.env.BOT_TOKEN);
-//©raltec 2021
+//©raltec 2021 2022
