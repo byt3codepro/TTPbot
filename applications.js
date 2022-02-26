@@ -389,7 +389,7 @@ function announce(message) {
 		message.channel.send('❗ Insufficient permissions');
 	}	
 }
-function dm(message) {
+function ban(message) {
 	console.log("test")
 }
 
