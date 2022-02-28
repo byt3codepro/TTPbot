@@ -18,7 +18,7 @@ async function startdoc() {
 }
 startdoc() 
 
-client.user.setStatus("dnd")
+//client.user.setStatus("dnd")
 
 
 
