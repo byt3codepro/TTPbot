@@ -35,35 +35,33 @@ client.on('guildMemberAdd', member => {
 
 client.on('messageCreate', message => {
 	const prefix = "/";
-	
-	if (message.channel.type != 'GUILD_TEXT') {
-		if (message.author != client.user.id) {
-
-			message.reply("❗ Bot is currently undergoing mainentance and is not available - your message has not been delivered. Please try later when the bot's status shows the bot online.")
-
-			//message.channel.send("testttgsdg")
-
-			//receivedm(message)
-		}
-	} else {
-		if (message.content.startsWith(prefix)) {
-			if (message.content == prefix + "results") {
-				results(message)
-			} else
-			if (message.content.startsWith(prefix + "dm")) {
-				dm(message)
-			} else
-			if (message.content.startsWith(prefix + "fine")) {
-				issuefine(message)
-			} else
-			if (message.content.startsWith(prefix + "announce")) {
-				announce(message)
-			} else
-			if (message.content.startsWith(prefix + "ping")) {
-				ping(message)
+	if (client.user.presence.status != 'online') {
+		message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
+	}else{
+		if (message.channel.type === 'DM') {
+			if (message.author != client.user.id) {
+				receivedm(message)
 			}
-			if (message.content.startsWith(prefix + "lban")) {
-				ban(message)
+		} else {
+			if (message.content.startsWith(prefix)) {
+				if (message.content == prefix + "results") {
+					results(message)
+				} else
+				if (message.content.startsWith(prefix + "dm")) {
+					dm(message)
+				} else
+				if (message.content.startsWith(prefix + "fine")) {
+					issuefine(message)
+				} else
+				if (message.content.startsWith(prefix + "announce")) {
+					announce(message)
+				} else
+				if (message.content.startsWith(prefix + "ping")) {
+					ping(message)
+				}
+				if (message.content.startsWith(prefix + "lban")) {
+					ban(message)
+				}
 			}
 		}
 	}
