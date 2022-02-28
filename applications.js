@@ -22,7 +22,9 @@ startdoc()
 	client.user.setPresence({ activities: [{ name: 'with discord.js' }], status: 'idle' });
 }
 initiate()*/
-
+client.on('ready', () => {
+	console.log(`Logged in as ${client.user.tag}!`);
+  });
 
 client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
