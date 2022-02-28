@@ -37,7 +37,13 @@ client.on('messageCreate', message => {
 	const prefix = "/";
 	if (client.user.presence.status != 'online') {
 		if (message.author != client.user.id) {
-			message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
+			if (message.channel.type === 'DM') {
+				message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
+			}else{
+				if (message.content.startsWith(prefix)) {
+					message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
+				}
+			}
 		}
 	}else{
 		if (message.channel.type === 'DM') {
