@@ -24,6 +24,7 @@ startdoc()
 initiate()*/
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
+	client.user.setPresence({ activities: [{ name: 'with discord.js' }], status: 'idle' });
   });
 
 client.on('guildMemberAdd', member => {
