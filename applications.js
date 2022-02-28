@@ -36,7 +36,7 @@ client.on('guildMemberAdd', member => {
 client.on('messageCreate', message => {
 	const prefix = "/";
 	
-	if (message.channel.type != 'GUILD_TEXT') {
+	//if (message.channel.type != 'GUILD_TEXT') {
 		//if (message.author != client.user.id) {
 
 			message.reply("❗ Bot is currently undergoing mainentance and is not available - your message has not been delivered. Please try later when the bot's status shows the bot online.")
@@ -45,7 +45,7 @@ client.on('messageCreate', message => {
 
 			//receivedm(message)
 		//}
-	} else {
+	//} else {
 		if (message.content.startsWith(prefix)) {
 			if (message.content == prefix + "results") {
 				results(message)
@@ -66,7 +66,7 @@ client.on('messageCreate', message => {
 				ban(message)
 			}
 		}
-	}
+	//}
 });
 async function results(message) {
 	var editor = ["749330903632707727","746662409724231798","482586747201519617","216455849382510593"]; //application editor Used IDs (can use /results cmd)
