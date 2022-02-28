@@ -15,6 +15,8 @@ async function startdoc() {
 }
 startdoc() 
 
+client.user.setStatus("dnd")
+
 client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
 		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70 
@@ -29,7 +31,10 @@ client.on('message', message => {
 	
 	if (message.guild === null) {
 		if (message.author != client.user.id) {
-			receivedm(message)
+
+			message.reply("❗ Bot is currently undergoing mainentance and is not available - your message has not been delivered. Please try later when the bot's status shows the bot online.")
+
+			//receivedm(message)
 		}
 	} else {
 		if (message.content.startsWith(prefix)) {
