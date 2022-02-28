@@ -36,7 +36,7 @@ client.on('guildMemberAdd', member => {
 	member.send(welcomeEmbed);
 });
 
-client.on('message', message => {
+client.on('messageCreate', message => {
 	const prefix = "/";
 	
 	if (message.guild === null) {
