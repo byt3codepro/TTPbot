@@ -39,9 +39,9 @@ client.on('messageCreate', message => {
 	if (message.channel.type === 'DM') {
 		if (message.author != client.user.id) {
 
-			//message.reply("❗ Bot is currently undergoing mainentance and is not available - your message has not been delivered. Please try later when the bot's status shows the bot online.")
+			message.reply("❗ Bot is currently undergoing mainentance and is not available - your message has not been delivered. Please try later when the bot's status shows the bot online.")
 
-			message.channel.send("testttgsdg")
+			//message.channel.send("testttgsdg")
 
 			//receivedm(message)
 		}
