@@ -18,7 +18,7 @@ async function startdoc() {
 }
 startdoc() 
 
-//client.user.setStatus("dnd")
+client.user.setPresence({ activities: [{ name: 'with discord.js' }], status: 'idle' });
 
 
 
