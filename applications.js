@@ -44,9 +44,7 @@ client.on('messageCreate', message => {
 
 			//message.reply("❗ Bot is currently undergoing mainentance and is not available - your message has not been delivered. Please try later when the bot's status shows the bot online.")
 
-			message.reply('This is a reply!')
-			.then(() => console.log(`Replied to message "${message.content}"`))
-			.catch(console.error);
+			message.channel.send("testttgsdg")
 
 			//receivedm(message)
 		}
