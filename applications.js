@@ -18,10 +18,10 @@ async function startdoc() {
 }
 startdoc() 
 
-function initiate() {
+/*function initiate() {
 	client.user.setPresence({ activities: [{ name: 'with discord.js' }], status: 'idle' });
 }
-initiate()
+initiate()*/
 
 
 client.on('guildMemberAdd', member => {
