@@ -386,12 +386,13 @@ function announce(message) {
 			if (announcesplit[1].startsWith("<#") && announcesplit[1].endsWith(">")) {
 				let slicedannouncechannel = announcesplit[1].slice(2, -1)
 				let announcementchannel = client.channels.cache.get(slicedannouncechannel)
-
+				
+				let announcementchannelTEST = client.channels.cache.get(announcesplit[1])
 				console.log("announcementchannel")
 				console.log("announcementchannel")
 				console.log("announcementchannel")
-				console.log(client.channels.cache.get(slicedannouncechannel))
-				console.log(client.channels.cache.get(announcesplit[1]))
+				//console.log(client.channels.cache.get(slicedannouncechannel))
+				console.log(client.channels.cache.get(announcementchannelTEST))
 				console.log("announcementchannel")
 				console.log("announcementchannel")
 
