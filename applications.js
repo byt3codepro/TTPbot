@@ -36,7 +36,7 @@ client.on('messageCreate', message => {
 	if (client.user.presence.status != 'online' && testmodeoverride == false && message.author.id != "746662409724231798") {
 		if (message.author != client.user.id) {
 			if (message.channel.type === 'DM') {
-				message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
+				message.reply("❗ Bot is currently undergoing mainentance and is not available. Your message **was not** sent to Customer support. Please try again once the bot status shows that the bot is online.")
 			}else{
 				if (message.content.startsWith(prefix)) {
 					message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
