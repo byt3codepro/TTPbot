@@ -33,7 +33,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('messageCreate', message => {
 	const prefix = "/";
-	if (client.user.presence.status != 'online' && testmodeoverride == false && message.author.id != "799266353999642664") {
+	if (client.user.presence.status != 'online' && testmodeoverride == false && message.author.id != "746662409724231798") {
 		if (message.author != client.user.id) {
 			if (message.channel.type === 'DM') {
 				message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
