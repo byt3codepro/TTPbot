@@ -390,15 +390,15 @@ function announce(message) {
 				.setDescription(announcesplit[4])
 				.setFooter('LUGANE | DM me for assistance or information!');
 			if (announcesplit[2] == 'x') {
-				announcementchannel.send(announcementembed);
+				announcementchannel.send({ embeds: [announcementembed] });
 			} else {
 				if (announcesplit[2] == "everyone") {
-					announcementchannel.send("@everyone", announcementembed);
+					announcementchannel.send("@everyone", { embeds: [announcementembed] });
 				} else {
 					if (announcesplit[2] == "here") {
-						announcementchannel.send("@here", announcementembed);
+						announcementchannel.send("@here", { embeds: [announcementembed] });
 					} else {
-					announcementchannel.send("<@&" + announcesplit[2] + ">", announcementembed);
+					announcementchannel.send("<@&" + announcesplit[2] + ">", { embeds: [announcementembed] });
 					}
 				}
 			}
