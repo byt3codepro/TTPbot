@@ -411,7 +411,7 @@ function announce(message) {
 				} else {
 					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` / ``everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				}
-				message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> *(" + message.author.id + ")* at <t:" + Date.getTime() + ">")
+				message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> *(" + message.author.id + ")* at <t:" + Date.now() + ">")
 			} else {
 				message.reply("❗ Incorrect channel!\n(``ID`` / ``TEXT_CHANNEL``)")
 			}
