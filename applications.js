@@ -403,11 +403,11 @@ function announce(message) {
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
 					announcementchannel.send({content: "@everyone", embeds: [announcementembed] });
 				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
-					announcementchannel.send("@here", { embeds: [announcementembed] });
+					announcementchannel.send({content: "@here", embeds: [announcementembed] });
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
-					announcementchannel.send(announcesplit[2], { embeds: [announcementembed] });
+					announcementchannel.send({content: announcesplit[2], embeds: [announcementembed] });
 				} else if (isNaN(announcesplit[2]) === false) {
-					announcementchannel.send("<@&" + announcesplit[2] + ">", { embeds: [announcementembed] });
+					announcementchannel.send({content: "<@&" + announcesplit[2] + ">", embeds: [announcementembed] });
 				} else {
 					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				}
