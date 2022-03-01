@@ -401,7 +401,6 @@ function announce(message) {
 			} else {
 				let announcementchannel = "pizda"
 			}
-			let announcementchannel = client.channels.cache.get(announcesplit[1])
 			const announcementembed = new Discord.MessageEmbed()
 				.setColor('#2dcc70')
 				.setTitle(announcesplit[3])
