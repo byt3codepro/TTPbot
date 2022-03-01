@@ -18,7 +18,6 @@ async function startdoc() {
 startdoc() 
 
 client.on('ready', () => {
-	console.log(client.channels.cache.get(463))
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
@@ -398,7 +397,7 @@ function announce(message) {
 				.setTitle(announcesplit[3])
 				.setDescription(announcesplit[4])
 				.setFooter('LUGANE | DM me for assistance or information!');
-			if (announcementchannel != "pizda") {
+			if (announcementchannel != "pizda" || announcementchannel == undefined) {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
@@ -414,7 +413,7 @@ function announce(message) {
 				}
 				message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 			} else {
-				message.reply("❗ Incorrect channel!\n(``ID`` / ``TEXT_CHANNEL``)")
+				message.reply("❗ Incorrect channel or channel not found!\n(``ID`` / ``TEXT_CHANNEL``)")
 			}
 		}
 	} else {
