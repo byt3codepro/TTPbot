@@ -383,9 +383,10 @@ function announce(message) {
 			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
 		} else {
 			var announcesplit = message.content.split("[]");
+			let announcementchannel
 			if (announcesplit[1].startsWith("<#") && announcesplit[1].endsWith(">")) {
 				let slicedannouncechannel = announcesplit[1].slice(2, -1)
-				let announcementchannel = client.channels.cache.get(slicedannouncechannel)
+				announcementchannel = client.channels.cache.get(slicedannouncechannel)
 				
 				let announcementchannelTEST = client.channels.cache.get(announcesplit[1])
 				console.log("announcementchannel")
@@ -397,9 +398,9 @@ function announce(message) {
 				console.log("announcementchannel")
 
 			} else if (isNaN(announcesplit[1]) === false) {
-				let announcementchannel = client.channels.cache.get(announcesplit[1])
+				announcementchannel = client.channels.cache.get(announcesplit[1])
 			} else {
-				let announcementchannel = "pizda"
+				announcementchannel = "pizda"
 			}
 			const announcementembed = new Discord.MessageEmbed()
 				.setColor('#2dcc70')
