@@ -397,7 +397,7 @@ function announce(message) {
 				.setTitle(announcesplit[3])
 				.setDescription(announcesplit[4])
 				.setFooter('LUGANE | DM me for assistance or information!');
-			if (announcementchannel != "pizda" || announcementchannel == undefined) {
+			if (announcementchannel != "pizda" && announcementchannel == undefined) {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
