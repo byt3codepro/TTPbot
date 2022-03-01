@@ -401,7 +401,7 @@ function announce(message) {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
-					announcementchannel.send("@everyone", { embeds: [announcementembed] });
+					announcementchannel.send({content: "@everyone", embeds: [announcementembed] });
 				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
 					announcementchannel.send("@here", { embeds: [announcementembed] });
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
