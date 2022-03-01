@@ -384,7 +384,8 @@ function announce(message) {
 		} else {
 			var announcesplit = message.content.split("[]");
 			if (announcesplit[1].startsWith("<#") && announcesplit[1].endsWith(">")) {
-				let announcementchannel = client.channels.cache.get(announcesplit[1].slice(2, -1))
+				let slicedannouncechannel = announcesplit[1].slice(2, -1)
+				let announcementchannel = client.channels.cache.get(slicedannouncechannel)
 				console.log(announcesplit[1].slice(2, -1))
 			} else if (isNaN(announcesplit[1]) === false) {
 				let announcementchannel = client.channels.cache.get(announcesplit[1])
@@ -400,16 +401,16 @@ function announce(message) {
 			if (announcementchannel != "pizda") {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
-				} else if (announcesplit[2] == "everyone") {
+				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
 					announcementchannel.send("@everyone", { embeds: [announcementembed] });
-				} else if (announcesplit[2] == "here") {
+				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
 					announcementchannel.send("@here", { embeds: [announcementembed] });
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
 					announcementchannel.send(announcesplit[2], { embeds: [announcementembed] });
 				} else if (isNaN(announcesplit[2]) === false) {
 					announcementchannel.send("<@&" + announcesplit[2] + ">", { embeds: [announcementembed] });
 				} else {
-					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` / ``everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
+					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				}
 				message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 			} else {
