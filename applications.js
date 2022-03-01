@@ -392,7 +392,7 @@ function announce(message) {
 				console.log("announcementchannel")
 				console.log("announcementchannel")
 				//console.log(client.channels.cache.get(slicedannouncechannel))
-				console.log(client.channels.cache.get(announcementchannelTEST))
+				console.log(message.content))
 				console.log("announcementchannel")
 				console.log("announcementchannel")
 
