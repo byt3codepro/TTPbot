@@ -2,13 +2,11 @@
 //Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
+const testmodeoverride = false
 	
 const { Client, Intents } = require('discord.js');
 const Discord = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES], partials: ["CHANNEL"]  });
-
-/*const Discord = require('discord.js');
-const client = new Discord.Client();*/
 
 async function startdoc() { 
 	await doc.useServiceAccountAuth({
@@ -35,7 +33,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('messageCreate', message => {
 	const prefix = "/";
-	if (client.user.presence.status != 'online') {
+	if (client.user.presence.status != 'online' && testmodeoverride == false && message.author.id != "799266353999642664") {
 		if (message.author != client.user.id) {
 			if (message.channel.type === 'DM') {
 				message.reply("❗ Bot is currently undergoing mainentance and is not available. Your command was not executed. Please try again once the bot status shows that the bot is online.")
