@@ -18,6 +18,7 @@ async function startdoc() {
 startdoc() 
 
 client.on('ready', () => {
+	console.log(client.channels.cache.get(463))
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
