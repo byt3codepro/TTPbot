@@ -478,9 +478,9 @@ async function replydm(message) {
 	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
-			message.channel.send(messagerefrence.embeds[0].footer.text)
+			message.channel.send(messagerefrence.embeds[0].footer.text) //printejas viss footer itka bez problemam, nepieciesams turpinat apstradat ieguto identifikatoru utt utt
 		} else {
-			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with message identificator!")
+			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
 			message.delete()
 		}
 	} else {
