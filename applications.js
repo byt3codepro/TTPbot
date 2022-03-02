@@ -475,7 +475,7 @@ function ban(message) {
 		.catch(console.error);*/
 }
 async function replydm(message) {
-	const messagerefrence = await message.fetchReference().catch(message.channel.send)
+	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (messagerefrence != undefined) {
 		message.channel.send(messagerefrence)
 	} else {
