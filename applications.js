@@ -69,8 +69,7 @@ client.on('messageCreate', message => {
 				if (message.content.startsWith(prefix + "lban")) {
 					ban(message)
 				}
-			}
-			if (message.channel.id === "811369640390950922" && message.reference.reply != undefined) {
+			} else if (message.channel.id === "811369640390950922") {
 				console.log("WORK TAK SUPER MILEGO OMG")
 			}
 		}
