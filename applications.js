@@ -400,7 +400,7 @@ function announce(message) {
 					.setDescription(announcesplit[4])
 					.setFooter('LUGANE | DM me for assistance or information!');
 			}
-			if (announcementchannel != "pizda" || announcementchannel != undefined || announcesplit[1] != undefined || announcesplit[2] != undefined) {
+			if (announcementchannel != "pizda" && announcementchannel != undefined && announcesplit[1] != undefined && announcesplit[2] != undefined) {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
