@@ -44,6 +44,7 @@ client.on('messageCreate', message => {
 			}
 		}
 	}else{
+		console.log(message.refrence.reply)
 		if (message.channel.type === 'DM') {
 			if (message.author != client.user.id) {
 				receivedm(message)
@@ -68,6 +69,9 @@ client.on('messageCreate', message => {
 				if (message.content.startsWith(prefix + "lban")) {
 					ban(message)
 				}
+			}
+			if (message.channel.id === "811369640390950922" && message.refrence.reply != undefined) {
+				console.log("WORK TAK SUPER MILEGO OMG")
 			}
 		}
 	}
@@ -319,7 +323,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		.setColor('#2dcc70')
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 		.setDescription(message.content)
-		.setFooter({ text: message.author.id + "/" + message.id, iconURL: client.user.avatarURL()});
+		.setFooter(message.author.id + "/" + message.id);
 		console.log(blacklistedEmbed)
 		console.log(dmreceivedEmbed)
 		if(blacklisted.includes(message.author.id) == true) {
