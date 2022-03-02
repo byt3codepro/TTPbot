@@ -44,11 +44,6 @@ client.on('messageCreate', message => {
 			}
 		}
 	}else{
-		async function losene() {
-		const tvaribled = await message.fetchReference().catch(console.error)
-		console.log(tvaribled) //PARBAUDIT VAI VAR REDZET REPLY, UTT
-		}
-		losene()
 		if (message.channel.type === 'DM') {
 			if (message.author != client.user.id) {
 				receivedm(message)
@@ -73,8 +68,8 @@ client.on('messageCreate', message => {
 				if (message.content.startsWith(prefix + "lban")) {
 					ban(message)
 				}
-			} else if (message.channel.id === "811369640390950922") {
-				console.log("WORK TAK SUPER MILEGO OMG")
+			} else if (message.channel.id === "797253920421576725") { //811369640390950922
+				replydm(message)
 			}
 		}
 	}
