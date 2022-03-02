@@ -44,7 +44,7 @@ client.on('messageCreate', message => {
 			}
 		}
 	}else{
-		console.log(message.reference)
+		console.log(message.fetchReference())
 		if (message.channel.type === 'DM') {
 			if (message.author != client.user.id) {
 				receivedm(message)
