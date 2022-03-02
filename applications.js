@@ -44,7 +44,7 @@ client.on('messageCreate', message => {
 			}
 		}
 	}else{
-		console.log(message.refrence.reply)
+		console.log(message.reference.reply)
 		if (message.channel.type === 'DM') {
 			if (message.author != client.user.id) {
 				receivedm(message)
@@ -70,7 +70,7 @@ client.on('messageCreate', message => {
 					ban(message)
 				}
 			}
-			if (message.channel.id === "811369640390950922" && message.refrence.reply != undefined) {
+			if (message.channel.id === "811369640390950922" && message.reference.reply != undefined) {
 				console.log("WORK TAK SUPER MILEGO OMG")
 			}
 		}
