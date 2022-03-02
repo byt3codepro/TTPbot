@@ -415,7 +415,7 @@ function announce(message) {
 					announcementchannel.send({content: "@here", embeds: [announcementembed] });
 					message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
-					if (message.guild.roles.cache.get(announcesplit[2].slice(2, -1)) == undefined) {
+					if (message.guild.roles.cache.get(announcesplit[2].slice(3, -1)) == undefined) {
 						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
 					} else {
 						announcementchannel.send({content: announcesplit[2], embeds: [announcementembed] });
