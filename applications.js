@@ -475,9 +475,9 @@ function ban(message) {
 		.catch(console.error);*/
 }
 async function replydm(message) {
-	const messagerefrence = await message.fetchReference().catch()
+	const messagerefrence = await message.fetchReference().catch(message.channel.send)
 	if (messagerefrence != undefined) {
-		message.channel.send(messagerefrence[1].content)
+		message.channel.send(messagerefrence)
 	} else {
 		client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
 	}
