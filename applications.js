@@ -412,9 +412,17 @@ function announce(message) {
 				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
 					announcementchannel.send({content: "@here", embeds: [announcementembed] });
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
-					announcementchannel.send({content: announcesplit[2], embeds: [announcementembed] });
+					if (guild.roles.cache.get(announcesplit[2]).slice(2, -1)) {
+						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
+					} else {
+						announcementchannel.send({content: announcesplit[2], embeds: [announcementembed] });
+					}
 				} else if (isNaN(announcesplit[2]) === false) {
-					announcementchannel.send({content: "<@&" + announcesplit[2] + ">", embeds: [announcementembed] });
+					if (guild.roles.cache.get(announcesplit[2])) {
+						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
+					} else {
+						announcementchannel.send({content: "<@&" + announcesplit[2] + ">", embeds: [announcementembed] });
+					}
 				} else {
 					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				}
