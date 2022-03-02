@@ -19,7 +19,7 @@ startdoc()
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
-	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ">")
+	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>")
 	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
 
