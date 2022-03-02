@@ -408,15 +408,19 @@ function announce(message) {
 					.setDescription(announcesplit[4])
 					.setFooter('LUGANE | DM me for assistance or information!');
 				if (announcesplit[2] == 'x') {
+					console.log("1")
 					announcementchannel.send({ embeds: [announcementembed] });
 					message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
+					console.log("2")
 					announcementchannel.send({content: "@everyone", embeds: [announcementembed] });
 					message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
+					console.log("3")
 					announcementchannel.send({content: "@here", embeds: [announcementembed] });
 					message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
+					console.log("4")
 					if (message.guild.roles.cache.get(announcesplit[2].slice(3, -1)) == undefined) {
 						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
 					} else {
@@ -424,6 +428,7 @@ function announce(message) {
 						message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 					}
 				} else if (isNaN(announcesplit[2]) === false) {
+					console.log("5")
 					if (message.guild.roles.cache.get(announcesplit[2]) == undefined) {
 						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
 					} else {
@@ -431,6 +436,7 @@ function announce(message) {
 						message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
 					}
 				} else {
+					console.log("6")
 					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				}
 			} else if (announcementchannel == "pizda" || announcementchannel == undefined || announcesplit[1] == undefined) {
