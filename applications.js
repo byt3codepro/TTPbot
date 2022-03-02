@@ -398,13 +398,13 @@ function announce(message) {
 				} else {
 					announcementchannel = "pizda"
 				}
+			}
+			if (announcementchannel != "pizda" && announcementchannel != undefined && announcesplit[1] != undefined && announcesplit[2] != undefined) {
 				const announcementembed = new Discord.MessageEmbed()
 					.setColor('#2dcc70')
 					.setTitle(announcesplit[3])
 					.setDescription(announcesplit[4])
 					.setFooter('LUGANE | DM me for assistance or information!');
-			}
-			if (announcementchannel != "pizda" && announcementchannel != undefined && announcesplit[1] != undefined && announcesplit[2] != undefined) {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
@@ -419,7 +419,7 @@ function announce(message) {
 					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				}
 				message.reply("Sucessfuly announced **" + announcesplit[3] + "** in <#" + announcesplit[1] + ">!\nAnnouncement made by <@" + message.author.id + "> (" + message.author.id + ") at <t:" + Math.floor(Date.now()/1000) + ">")
-			} else if (announcementchannel != "pizda" || announcementchannel != undefined || announcesplit[1] != undefined) {
+			} else if (announcementchannel == "pizda" || announcementchannel == undefined || announcesplit[1] == undefined) {
 				message.reply("❗ Incorrect channel or channel not found!\n(``ID`` / ``TEXT_CHANNEL``)")
 			} else {
 				message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
