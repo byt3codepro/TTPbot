@@ -20,7 +20,7 @@ startdoc()
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
-	client.channels.cache.get("799266353999642664").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
+	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
 	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
 
@@ -385,6 +385,7 @@ function announce(message) {
 		} else {
 			let announcementchannel
 			var announcesplit = message.content.split("[]");
+			console.log("split done")
 			if (message.content == prefix + "announce[]") {
 				announcesplit[1] = undefined
 				announcesplit[2] = undefined
@@ -400,6 +401,7 @@ function announce(message) {
 				}
 			}
 			if (announcementchannel != "pizda" && announcementchannel != undefined && announcesplit[1] != undefined && announcesplit[2] != undefined) {
+				console.log("announcementembed")
 				const announcementembed = new Discord.MessageEmbed()
 					.setColor('#2dcc70')
 					.setTitle(announcesplit[3])
