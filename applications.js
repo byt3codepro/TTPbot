@@ -19,6 +19,7 @@ startdoc()
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
+	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ">")
 	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
 
@@ -402,6 +403,8 @@ function announce(message) {
 			if (announcementchannel != "pizda" || announcementchannel != undefined || announcesplit[1] != undefined) {
 				if (announcesplit[2] == 'x') {
 					announcementchannel.send({ embeds: [announcementembed] });
+				} else if (announcesplit[2] == undefined) {
+					message.reply("❗ Incorrect mention type!\n(``x`` OR `` `` (space) (no mention) / ``here`` OR ``@here`` / ``everyone`` OR ``@everyone`` / ``ROLE_MENTION`` / ``ROLE_ID``)")
 				} else if (announcesplit[2] == "everyone" || announcesplit[2] == "@everyone") {
 					announcementchannel.send({content: "@everyone", embeds: [announcementembed] });
 				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
