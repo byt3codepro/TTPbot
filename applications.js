@@ -3,6 +3,7 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
 const testmodeoverride = false
+const prefix = "-"
 	
 const { Client, Intents } = require('discord.js');
 const Discord = require('discord.js');
@@ -33,7 +34,6 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('messageCreate', message => {
-	const prefix = "-";
 	if (client.user.presence.status != 'online' && testmodeoverride == false && message.author.id != "746662409724231798") {
 		if (message.author != client.user.id) {
 			if (message.channel.type === 'DM') {
