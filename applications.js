@@ -412,13 +412,13 @@ function announce(message) {
 				} else if (announcesplit[2] == "here" || announcesplit[2] == "@here") {
 					announcementchannel.send({content: "@here", embeds: [announcementembed] });
 				} else if (announcesplit[2].startsWith("<@&") && announcesplit[2].endsWith(">")) {
-					if (guild.roles.cache.get(announcesplit[2]).slice(2, -1)) {
+					if (message.guild.roles.cache.get(announcesplit[2]).slice(2, -1) == undefined) {
 						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
 					} else {
 						announcementchannel.send({content: announcesplit[2], embeds: [announcementembed] });
 					}
 				} else if (isNaN(announcesplit[2]) === false) {
-					if (guild.roles.cache.get(announcesplit[2])) {
+					if (message.guild.roles.cache.get(announcesplit[2]) == undefined) {
 						message.reply("❗ Mentioned role not found (does not exist or is deleted)!")
 					} else {
 						announcementchannel.send({content: "<@&" + announcesplit[2] + ">", embeds: [announcementembed] });
