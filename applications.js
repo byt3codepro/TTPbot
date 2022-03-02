@@ -402,15 +402,9 @@ function announce(message) {
 			}
 			if (announcementchannel != "pizda" && announcementchannel != undefined && announcesplit[1] != undefined && announcesplit[2] != undefined) {
 				console.log("announcementembed")
-				if(announcesplit[3] == undefined && announcesplit[4] == undefined) {
-					message.reply("❗ Missing announcement title and description!")
+				if(announcesplit[3] == undefined || announcesplit[4] == undefined) {
+					message.reply("❗ Missing announcement title and/or description!")
 				} else {
-					if (announcesplit[3] == undefined) {
-						announcesplit[3] == " "
-					}
-					if (announcesplit[4] == undefined) {
-						announcesplit[4] == " "
-					}
 					const announcementembed = new Discord.MessageEmbed()
 					.setColor('#2dcc70')
 					.setTitle(announcesplit[3])
