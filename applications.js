@@ -319,7 +319,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		.setColor('#2dcc70')
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 		.setDescription(message.content)
-		.setFooter(message.author.id + "/" + message.id)
+		.setFooter({ text: message.author.id + "/" + message.id, iconURL: client.user.avatarURL()});
 		console.log(blacklistedEmbed)
 		console.log(dmreceivedEmbed)
 		if(blacklisted.includes(message.author.id) == true) {
