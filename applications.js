@@ -2,7 +2,7 @@
 //Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
-const testmodeoverride = true
+const testmodeoverride = false
 const prefix = "-"
 	
 const { Client, Intents } = require('discord.js');
@@ -20,7 +20,7 @@ startdoc()
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
-	client.channels.cache.get("799266353999642664").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
+	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
 	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
 
