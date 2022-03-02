@@ -310,7 +310,7 @@ function receivedm(message) {
 	if (message.attachments.size > 0) {
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
-		let botdms = client.channels.cache.get("811369640390950922")
+		let botdms = client.channels.cache.get("797253920421576725") //ORIGINAL RECEIVED BOT DMS: 811369640390950922
 		const blacklistedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
 		.setTitle("⛔  Blocked")
@@ -319,6 +319,8 @@ function receivedm(message) {
 		.setColor('#2dcc70')
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 		.setDescription(message.content)
+		console.log(blacklistedEmbed)
+		console.log(dmreceivedEmbed)
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply({embeds: [blacklistedEmbed] });
 		} else {
