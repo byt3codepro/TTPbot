@@ -479,6 +479,14 @@ function ban(message) {
 		.then(console.log)
 		.catch(console.error);*/
 }
+async function replydm(message) {
+	const messagerefrence = await message.fetchReference().catch()
+	if (messagerefrence != undefined) {
+		message.channel.send(messagerefrence[1].content)
+	} else {
+		client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
+	}
+}
 
 client.login(process.env.BOT_TOKEN);
 //©raltec 2021 2022
