@@ -407,7 +407,8 @@ function announce(message) {
 				} else {
 					if (announcesplit[3] == undefined) {
 						announcesplit[3] == " "
-					} else if (announcesplit[4] == undefined) {
+					}
+					if (announcesplit[4] == undefined) {
 						announcesplit[4] == " "
 					}
 					const announcementembed = new Discord.MessageEmbed()
