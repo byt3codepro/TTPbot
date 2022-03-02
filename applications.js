@@ -44,7 +44,8 @@ client.on('messageCreate', message => {
 			}
 		}
 	}else{
-		console.log(message.fetchReference().catch(console.error)) //PARBAUDIT VAI VAR REDZET REPLY, UTT
+		const tvaribled = await message.fetchReference().catch(console.error)
+		console.log(tvaribled) //PARBAUDIT VAI VAR REDZET REPLY, UTT
 		if (message.channel.type === 'DM') {
 			if (message.author != client.user.id) {
 				receivedm(message)
