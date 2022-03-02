@@ -384,11 +384,11 @@ function announce(message) {
 			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
 		} else {
 			let announcementchannel
+			var announcesplit = message.content.split("[]");
 			if (message.content == prefix + "announce[]") {
 				announcesplit[1] = undefined
 				announcesplit[2] = undefined
 			}
-			var announcesplit = message.content.split("[]");
 			if (announcesplit[1] != undefined) {
 				if (announcesplit[1].startsWith("<#") && announcesplit[1].endsWith(">")) {
 					announcesplit[1] = announcesplit[1].slice(2, -1)
