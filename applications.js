@@ -19,6 +19,12 @@ async function startdoc() {
 }
 startdoc() 
 
+function delay(n){
+    return new Promise(function(resolve){
+        setTimeout(resolve,n*1000);
+    });
+}
+
 client.on('ready', () => {
 	if (testmode === true) {
 		client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
@@ -495,21 +501,16 @@ async function replydm(message) {
 }
 async function statusroll() {
 	while (true) {
-		setTimeout(() => {
-			client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
-			setTimeout(() => {
-				client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
-				setTimeout(() => {
-					client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
-					setTimeout(() => {
-						client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
-						setTimeout(() => {
-							client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
-						}, 20000);
-					}, 20000);
-				}, 20000);
-			}, 20000);
-		}, 20000);
+		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
+		await delay(20);
 	}
 }
 
