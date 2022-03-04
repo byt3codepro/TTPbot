@@ -495,16 +495,21 @@ async function replydm(message) {
 }
 async function statusroll() {
 	while (true) {
-		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
-		await sleep(20000);
-		client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
-		await sleep(20000);
-		client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
-		await sleep(20000);
-		client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
-		await sleep(20000);
-		client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
-		await sleep(20000);
+		setTimeout(() => {
+			client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
+		}, 20000);
+		setTimeout(() => {
+			client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
+		}, 20000);
+		setTimeout(() => {
+			client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
+		}, 20000);
+		setTimeout(() => {
+			client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
+		}, 20000);
+		setTimeout(() => {
+			client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
+		}, 20000);
 	}
 }
 
