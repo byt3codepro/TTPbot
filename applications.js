@@ -85,6 +85,20 @@ client.on('messageCreate', message => {
 		}
 	}
 });
+async function statusroll() {
+	while (true) {
+		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
+		await delay(20);
+		client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
+		await delay(20);
+	}
+}
 async function results(message) {
 	var editor = ["749330903632707727","746662409724231798","482586747201519617","216455849382510593"]; //application editor Used IDs (can use /results cmd)
 	let trainingchannel = client.channels.cache.get("748638653705748480")
@@ -489,6 +503,12 @@ async function replydm(message) {
 	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
+			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
+			const userid = replydmsplit[0]
+			const msgid = replydmsplit[1]
+
+			const originalmessage = await client.users.cache.get(userid).dmChannel.messages.cache.get(msgid)
+			message.reply(originalmessage.content)
 			message.channel.send(messagerefrence.embeds[0].footer.text) //printejas viss footer itka bez problemam, nepieciesams turpinat apstradat ieguto identifikatoru utt utt
 		} else if (message.author != client.user) {
 			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
@@ -497,20 +517,6 @@ async function replydm(message) {
 	} else if (message.author != client.user) {
 		client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
 		message.delete()
-	}
-}
-async function statusroll() {
-	while (true) {
-		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
-		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
-		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
-		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
-		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
-		await delay(20);
 	}
 }
 
