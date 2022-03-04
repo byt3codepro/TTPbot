@@ -493,7 +493,7 @@ async function replydm(message) {
 		message.delete()
 	}
 }
-function statusroll() {
+async function statusroll() {
 	while (true) {
 		client.user.setPresence({ activities: [{ name: 'watch' },{ type: 'WATCHING' }], status: 'online' });
 		await sleep(20000);
