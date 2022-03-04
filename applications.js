@@ -21,9 +21,9 @@ startdoc()
 
 client.on('ready', () => {
 	if (testmode === true) {
-		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' }); //client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
-	//} else {
-		//statusroll() //switches status message every 20 sec
+		client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
+	} else {
+		statusroll() //switches status message every 20 sec
 	}
 	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
   });
@@ -493,16 +493,20 @@ async function replydm(message) {
 		message.delete()
 	}
 }
-/*async function statusroll() {
+async function statusroll() {
 	while (true) {
-		client.user.setPresence({ activities: [{ name: 'watch' },{ type: 'WATCHING' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
 		await sleep(20000);
-		client.user.setPresence({ activities: [{ name: 'x' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
 		await sleep(20000);
-		client.user.setPresence({ activities: [{ name: 'xt' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
+		await sleep(20000);
+		client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
+		await sleep(20000);
+		client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
 		await sleep(20000);
 	}
-}*/
+}
 
 client.login(process.env.BOT_TOKEN);
 //©raltec 2021 2022
