@@ -2,6 +2,7 @@
 //Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
+const testmode = true
 const testmodeoverride = false
 const prefix = "-"
 	
@@ -19,8 +20,12 @@ async function startdoc() {
 startdoc() 
 
 client.on('ready', () => {
+	if (testmode === true) {
+		client.user.setPresence({ activities: [{ name: 'watch' },{ type: 'WATCHING' }], status: 'online' }); //client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
+	} else {
+		statusroll() //switches status message every 20 sec
+	}
 	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
-	client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
   });
 
 client.on('guildMemberAdd', member => {
@@ -486,6 +491,16 @@ async function replydm(message) {
 	} else {
 		client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
 		message.delete()
+	}
+}
+function statusroll() {
+	while (true) {
+		client.user.setPresence({ activities: [{ name: 'watch' },{ type: 'WATCHING' }], status: 'online' });
+		await sleep(20000);
+		client.user.setPresence({ activities: [{ name: 'x' }], status: 'online' });
+		await sleep(20000);
+		client.user.setPresence({ activities: [{ name: 'xt' }], status: 'online' });
+		await sleep(20000);
 	}
 }
 
