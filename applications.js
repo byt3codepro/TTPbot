@@ -347,8 +347,6 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 		.setDescription(message.content)
 		.setFooter(message.author.id + "/" + message.id);
-		console.log(blacklistedEmbed)
-		console.log(dmreceivedEmbed)
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply({embeds: [blacklistedEmbed] });
 		} else {
@@ -500,16 +498,19 @@ function ban(message) {
 		.catch(console.error);*/
 }
 async function replydm(message) {
-	const messagerefrence = await message.fetchReference().catch(console.log)
+	const messagerefrence = await message.fetchReference().catch()
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
 			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
 			const userid = replydmsplit[0]
 			const msgid = replydmsplit[1]
-
 			const originalmessage = await client.users.cache.get(userid).dmChannel.messages.cache.get(msgid)
-			message.reply(originalmessage.content)
-			message.channel.send(messagerefrence.embeds[0].footer.text) //printejas viss footer itka bez problemam, nepieciesams turpinat apstradat ieguto identifikatoru utt utt
+			if (originalmessage === undefined) {
+				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
+			} else {
+				originalmessage.reply(message.content)
+			}
+			//message.channel.send(messagerefrence.embeds[0].footer.text) //printejas viss footer itka bez problemam, nepieciesams turpinat apstradat ieguto identifikatoru utt utt
 		} else if (message.author != client.user) {
 			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
 			message.delete()
