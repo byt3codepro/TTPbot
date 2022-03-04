@@ -484,11 +484,11 @@ async function replydm(message) {
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
 			message.channel.send(messagerefrence.embeds[0].footer.text) //printejas viss footer itka bez problemam, nepieciesams turpinat apstradat ieguto identifikatoru utt utt
-		} else {
+		} else if (message.author != client.user) {
 			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
 			message.delete()
 		}
-	} else {
+	} else if (message.author != client.user) {
 		client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
 		message.delete()
 	}
