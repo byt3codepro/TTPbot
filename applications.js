@@ -498,8 +498,9 @@ function ban(message) {
 		.catch(console.error);*/
 }
 async function replydm(message) {
-	const messagerefrence = await message.fetchReference().catch(message.channel.send)
-	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
+	const errorcatcher = undefined
+	const messagerefrence = await message.fetchReference().catch(errorcatcher)
+	if (errorcatcher === undefined && messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
 			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
 			const userid = replydmsplit[0]
