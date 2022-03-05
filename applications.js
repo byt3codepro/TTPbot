@@ -511,7 +511,7 @@ async function replydm(message) {
 			if (senderuser === undefined || senderuser === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
 			} else {
-				senderuser.createDm()
+				senderuser.createDM()
 				originalmessage = senderuser.dmChannel.messages.cache.get(msgid)
 				if (originalmessage === undefined || originalmessage === null) {
 					message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
