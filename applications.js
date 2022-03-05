@@ -506,7 +506,7 @@ async function replydm(message) {
 			const msgid = replydmsplit[1]
 			var originalmessage
 			const senderuser = await client.users.cache.get(userid)
-			if (senderuser.dmChannel.messages === null) {
+			if (senderuser.dmChannel === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
 			} else {
 				originalmessage = senderuser.dmChannel.messages.cache.get(msgid)
