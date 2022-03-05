@@ -517,7 +517,7 @@ async function replydm(message) {
 					console.log(originalmessage)
 					//message.reply()
 				} else {
-					originalmessage = await createddm[0].messages.cache.get(msgid)
+					originalmessage = await createddm[1].messages.cache.get(msgid)
 					originalmessage.reply(message.content)
 				}
 			}
