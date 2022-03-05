@@ -509,7 +509,7 @@ async function replydm(message) {
 			if (senderuser === undefined || senderuser === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)1!")
 			} else {
-				const createddm = await senderuser.createDM()
+				const createddm = await senderuser.createDM().messages
 				if (createddm === undefined) {
 					message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)2!")
 					console.log(createddm)
