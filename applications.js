@@ -517,8 +517,8 @@ async function replydm(message) {
 					console.log(originalmessage)
 					//message.reply()
 				} else {
-					originalmessage = await createddm[1].messages.cache.get(msgid)
-					originalmessage.reply(message.content)
+					//originalmessage = await createddm[1].messages.cache.get(msgid)
+					originalmessage.reply(JSON.stringify(createddm))
 				}
 			}
 		} else if (message.author != client.user) {
