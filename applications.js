@@ -517,6 +517,7 @@ async function replydm(message) {
 					console.log(originalmessage)
 					//message.reply()
 				} else {
+					console.log(createddm)
 					originalmessage = await createddm.dmChannel.messages.cache.get(msgid)
 					originalmessage.reply(message.content)
 				}
