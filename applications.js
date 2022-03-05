@@ -505,7 +505,13 @@ async function replydm(message) {
 			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
 			const userid = replydmsplit[0]
 			const msgid = replydmsplit[1]
-			const originalmessage = await client.users.cache.get(userid).dmChannel.messages.cache.get(msgid)
+			const originalmessage
+			const senderuser = await client.users.cache.get(userid)
+			if (senderuser === undefined || senderuser === null) {
+				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
+			} else {
+				originalmessage = senderuser.dmChannel.messages.cache.get(msgid)
+			}
 			if (originalmessage === undefined || originalmessage === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
 			} else {
