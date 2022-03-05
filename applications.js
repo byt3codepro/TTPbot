@@ -506,12 +506,11 @@ async function replydm(message) {
 			const userid = replydmsplit[0]
 			const msgid = replydmsplit[1]
 			const originalmessage = await client.users.cache.get(userid).dmChannel.messages.cache.get(msgid)
-			if (originalmessage === undefined) {
+			if (originalmessage === undefined || originalmessage === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
 			} else {
 				originalmessage.reply(message.content)
 			}
-			//message.channel.send(messagerefrence.embeds[0].footer.text) //printejas viss footer itka bez problemam, nepieciesams turpinat apstradat ieguto identifikatoru utt utt
 		} else if (message.author != client.user) {
 			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
 			message.delete()
