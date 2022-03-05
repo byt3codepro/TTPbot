@@ -506,15 +506,17 @@ async function replydm(message) {
 			const msgid = replydmsplit[1]
 			var originalmessage
 			const senderuser = await client.users.cache.get(userid)
-			if (senderuser.dmChannel === null) {
+			senderuser.createDm()
+			senderuser.dmChannel.messages.cache.get(msgid)
+			if (senderuser === undefined || senderuser === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
 			} else {
+				senderuser.createDm()
 				originalmessage = senderuser.dmChannel.messages.cache.get(msgid)
-			}
-			if (originalmessage === undefined || originalmessage === null) {
-				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
-			} else {
-				originalmessage.reply(message.content)
+				if (originalmessage === undefined || originalmessage === null) {
+					message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
+				} else
+					originalmessage.reply(message.content)
 			}
 		} else if (message.author != client.user) {
 			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
