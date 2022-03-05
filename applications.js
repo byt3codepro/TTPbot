@@ -499,7 +499,7 @@ function ban(message) {
 }
 async function replydm(message) {
 	const errorcatcher = undefined
-	const messagerefrence = await message.fetchReference().catch(errorcatcher)
+	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (errorcatcher === undefined && messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
 			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
