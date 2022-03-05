@@ -512,9 +512,9 @@ async function replydm(message) {
 				const senderusermessages = await senderuser.createDM().messages
 				if (senderusermessages === undefined) {
 					message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)2!")
-					message.reply(senderusermessages)
-					message.reply(senderuser)
-					message.reply(originalmessage)
+					console.log(senderusermessages)
+					console.log(senderuser)
+					console.log(originalmessage)
 					//message.reply()
 				} else {
 					originalmessage = senderusermessages.cache.get(msgid)
