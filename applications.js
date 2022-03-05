@@ -518,7 +518,7 @@ async function replydm(message) {
 					//message.reply()
 				} else {
 					//originalmessage = await createddm[1].messages.cache.get(msgid)
-					message.reply(JSON.stringify(createddm))
+					message.reply(createddm[0])
 				}
 			}
 		} else if (message.author != client.user) {
