@@ -520,7 +520,7 @@ async function replydm(message) {
 					//originalmessage = await createddm[1].messages.cache.get(msgid)
 					var palidzidievs = JSON.stringify(createddm)
 					var pizdaira = JSON.parse(palidzidievs)
-					message.reply(pizdaira)
+					console.log(pizdaira)
 				}
 			}
 		} else if (message.author != client.user) {
