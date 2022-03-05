@@ -517,8 +517,8 @@ async function replydm(message) {
 					console.log(originalmessage)
 					//message.reply()
 				} else {
-					originalmessage = await createddm.messages.cache.get(msgid).catch(console.log)
-					//originalmessage.reply(message.content)
+					originalmessage = await senderuser.dmChannel.messages.cache.get(msgid)
+					originalmessage.reply(message.content)
 				}
 			}
 		} else if (message.author != client.user) {
