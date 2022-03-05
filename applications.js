@@ -498,14 +498,13 @@ function ban(message) {
 		.catch(console.error);*/
 }
 async function replydm(message) {
-	const errorcatcher = undefined
 	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (errorcatcher === undefined && messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
 			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
 			const userid = replydmsplit[0]
 			const msgid = replydmsplit[1]
-			const originalmessage
+			var originalmessage
 			const senderuser = await client.users.cache.get(userid)
 			if (senderuser === undefined || senderuser === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)!")
