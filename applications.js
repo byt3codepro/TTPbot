@@ -29,7 +29,7 @@ client.on('ready', () => {
 	if (testmode === true) {
 		client.user.setPresence({ activities: [{ name: 'Undergoing mainentance' }], status: 'dnd' });
 	} else {
-		statusroll() //switches status message every 20 sec
+		statusroll(15)
 	}
 	client.channels.cache.get("799266353999642664").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
   });
@@ -85,16 +85,16 @@ client.on('messageCreate', message => {
 		}
 	}
 });
-async function statusroll() {
+async function statusroll(time) {
 	while (true) {
 		client.user.setPresence({ activities: [{ name: 'with Volvo 8700LE', type: 'PLAYING' }], status: 'online' });
-		await delay(20);
+		await delay(time);
 		client.user.setPresence({ activities: [{ name: 'with MB O530 Citaro', type: 'PLAYING' }], status: 'online' });
-		await delay(20);
+		await delay(time);
 		client.user.setPresence({ activities: [{ name: 'with SOR CN 10.5', type: 'PLAYING' }], status: 'online' });
-		await delay(20);
+		await delay(time);
 		client.user.setPresence({ activities: [{ name: 'with MB Türk O345', type: 'PLAYING' }], status: 'online' });
-		await delay(20);
+		await delay(time);
 	}
 }
 async function results(message) {
@@ -331,7 +331,7 @@ function dm(message) {
 	}
 }
 function receivedm(message) { //message.content.MessageEmbed.footer
-	var blacklisted = ["476029033109258241","936928864926588940","922448364275122218","579580251202519043","923908127143911494","918886797541523527","513862371987423234","925694943639511131","917010013539684412","885951568103477289","546039054886502408","807264669500047461","655454890029613066","863478930803130378","737567769087967245","506061677972815883","886206679400742963","839236488582660156","664649027593437204","900431815645478972","328485845298577408","692365185314455653","695646717860642916","373856836002119681","457956134993657866","771110812873916437","872147309092274186","874637732641636403"]
+	var blacklisted = ["476029033109258241","936928864926588940","922448364275122218","579580251202519043","923908127143911494","918886797541523527","513862371987423234","925694943639511131","917010013539684412","885951568103477289","546039054886502408","807264669500047461","655454890029613066","863478930803130378","737567769087967245","506061677972815883","886206679400742963","839236488582660156","664649027593437204","900431815645478972","692365185314455653","695646717860642916","373856836002119681","457956134993657866","771110812873916437","872147309092274186","874637732641636403"]
 	if (message.attachments.size > 0) {
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
@@ -339,7 +339,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		const blacklistedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
 		.setTitle("⛔  Blocked")
-		.setDescription("You've been blocked from reaching our Support. This mostly happens because an individual has spammed our support, sent dangerous or NSFW content to the bot or done other actions that made us block communications with you.\n\nIf you wish to appeal this contact the server owner.\nPleaase note that your message was not sent.")
+		.setDescription("You've been blocked from reaching our Support. This mostly happens because an individual has spammed our support, sent dangerous or NSFW content to the bot or done other actions that made us block communications with you.\n\nIf you wish to appeal this contact the server owner.\nPlease note that your message was not sent.")
 		const dmreceivedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
