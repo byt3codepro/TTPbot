@@ -501,25 +501,15 @@ async function replydm(message) {
 	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
-			var replydmsplit = messagerefrence.embeds[0].footer.text.split("/");
-			const userid = replydmsplit[0]
-			const msgid = replydmsplit[1]
+			var replydmsplit = messagerefrence.embeds[0].title.text.split("   |   ");
+			const userid = replydmsplit[1]
 			var originalmessage
 			const senderuser = await client.users.cache.get(userid)
-			if (senderuser === undefined || senderuser === null) {
-				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)1!")
+			const createddm = await senderuser.createDM()
+			if (senderuser === undefined || senderuser === null || createddm === undefined) {
+				message.reply("❗ Original message cannot be retrived (most probably left the server)!")
 			} else {
-				const createddm = await senderuser.createDM()
-				if (createddm === undefined) {
-					message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)2!")
-					console.log(createddm)
-					console.log(senderuser)
-					console.log(originalmessage)
-					//message.reply()
-				} else {
-					originalmessage = await createddm<ref *1>messages.cache.get(msgid)
-					createddm.send(message.content)
-				}
+				createddm.send(message.content)
 			}
 		} else if (message.author != client.user) {
 			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
