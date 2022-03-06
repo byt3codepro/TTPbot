@@ -503,12 +503,13 @@ async function replydm(message) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
 			var replydmsplit = messagerefrence.embeds[0].title.text.split("   |   ");
 			const userid = replydmsplit[1]
-			var originalmessage
 			const senderuser = await client.users.cache.get(userid)
 			const createddm = await senderuser.createDM()
 			if (senderuser === undefined || senderuser === null || createddm === undefined) {
-				message.reply("❗ Original message cannot be retrived (most probably left the server)!")
+				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
+				message.delete()
 			} else {
+				console.log(messagerefrence)
 				createddm.send(message.content)
 			}
 		} else if (message.author != client.user) {
