@@ -509,7 +509,7 @@ async function replydm(message) {
 			if (senderuser === undefined || senderuser === null) {
 				message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)1!")
 			} else {
-				const createddm = await senderuser.createDM()
+				const createddm = await senderuser.createDM(true)
 				if (createddm === undefined) {
 					message.reply("❗ Original message cannot be retrived (most probably deleted by the sender)2!")
 					console.log(createddm)
@@ -517,9 +517,7 @@ async function replydm(message) {
 					console.log(originalmessage)
 					//message.reply()
 				} else {
-					//originalmessage = await createddm[1].messages.cache.get(msgid)
-					var palidzidievs = JSON.stringify(createddm)
-					var pizdaira = JSON.parse(palidzidievs)
+					originalmessage = await createddm.messages.cache.get(msgid)
 					console.log(pizdaira)
 				}
 			}
