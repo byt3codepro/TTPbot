@@ -2,7 +2,7 @@
 //Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
-const testmode = true
+const testmode = false
 const testmodeoverride = false
 const prefix = "-"
 	
@@ -60,7 +60,7 @@ client.on('messageCreate', message => {
 				receivedm(message)
 			}
 		} else {
-			if (message.channel.id === "797253920421576725") {
+			if (message.channel.id === "811369640390950922") {
 				replydm(message)
 			} else if (message.content.startsWith(prefix))  {
 				if (message.content == prefix + "results") {
@@ -512,7 +512,7 @@ async function replydm(message) {
 		} else {
 			if (senderuser === undefined || senderuser === null || createddm === undefined) {
 				messagerefrence.edit("⚠️ Unable to retrive user")
-				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
+				client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
 				message.delete()
 			} else {
 				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): ```" + message.content + "```")
@@ -521,7 +521,7 @@ async function replydm(message) {
 			}
 		}
 	} else if (message.author != client.user) {
-		client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
+		client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
 		message.delete()
 	}
 }
