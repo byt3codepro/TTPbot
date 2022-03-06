@@ -509,7 +509,7 @@ async function replydm(message) {
 				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
 				message.delete()
 			} else {
-				console.log(messagerefrence)
+				console.log(await senderuser.createDM().messages[0])
 				createddm.send(message.content)
 			}
 		} else if (message.author != client.user) {
