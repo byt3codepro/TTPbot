@@ -499,22 +499,28 @@ function ban(message) {
 async function replydm(message) {
 	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
-		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
-			var replydmsplit = messagerefrence.embeds[0].author.name.split("   |   ");
-			const userid = replydmsplit[1]
-			const senderuser = await client.users.cache.get(userid)
-			const createddm = await senderuser.createDM()
+		var replydmsplit = messagerefrence.embeds[0].author.name.split("   |   ");
+		const userid = replydmsplit[1]
+		const senderuser = await client.users.cache.get(userid)
+		const createddm = await senderuser.createDM()
+		if (message.content === prefix + "answered" || message.content === prefix + "ignored") {
+			if (message.content === prefix + "answered") {
+				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): *Marked answered by command*")
+				message.delete()
+			} else {
+				messagerefrence.edit("🛑 Ignored / block request by <@" + message.author.id + "> (" + message.author.id + ")")
+				message.delete()
+			}
+		} else {
 			if (senderuser === undefined || senderuser === null || createddm === undefined) {
 				messagerefrence.edit("⚠️ Unable to retrive user")
 				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
 				message.delete()
 			} else {
-				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + ")")
+				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): ``" + message.content + "``")
 				createddm.send(message.content)
+				message.delete()
 			}
-		} else if (message.author != client.user) {
-			client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ Old format DM or incorrect DM! Please make sure that the embed has a footer with the message identificator!")
-			message.delete()
 		}
 	} else if (message.author != client.user) {
 		client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
