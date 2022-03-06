@@ -501,7 +501,8 @@ async function replydm(message) {
 	const messagerefrence = await message.fetchReference().catch(console.log)
 	if (messagerefrence != undefined && messagerefrence.author.id === client.user.id && messagerefrence.embeds[0] != undefined) {
 		if (messagerefrence.embeds[0].footer != undefined && messagerefrence.embeds[0].footer != null) {
-			var replydmsplit = messagerefrence.embeds[0].title.text.split("   |   ");
+			console.log(messagerefrence.embeds[0].title)
+			//var replydmsplit = messagerefrence.embeds[0].title.text.split("   |   ");
 			const userid = replydmsplit[1]
 			const senderuser = await client.users.cache.get(userid)
 			const createddm = await senderuser.createDM()
