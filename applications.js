@@ -519,7 +519,7 @@ async function replydm(message) {
 				} else {
 					//originalmessage = await createddm.messages.cache.get(msgid)
 					console.log(senderuser)
-					console.log(createddm.fetch())
+					console.log(createddm.fetch(messages))
 					console.log(originalmessage)
 				}
 			}
