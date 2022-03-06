@@ -87,15 +87,13 @@ client.on('messageCreate', message => {
 });
 async function statusroll() {
 	while (true) {
-		client.user.setPresence({ activities: [{ name: 'watch', type: 'WATCHING' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'with Volvo 8700LE', type: 'PLAYING' }], status: 'online' });
 		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'play', type: 'PLAYING' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'with MB O530 Citaro', type: 'PLAYING' }], status: 'online' });
 		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'listening', type: 'LISTENING' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'with SOR CN 10.5', type: 'PLAYING' }], status: 'online' });
 		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'streaming', type: 'STREAMING' }], status: 'online' });
-		await delay(20);
-		client.user.setPresence({ activities: [{ name: 'competing', type: 'COMPETING' }], status: 'online' });
+		client.user.setPresence({ activities: [{ name: 'with MB Türk O345', type: 'PLAYING' }], status: 'online' });
 		await delay(20);
 	}
 }
