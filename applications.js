@@ -60,7 +60,9 @@ client.on('messageCreate', message => {
 				receivedm(message)
 			}
 		} else {
-			if (message.content.startsWith(prefix)) {
+			if (message.channel.id === "797253920421576725") {
+				replydm(message)
+			} else if (message.content.startsWith(prefix))  {
 				if (message.content == prefix + "results") {
 					results(message)
 				} else
@@ -79,8 +81,6 @@ client.on('messageCreate', message => {
 				if (message.content.startsWith(prefix + "lban")) {
 					ban(message)
 				}
-			} else if (message.channel.id === "797253920421576725") { //811369640390950922
-				replydm(message)
 			}
 		}
 	}
@@ -505,6 +505,7 @@ async function replydm(message) {
 			const senderuser = await client.users.cache.get(userid)
 			const createddm = await senderuser.createDM()
 			if (senderuser === undefined || senderuser === null || createddm === undefined) {
+				messagerefrence.edit("⚠️ Unable to retrive user")
 				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
 				message.delete()
 			} else {
