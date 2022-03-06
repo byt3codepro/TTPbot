@@ -517,7 +517,7 @@ async function replydm(message) {
 				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
 				message.delete()
 			} else {
-				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): ``" + message.content + "``")
+				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): ```" + message.content + "```")
 				createddm.send(message.content)
 				message.delete()
 			}
