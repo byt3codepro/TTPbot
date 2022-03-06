@@ -518,7 +518,8 @@ async function replydm(message) {
 					//message.reply()
 				} else {
 					originalmessage = await createddm.messages.cache.get(msgid)
-					console.log(pizdaira)
+					console.log("createddm: " + createddm)
+					console.log("originalmessage: " + originalmessage)
 				}
 			}
 		} else if (message.author != client.user) {
