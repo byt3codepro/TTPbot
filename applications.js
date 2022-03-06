@@ -31,7 +31,7 @@ client.on('ready', () => {
 	} else {
 		statusroll() //switches status message every 20 sec
 	}
-	client.channels.cache.get("797253920421576725").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
+	client.channels.cache.get("799266353999642664").send("Logged in as ``" + client.user.tag + "`` at <t:" + Math.floor(Date.now()/1000) + ":T>") //bot-feed: 797253920421576725 //bot: 799266353999642664
   });
 
 client.on('guildMemberAdd', member => {
@@ -335,7 +335,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 	if (message.attachments.size > 0) {
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
-		let botdms = client.channels.cache.get("797253920421576725") //ORIGINAL RECEIVED BOT DMS: 811369640390950922
+		let botdms = client.channels.cache.get("811369640390950922")
 		const blacklistedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
 		.setTitle("⛔  Blocked")
