@@ -346,7 +346,6 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		.setColor('#2dcc70')
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 		.setDescription(message.content)
-		.setFooter(message.author.id + "/" + message.id);
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply({embeds: [blacklistedEmbed] });
 		} else {
@@ -509,6 +508,7 @@ async function replydm(message) {
 				client.channels.cache.get("797253920421576725").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
 				message.delete()
 			} else {
+				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + ")")
 				createddm.send(message.content)
 			}
 		} else if (message.author != client.user) {
