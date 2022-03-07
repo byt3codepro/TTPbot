@@ -5,6 +5,8 @@ const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g'
 const testmode = false
 const testmodeoverride = false
 const prefix = "-"
+
+const announceWhitelist = ["290452091946663936","216455849382510593","749330903632707727", "746662409724231798", "562556023861280768", "482586747201519617", "320510178023702528"];
 	
 const { Client, Intents } = require('discord.js');
 const Discord = require('discord.js');
@@ -80,6 +82,9 @@ client.on('messageCreate', message => {
 				}
 				if (message.content.startsWith(prefix + "lban")) {
 					ban(message)
+				}
+				if (message.content.startsWith(prefix + "shift")) {
+					shiftannounce(message)
 				}
 			}
 		}
@@ -402,8 +407,7 @@ function ping(message) {
         }
 }
 function announce(message) {
-	var whitelistB = ["290452091946663936","216455849382510593","749330903632707727", "746662409724231798", "562556023861280768", "482586747201519617", "320510178023702528"];
-	if (whitelistB.includes(message.author.id) == true) {
+	if (announceWhitelist.includes(message.author.id) == true) {
 		if (message.content == prefix + 'announce help') {
 			message.author.send("**System announcements**\nThere are 4 parts in the command - Channel ID, Tag, Header and the announcement text (Description).\n/announce[]Channel ID[]Tag[]Header[]Description\n\n1. Channel ID - ID of the channel you want your announcement to appear in\n2. Tag - You can tag everyone/here by writing the tag without an **@** symbol. To tag a specific, put the role ID in this place. To not tag anyone, type **x** (lower-case) in this place.\n3. Header - text above the actual announement, in the announcement box\n4. Description - announcement text. You can write using all text formatting options given and it will display in the announcement (new line (Shift+Enter) will display too).\n\n*Example:*\n/announce[] *servers only, not DMs* []x[]Super cool announcement[]This is an ***announcement*** *command* example!\n\n**:)** 😉\n\n*Output:*", {files: ['https://i.gyazo.com/6472724170e662eb31fad2a705b9dfe1.png']})
 		} else {
@@ -466,7 +470,7 @@ function announce(message) {
 			}
 		}
 	} else {
-		message.channel.send('❗ Insufficient permissions');
+		message.reply('❗ Insufficient permissions');
 	}	
 }
 function ban(message) {
@@ -523,6 +527,28 @@ async function replydm(message) {
 	} else if (message.author != client.user) {
 		client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">, please use <#811369640390950922> only to reply to customer service messages. Do this by using the reply function. General communication within <#811369640390950922> is strictly prohibited!\n\nThe ``" + prefix + "dm`` command can be executed in this channel.")
 		message.delete()
+	}
+}
+function shiftannounce(message) {
+	const mainguild = client.guilds.cache.get("747027173730156544")
+	const shiftchannel = client.channels.cache.get("797253920421576725")
+	const messagesplit = message.content.split(" ", 2);
+	if (announceWhitelist.includes(message.author.id) == true) {
+		if (messagesplit[1] === undefined) {
+			message.reply('❗ Time missing! ``' + prefix + 'shift [Time: Epoch OR ISO 8601] [Description (optional)]``');
+		} else {
+			const eventoptions = {
+				name: "Shift",
+				scheduledStartTime: messagesplit[1],
+				privacyLevel: "PUBLIC",
+				entityType: "EXTERNAL",
+				entityMetadata: "https://www.roblox.com/games/5613483873/Lugane",
+				description: "tests"
+			};
+			mainguild.scheduledEvents.create(eventoptions)
+		}
+	} else {
+		message.reply('❗ Insufficient permissions');
 	}
 }
 
