@@ -541,7 +541,7 @@ function shiftannounce(message) {
 				name: "Shift",
 				scheduledStartTime: messagesplit[1],
 				scheduledEndTime: "2022-10-05T20:48:00.000Z",
-				privacyLevel: 1,
+				privacyLevel: "PUBLIC",
 				entityType: "EXTERNAL",
 				entityMetadata: "https://www.roblox.com/games/5613483873/Lugane",
 				description: "tests"
