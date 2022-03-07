@@ -546,7 +546,7 @@ function shiftannounce(message) {
 				entityMetadata: "https://www.roblox.com/games/5613483873/Lugane",
 				description: "tests"
 			};
-			mainguild.scheduledEvents.create(eventoptions)
+			mainguild.scheduledEvents.create(eventoptions).catch(console.log)
 		}
 	} else {
 		message.reply('❗ Insufficient permissions');
