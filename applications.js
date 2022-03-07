@@ -537,7 +537,7 @@ function shiftannounce(message) {
 		if (messagesplit[1] === undefined) {
 			message.reply('❗ Time missing! ``' + prefix + 'shift [Time: Epoch OR ISO 8601] [Description (optional)]``');
 		} else {
-			const a = new Object(location) //https://www.roblox.com/games/5613483873/Lugane
+			const a = new Object() //https://www.roblox.com/games/5613483873/Lugane
 			a.location = "https://www.roblox.com/games/5613483873/Lugane"
 			const eventoptions = {
 				name: "Shift",
