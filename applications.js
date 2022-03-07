@@ -537,14 +537,15 @@ function shiftannounce(message) {
 		if (messagesplit[1] === undefined) {
 			message.reply('❗ Time missing! ``' + prefix + 'shift [Time: Epoch OR ISO 8601] [Description (optional)]``');
 		} else {
-			const palidzidievs = new Object.location("https://www.roblox.com/games/5613483873/Lugane")
+			const a = new Object(location) //https://www.roblox.com/games/5613483873/Lugane
+			a.location = "https://www.roblox.com/games/5613483873/Lugane"
 			const eventoptions = {
 				name: "Shift",
 				scheduledStartTime: messagesplit[1],
 				scheduledEndTime: "2022-10-05T20:48:00.000Z",
 				privacyLevel: "GUILD_ONLY",
 				entityType: "EXTERNAL",
-				entityMetadata: palidzidievs,
+				entityMetadata: a,
 				description: "tests"
 			};
 			mainguild.scheduledEvents.create(eventoptions).catch(console.log)
