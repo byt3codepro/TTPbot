@@ -543,11 +543,12 @@ function shiftannounce(message) {
 			const eventoptions = {
 				name: "Shift",
 				scheduledStartTime: messagesplit[1],
-				scheduledEndTime: "202Z",
+				scheduledEndTime: "2022-10-05T20:48:00.000Z",
 				privacyLevel: "GUILD_ONLY",
 				entityType: "EXTERNAL",
 				entityMetadata: a,
-				description: "tests"
+				description: "tests",
+				image: thumbnails[Math.floor(Math.random()*thumbnails.length)]
 			};
 			mainguild.scheduledEvents.create(eventoptions).catch(console.log)
 		}
