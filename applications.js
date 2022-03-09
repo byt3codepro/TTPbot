@@ -358,7 +358,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply({embeds: [blacklistedEmbed] });
 		} else {
-			message.send({embeds: [dmsentEmbed] });
+			message.reply({embeds: [dmsentEmbed] });
 			botdms.send({embeds: [dmreceivedEmbed] });
 		}
 	}
