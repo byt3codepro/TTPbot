@@ -341,7 +341,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
 		let botdms = client.channels.cache.get("811369640390950922")
-		const dmsentGifs = ["https://i.giphy.com/media/vDQN570C3aYX1erWy2/giphy.webp","https://c.tenor.com/WBVlD1FOwWwAAAAC/emoji-wink.gif","https://c.tenor.com/ZIwQnXr5OPYAAAAC/epico-cat-epico.gif","https://c.tenor.com/BTsxYqK20hwAAAAC/monkey-going-crazy.gif","https://c.tenor.com/UEYxx6a-VtgAAAAd/brick-eating.gif"]
+		const dmsentGifs = ["https://i.giphy.com/media/vDQN570C3aYX1erWy2/giphy.gif","https://c.tenor.com/WBVlD1FOwWwAAAAC/emoji-wink.gif","https://c.tenor.com/ZIwQnXr5OPYAAAAC/epico-cat-epico.gif","https://c.tenor.com/BTsxYqK20hwAAAAC/monkey-going-crazy.gif","https://c.tenor.com/UEYxx6a-VtgAAAAd/brick-eating.gif"]
 		const blacklistedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
 		.setTitle("⛔  Blocked")
