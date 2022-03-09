@@ -40,7 +40,7 @@ client.on('guildMemberAdd', member => {
 	const welcomeEmbed = new Discord.MessageEmbed()
 		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70 
 		.setTitle("👋 Hiya! Welcome to Lugane!")
-		.setDescription("**We're glad that you've decided to join our server and become a part of our community. Feel free to DM this bot and our Public Relations team will get back to you as fast as they can.**\n\n📢  For general announcements click here: <#706091363963240472>\n⏰  For shift times click here: <#739210818666758226>\n📰  For job offers click here: <#742486789310119979>\n✨  For development peeks click here: <#731868485944082492>\n\n\n🇱🇻 Want to access the Latvian channel? Ask this bot for a Latvian role in Latvian language, so we know that you're really Latvian.")
+		.setDescription("**We're glad that you've decided to join our server and become a part of our community. Feel free to DM this bot and our Public Relations team will get back to you as fast as they can.**\n\n📢  For general announcements click here: <#706091363963240472>\n❓  For frequently asked questions click here: <#910412809609830410>\n⏰  For shift times click here: <#739210818666758226>\n📰  For job offers click here: <#742486789310119979>\n✨  For development peeks click here: <#731868485944082492>\n\n\n🇱🇻 Want to access the Latvian channel? Ask this bot for a Latvian role in Latvian language, so we know that you're really Latvian.")
 		.setFooter("For any questions, feedback or errors - reply in this DM and we'll get back to you as soon as we can!");
 	member.send(welcomeEmbed);
 });
@@ -341,6 +341,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		message.channel.send(">>> ❗ This bot cannot transfer images or files - please send a link of your image or file.\nThe message you sent has been rejected - if you sent any text with the image, please include it in the next message you send.")
 	} else {
 		let botdms = client.channels.cache.get("811369640390950922")
+		const dmsentGifs = ["https://i.giphy.com/media/vDQN570C3aYX1erWy2/giphy.webp","https://c.tenor.com/WBVlD1FOwWwAAAAC/emoji-wink.gif","https://c.tenor.com/ZIwQnXr5OPYAAAAC/epico-cat-epico.gif","https://c.tenor.com/BTsxYqK20hwAAAAC/monkey-going-crazy.gif","https://c.tenor.com/UEYxx6a-VtgAAAAd/brick-eating.gif"]
 		const blacklistedEmbed = new Discord.MessageEmbed()
 		.setColor('#2dcc70')
 		.setTitle("⛔  Blocked")
@@ -349,6 +350,11 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		.setColor('#2dcc70')
 		.setAuthor(message.author.tag + "   |   " + message.author, message.author.avatarURL())
 		.setDescription(message.content)
+		const dmsentEmbed = new Discord.MessageEmbed()
+		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70 
+		.setTitle("📬 Your message has been sent and will be processed soon.")
+		.setDescription("💢 Our customer support team should not take longer than 72 hours to answer - please **do not DM again** to remind or inquire about the answer status\n🤝 When possible, include everything you would like to ask us in a single message - this will make the response quicker!\n")
+		.attachFiles([dmsentGifs[Math.floor(Math.random()*dmsentGifs.length)]]);
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply({embeds: [blacklistedEmbed] });
 		} else {
