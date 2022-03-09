@@ -354,7 +354,7 @@ function receivedm(message) { //message.content.MessageEmbed.footer
 		.setColor('#28cf70') //RED - #E74C3C | ORANGE - #CA6F1E | LUGANE GREEN - #2DCC70 
 		.setTitle("📬 Your message has been sent and will be processed soon.")
 		.setDescription("💢 Our customer support team should not take longer than 72 hours to answer - please **do not DM again** to remind or inquire about the answer status\n🤝 When possible, include everything you would like to ask us in a single message - this will make the response quicker!\n")
-		.image([dmsentGifs[Math.floor(Math.random()*dmsentGifs.length)]]);
+		.setImage([dmsentGifs[Math.floor(Math.random()*dmsentGifs.length)]]);
 		if(blacklisted.includes(message.author.id) == true) {
 			message.reply({embeds: [blacklistedEmbed] });
 		} else {
