@@ -512,12 +512,15 @@ async function replydm(message) {
 		const userid = replydmsplit[1]
 		const senderuser = await client.users.cache.get(userid)
 		const createddm = await senderuser.createDM()
-		if (message.content === prefix + "answered" || message.content === prefix + "ignored") {
+		if (message.content === prefix + "answered" || message.content === prefix + "ignored" || message.content === prefix + "block") {
 			if (message.content === prefix + "answered") {
 				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): *Marked answered by command*")
 				message.delete()
+			} else if (message.content === prefix + "ignored") {
+				messagerefrence.edit("🛑 Ignored by <@" + message.author.id + "> (" + message.author.id + ")")
+				message.delete()
 			} else {
-				messagerefrence.edit("🛑 Ignored / block request by <@" + message.author.id + "> (" + message.author.id + ")")
+				messagerefrence.edit("⛔ Block request by <@" + message.author.id + "> (" + message.author.id + ") *(Admin ping: <@746662409724231798>)*")
 				message.delete()
 			}
 		} else {
