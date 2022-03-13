@@ -520,7 +520,7 @@ async function replydm(message) {
 				messagerefrence.edit("🛑 Ignored by <@" + message.author.id + "> (" + message.author.id + ")")
 				message.delete()
 			} else {
-				messagerefrence.edit("⛔ Block request by <@" + message.author.id + "> (" + message.author.id + ") *(Admin ping: <@746662409724231798>)*")
+				messagerefrence.edit("⛔ Block request by <@" + message.author.id + "> (" + message.author.id + ")\n*(Administrator ping: <@746662409724231798>)*")
 				message.delete()
 			}
 		} else {
