@@ -518,7 +518,7 @@ async function replydm(message) {
 		var replydmsplit = messagerefrence.embeds[0].author.name.split("   |   ");
 		const userid = replydmsplit[1]
 		const senderuser = await client.users.cache.get(userid)
-		const createddm
+		var createddm
 		if (senderuser != undefined) {
 			createddm = await senderuser.createDM()
 		} else {
