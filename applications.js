@@ -2,7 +2,7 @@
 //Heroku logs: https://dashboard.heroku.com/apps/ttp-bot-app/logs
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1dDs1zvYx4KUEwB1B9qRSsana0rRLw1UsPsaXUl7PF3g');
-const testmode = false
+const testmode = true
 const testmodeoverride = false
 const prefix = "-"
 
