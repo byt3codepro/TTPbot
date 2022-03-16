@@ -142,7 +142,7 @@ async function results(message) {
 			if (mark.value === null) {
 				break;
 			} else {
-				if (applicant != undefined || applicant.user != undefined) {
+				if (applicant != undefined) {
 					if (sent.value === "☐") {
 						if (comments.value === null) {
 							if (mark.value === "PASSED") {
