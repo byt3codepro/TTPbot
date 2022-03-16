@@ -530,7 +530,7 @@ async function replydm(message) {
 		} else {
 			if (senderuser === undefined || senderuser === null || createddm === undefined) {
 				messagerefrence.edit("⚠️ Unable to retrive user")
-				client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server)!")
+				client.channels.cache.get("799266353999642664").send("<@" + message.author.id + ">\n❗ User cannot be retrived (most probably left the server or blocked the bot user)!")
 				message.delete()
 			} else {
 				messagerefrence.edit("✅ Answered by <@" + message.author.id + "> (" + message.author.id + "): ```" + message.content + "```")
