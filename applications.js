@@ -513,6 +513,8 @@ async function replydm(message) {
 		const senderuser = await client.users.cache.get(userid)
 		if (senderuser != undefined) {
 			const createddm = await senderuser.createDM()
+		} else {
+			const createddm = undefined
 		}
 		if (message.content === prefix + "answered" || message.content === prefix + "ignored" || message.content === prefix + "block" || message.content === prefix + "ignore" || message.content === prefix + "blocked") {
 			if (message.content === prefix + "answered") {
