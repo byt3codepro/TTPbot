@@ -518,10 +518,11 @@ async function replydm(message) {
 		var replydmsplit = messagerefrence.embeds[0].author.name.split("   |   ");
 		const userid = replydmsplit[1]
 		const senderuser = await client.users.cache.get(userid)
+		const createddm
 		if (senderuser != undefined) {
-			const createddm = await senderuser.createDM()
+			createddm = await senderuser.createDM()
 		} else {
-			const createddm = undefined
+			createddm = undefined
 		}
 		if (message.content === prefix + "answered" || message.content === prefix + "ignored" || message.content === prefix + "block" || message.content === prefix + "ignore" || message.content === prefix + "blocked") {
 			if (message.content === prefix + "answered") {
