@@ -83,8 +83,8 @@ client.on('messageCreate', message => {
 				if (message.content.startsWith(prefix + "lban")) {
 					ban(message)
 				}
-				if (message.content.startsWith(prefix + "shift")) {
-					shiftannounce(message)
+				if (message.content.startsWith(prefix + "myid")) {
+					myid(message)
 				}
 			}
 		}
@@ -551,32 +551,8 @@ async function replydm(message) {
 		message.delete()
 	}
 }
-function shiftannounce(message) {
-	const mainguild = client.guilds.cache.get("747027173730156544")
-	const shiftchannel = client.channels.cache.get("797253920421576725")
-	const messagesplit = message.content.split(" ", 2);
-	if (announceWhitelist.includes(message.author.id) == true) {
-		if (messagesplit[1] === undefined) {
-			message.reply('❗ Time missing! ``' + prefix + 'shift [Time: Epoch OR ISO 8601] [Description (optional)]``');
-		} else {
-			const a = new Object()
-			a.location = "https://www.roblox.com/games/5613483873/Lugane"
-			const thumbnails = ['https://gyazo.com/e543cced3ca8bbb81aaa36e152c227b1','https://gyazo.com/2e120fb587eec3bc6d54a2db583d479a','https://gyazo.com/419632e9c2d81804d0baff0556fd1a0f','https://gyazo.com/68a5794f8ee9083c25dd725349810c7a']
-			const eventoptions = {
-				name: "Shift",
-				scheduledStartTime: messagesplit[1],
-				scheduledEndTime: "2022-10-05T20:48:00.000Z",
-				privacyLevel: "GUILD_ONLY",
-				entityType: "EXTERNAL",
-				entityMetadata: a,
-				description: "tests",
-				image: thumbnails[Math.floor(Math.random()*thumbnails.length)]
-			};
-			mainguild.scheduledEvents.create(eventoptions).catch(console.log)
-		}
-	} else {
-		message.reply('❗ Insufficient permissions');
-	}
+function myid(message) {
+	message.reply(message.author.id)
 }
 
 client.login(process.env.BOT_TOKEN);
