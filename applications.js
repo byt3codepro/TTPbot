@@ -274,6 +274,7 @@ async function results(message) {
 				} else {
 					console.log(applicant)
 					comments.value = "BOT: ⚠️ Unable to retrive user"
+					output = output + "[!] ==================================\n[!] Unable to retrive user! (" + tag.value + ")"
 					//await sheet.saveUpdatedCells();
 				}
 			}
