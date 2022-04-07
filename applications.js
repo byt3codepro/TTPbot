@@ -136,7 +136,7 @@ async function results(message) {
 			const rank = sheet.getCellByA1('P' + i);
 			try {
 				//applicant = client.users.cache.get(tag.value)
-				applicant = client.users.cache.find(user => user.id === 'USER-ID')
+				applicant = client.users.cache.find(member => member.user.tag == tag.value) //guild.members.cache.find(member => member.user.tag == tag.value)
 			} catch(err) {
 				console.error(err)
 			}
