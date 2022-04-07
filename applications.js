@@ -148,16 +148,16 @@ async function results(message) {
 						if (comments.value === null) {
 							if (mark.value === "PASSED") {
 								applicant_amount = applicant_amount + 1
-								passed_applicants[applicant_amount] = applicant.user.id
+								passed_applicants[applicant_amount] = tag.value
 								if (rank.value == "Driver") {
 									applicant.roles.add('729096087733796871')
-									trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023801022251038> / <@&867375330092253184>")
+									trainingchannel.send("<@" + tag.value + "> --- <@&760023801022251038> / <@&867375330092253184>")
 								} else if (rank.value == "Technician") {
 									applicant.roles.add('729721228457410642')
-									trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023575566090271> / <@&867375235669032960>")
+									trainingchannel.send("<@" + tag.value + "> --- <@&760023575566090271> / <@&867375235669032960>")
 								} else if (rank.value == "Ticket Inspector") {
 									applicant.roles.add('729721437371236404')
-									trainingchannel.send("<@" + applicant.user.id + "> --- <@&760023575566090271> / <@&867375235669032960>")
+									trainingchannel.send("<@" + tag.value + "> --- <@&760023575566090271> / <@&867375235669032960>")
 								}
 								applicant.roles.add('705755874718777397')
 								applicant.roles.add('756557729790689421')
