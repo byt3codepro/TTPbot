@@ -251,7 +251,7 @@ async function results(message) {
 						}
 						sent.value = "☑"
 						try {
-							applicant.send(resultsembed)
+							botdms.send({embeds: [resultsembed] }); //applicant.send(resultsembed)
 						} catch (err) {
 							if (err == "TypeError: Cannot read property 'send' of undefined") {
 								output = output + "[!] ==================================\n[!] Failed to send results! (" + tag.value + ")\n" + err + "\nThis error usually happens when the tag provided in application from is invalid - missing a number/letter, having spaces at begging or end, etc. Check the user tag for issues and try again or contact bot administrator!\n[!] ==================================\n"
