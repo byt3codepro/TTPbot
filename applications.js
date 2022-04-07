@@ -264,11 +264,11 @@ async function results(message) {
 						}
 						await sheet.saveUpdatedCells();
 						if (errored === false) {
-							output = output + "[+] Results sent! (" + tag.value + ")\n"
+							output = output + "[+] Results sent! (" + applicant.tag + ")\n"
 							newsent = newsent + 1
 						}
 					} else {
-						output = output + "    Already sent! (" + tag.value + ")\n"
+						output = output + "    Already sent! (" + applicant.tag + ")\n"
 						alreadysent = alreadysent + 1
 					}
 				} else {
