@@ -134,7 +134,8 @@ async function results(message) {
 			const robloxuser = sheet.getCellByA1('L' + i);
 			const tag = sheet.getCellByA1('M' + i);
 			const rank = sheet.getCellByA1('P' + i);
-			applicant = guild.members.cache.get(tag.value)
+			//applicant = guild.members.cache.get(tag.value)
+            applicant = client.users.fetch(tag.value)
 			/*try {
 				//applicant = client.users.cache.get(tag.value) guild.members.cache.get(memberID)
 				applicant = guild.members.cache.get(tag.value) //client.users.cache.find(member => member.user.id == tag.value) //guild.members.cache.find(member => member.user.tag == tag.value)
