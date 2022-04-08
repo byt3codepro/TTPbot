@@ -134,12 +134,13 @@ async function results(message) {
 			const robloxuser = sheet.getCellByA1('L' + i);
 			const tag = sheet.getCellByA1('M' + i);
 			const rank = sheet.getCellByA1('P' + i);
-			try {
+			applicant = guild.members.cache.get(tag.value)
+			/*try {
 				//applicant = client.users.cache.get(tag.value) guild.members.cache.get(memberID)
 				applicant = guild.members.cache.get(tag.value) //client.users.cache.find(member => member.user.id == tag.value) //guild.members.cache.find(member => member.user.tag == tag.value)
 			} catch(err) {
 				console.error(err)
-			}
+			}*/
 			if (mark.value === null) {
 				break;
 			} else {
