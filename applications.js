@@ -264,7 +264,7 @@ async function results(message) {
 						}
 						await sheet.saveUpdatedCells();
 						if (errored === false) {
-							output = output + "[+] Results sent! (" + applicant.tag + ")\n"
+							output = output + "[+] Sent! (" + applicant.tag + ")\n"
 							newsent = newsent + 1
 						}
 					} else {
@@ -274,7 +274,7 @@ async function results(message) {
 				} else {
 					console.log(applicant)
 					comments.value = "BOT: ⚠️ Unable to retrive user"
-					output = output + "[!] Unable to retrive user! (" + tag.value + ")\n"
+					output = output + "[!] UTRU! (" + tag.value + ")\n"
 					//await sheet.saveUpdatedCells();
 				}
 			}
